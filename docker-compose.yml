@@ -1,0 +1,118 @@
+services:
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: copilot-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: copilot-ollama-init
+    depends_on:
+      ollama:
+        condition: service_healthy
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    entrypoint: >
+      sh -c "ollama pull ${OLLAMA_MODEL:-qwen2.5:7b} && echo 'Model ready.'"
+    restart: "no"
+
+  mcp-server:
+    build:
+      context: ./mcp_server
+      dockerfile: Dockerfile
+    container_name: copilot-mcp
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/memory:/app/data/memory
+      - ./data/documents:/app/data/documents
+      - ./data/vector_db:/app/data/vector_db
+    environment:
+      - MEMORY_DIR=/app/data/memory
+      - DOCUMENTS_DIR=/app/data/documents
+      - VECTOR_DB_DIR=/app/data/vector_db
+      - EMBED_MODEL=${EMBED_MODEL:-all-MiniLM-L6-v2}
+      - HOST=0.0.0.0
+      - PORT=8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  agent:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile
+    container_name: copilot-agent
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-qwen2.5:7b}
+      - MCP_SERVER_URL=http://mcp-server:8000
+      - HOST=0.0.0.0
+      - PORT=8001
+      - MAX_REACT_STEPS=${MAX_REACT_STEPS:-10}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: copilot-frontend
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    depends_on:
+      agent:
+        condition: service_healthy
+      mcp-server:
+        condition: service_healthy
+    environment:
+      - AGENT_URL=http://agent:8001
+      - MCP_SERVER_URL=http://mcp-server:8000
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_ENABLE_CORS=false
+
+volumes:
+  ollama_models:
+
+networks:
+  default:
+    name: copilot-network
