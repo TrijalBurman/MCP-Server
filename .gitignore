@@ -1,25 +1,6 @@
-# Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
+.pytest_cache/
 .venv/
-
-# Docker volumes / runtime data
-data/vector_db/*
-!data/vector_db/.gitkeep
+data/vector_db/
 data/documents/*
 !data/documents/.gitkeep
-data/memory/notes/*
-!data/memory/notes/.gitkeep
-
-# Environment variables
-.env
-
-# OS / IDE
-.DS_Store
-.idea/
-.vscode/
