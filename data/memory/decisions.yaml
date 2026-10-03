@@ -1,6 +1,0 @@
-decisions:
-- id: 1
-  outcome: Verified successfully.
-  rationale: Logged by automated evaluation suite.
-  timestamp: '2026-08-25T12:33:08.733139'
-  title: Eval Decision 1787661188

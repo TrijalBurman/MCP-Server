@@ -1,0 +1,1 @@
+"""Local Knowledge Copilot."""

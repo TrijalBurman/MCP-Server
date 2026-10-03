@@ -1,0 +1,10 @@
+Offline study workflow
+
+1. Save lecture notes in a dedicated local folder.
+2. Index that folder after new notes are added.
+3. Ask the assistant to find a definition or compare two topics.
+4. Open the cited source to verify the answer.
+5. Save useful project decisions explicitly as memories.
+
+For Lighthouse, the first evaluation should ask about the storage decision,
+supported document types, and the limitation around scanned PDFs.
