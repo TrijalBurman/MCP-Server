@@ -26,7 +26,6 @@ jobs:
     env:
       PYTHONUTF8: '1'
       OLLAMA_NO_CLOUD: '1'
-      COPILOT_DATA_DIR: ${{ runner.temp }}\localmind-test-state
     defaults:
       run:
         shell: pwsh
