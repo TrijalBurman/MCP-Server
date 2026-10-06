@@ -94,6 +94,6 @@ The server waits for protocol input; stdout is reserved for MCP messages. The [W
 & ".\.venv\Scripts\python.exe" -X utf8 -m pytest
 ```
 
-The tests use temporary libraries and require no model downloads. Native Windows CI is pending verification; previous Linux checks do not establish Windows compatibility by themselves. Logs are under `.runtime\logs\app.log` and `.runtime\logs\ollama.log`.
+The tests use temporary libraries and require no model downloads. A [confirmed native Windows Server CI run](https://github.com/TrijalBurman/MCP-Server/actions/runs/37469076958) at commit `dcea282` passed **86 tests on each of Python 3.12 and 3.13**, lint, packaging, and PowerShell 5.1/CMD launcher checks. The checkout path included spaces and Japanese Unicode. Launcher checks used synthetic data and a fake Ollama server; Windows 11 laptop GPU inference with the actual models remains untested. See the [validation record](docs/validation.md) for scope. Logs are under `.runtime\logs\app.log` and `.runtime\logs\ollama.log`.
 
 For setup errors, source exclusions, port conflicts, and restart instructions, see [Windows help](docs/windows.md). The [architecture](docs/architecture.md), [problem statement](docs/problem-statement.md), and [validation record](docs/validation.md) describe scope and evidence.

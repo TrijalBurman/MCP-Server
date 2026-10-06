@@ -77,6 +77,6 @@ Project resources use positive numeric project IDs returned by `list_projects` o
 & ".\.venv\Scripts\python.exe" -X utf8 -m pytest -q tests/test_mcp.py
 ```
 
-The tests create a temporary source folder and database, start a real subprocess with `StdioServerParameters`, initialize an SDK `ClientSession`, discover tools/resources, exercise memory writes against shared storage, search saved conversations, and read a document larger than one page. They also check invalid pagination and changed/deleted sources. No network model service or paid API is needed. The Linux baseline has been exercised; native Windows CI results are tracked separately in the [validation record](validation.md) and remain pending until confirmed.
+The tests create a temporary source folder and database, start a real subprocess with `StdioServerParameters`, initialize an SDK `ClientSession`, discover tools/resources, exercise memory writes against shared storage, search saved conversations, and read a document larger than one page. They also check invalid pagination and changed/deleted sources. No network model service or paid API is needed. These checks passed on native Windows Server runners with Python 3.12 and 3.13; the [validation record](validation.md) records the run and separates it from the Linux baseline.
 
 Do not add `print()` calls to this server: stdout is reserved for protocol messages. Diagnostics must go to stderr. The executable can be run manually, but it waits for protocol input and is not an interactive command prompt.

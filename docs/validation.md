@@ -4,16 +4,17 @@ The Windows edition targets native Windows 11 x64. Its validation is separate fr
 
 ## Native Windows status
 
-As of **6 October 2026**, native Windows CI has been prepared for the following checks, but **no successful run is claimed yet**:
+On **6 October 2026**, [GitHub Actions run 37469076958](https://github.com/TrijalBurman/MCP-Server/actions/runs/37469076958) at commit `dcea282` passed on native **Windows Server** runners with **Python 3.12 and 3.13**. Each Python job passed **86 tests**, lint, packaging, and the launcher smoke checks.
 
-| Check | Intended coverage / current status |
+| Check | Confirmed coverage / result |
 | --- | --- |
-| Windows GitHub Actions | Windows Server runner (`windows-latest`), Python 3.12 and 3.13; results pending confirmation. |
-| File, API, and MCP tests | Ordinary local paths, paths with spaces, source exclusions, persistence, API behavior, actual SDK stdio handshake/tools/resources, and complete-document pagination; native results pending. |
-| Windows launchers | PowerShell 5.1 syntax, CMD wrappers, owned-process start/stop and cleanup using a fake local Ollama runtime; native results pending. |
-| Windows 11 laptop / GPU | Not tested. CI does not download the language models or provide the target laptop's GPU. |
+| Automated checks | 86 tests passed on each Python version, plus lint and package verification. |
+| Paths and filesystem | Checkout `LocalMind Windows Space 東京` exercised spaces and Japanese Unicode; tests covered source policy, persistence, native file/API behavior, and complete-text reads. |
+| MCP protocol | Actual official SDK stdio handshake, tool/resource discovery and calls, resource reads, and full-document pagination were exercised on Windows. |
+| Windows launchers | PowerShell 5.1 syntax and CMD setup, model-setup, start, and stop smoke checks passed using synthetic knowledge and a fake local Ollama runtime. |
+| Windows 11 laptop / GPU | Not tested. These Windows Server jobs did not run the actual language models or the target laptop's GPU. |
 
-The planned launcher checks validate process ownership and cleanup without paid services or model downloads. They are not a Windows GPU benchmark or a live local-model compatibility result. This record should be updated with the actual workflow result once available.
+These results apply to the stated run and commit. The launcher checks exercised managed-process behavior with a fake server; they are not a GPU benchmark or a live Windows model-inference result. Later changes require their own confirmed checks.
 
 ## Earlier Linux baseline
 

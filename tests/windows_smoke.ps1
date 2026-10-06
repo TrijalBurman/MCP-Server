@@ -85,21 +85,40 @@ try {
             if (-not $IndexStatus.indexing.running) { break }
             Start-Sleep -Seconds 1
         }
-        $Documents = (Invoke-RestMethod "$AppUrl/api/documents" -TimeoutSec 3).documents
+        $Documents = @((Invoke-RestMethod "$AppUrl/api/documents" -TimeoutSec 3).documents)
         if ($Documents.Count -ne 1) { throw 'The native launcher could not index a local document.' }
         $Chat = Send-Json 'chat' @{message='What does Nimbus use?'}
         if ($Chat.content -notmatch 'SQLite' -or $Chat.mode -ne 'extractive') { throw 'Native MCP fallback retrieval failed.' }
         $Remember = Send-Json 'chat' @{message='remember that keep everything local'}
         if ($Remember.content -notmatch 'Saved') { throw 'Persistent memory failed through the native launcher.' }
+        Copy-Item -LiteralPath (Join-Path $Workspace '.runtime\windows-processes.json') -Destination (Join-Path $Workspace '.runtime\smoke-owned-processes.json')
         & .\scripts\stop.cmd
         if ($LASTEXITCODE -ne 0) { throw 'The Windows stop launcher failed.' }
+        # Inspect process identities and the OS listener table without connecting:
+        # a probe connection could crash the fake server and mask a cleanup failure.
+        $ShutdownCheck = @'
+import json
+import sys
+from pathlib import Path
+from copilot.windows_runtime import ProcessIdentity, WindowsInspector
+records = json.loads(Path('.runtime/smoke-owned-processes.json').read_text(encoding='utf-8'))['processes']
+assert set(records) == {'app', 'ollama'}, 'Missing owned process identities'
+inspector = WindowsInspector()
+alive = []
+for role, record in records.items():
+    expected = ProcessIdentity(record['pid'], record['executable'], record['created'])
+    if expected.matches(inspector.identity(expected.pid)):
+        alive.append(role)
+listening = inspector.listener_pids(11435) | inspector.listener_pids(8791)
+sys.exit(1 if alive or listening else 0)
+'@
         for ($attempt = 0; $attempt -lt 20; $attempt++) {
-            $Client = New-Object System.Net.Sockets.TcpClient
-            try { $Client.Connect('127.0.0.1', 11435); $Open = $true } catch { $Open = $false } finally { $Client.Dispose() }
+            & (Join-Path $Workspace '.venv\Scripts\python.exe') -X utf8 -c $ShutdownCheck
+            $Open = $LASTEXITCODE -ne 0
             if (-not $Open) { break }
             Start-Sleep -Seconds 1
         }
-        if ($Open) { throw 'The owned Ollama child survived stopping the Windows launcher.' }
+        if ($Open) { throw 'An owned process or listener survived stopping the Windows launcher.' }
         Write-Host 'Native Windows setup/start/stop, local indexing, real MCP retrieval and persistent memory smoke passed.'
     } finally { Pop-Location }
 } finally {
