@@ -1,0 +1,71 @@
+name: Windows edition checks
+
+on:
+  push:
+    branches: [windows]
+  pull_request:
+    branches: [windows]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    name: Native Windows / Python ${{ matrix.python }}
+    runs-on: windows-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12', '3.13']
+    env:
+      PYTHONUTF8: '1'
+      OLLAMA_NO_CLOUD: '1'
+      COPILOT_DATA_DIR: ${{ runner.temp }}\localmind-test-state
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: LocalMind Windows Space 東京
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          path: LocalMind Windows Space 東京
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Check Windows PowerShell 5.1 syntax
+        shell: powershell
+        run: |
+          Get-ChildItem scripts -Filter *.ps1 | ForEach-Object {
+            $parseErrors = $null
+            $tokens = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$parseErrors)
+            if ($parseErrors.Count -gt 0) { throw ($parseErrors | Out-String) }
+          }
+      - name: Install through the Windows setup script
+        shell: powershell
+        run: |
+          & .\scripts\setup.ps1 -PythonExecutable (Get-Command python).Source
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Run native filesystem, API, MCP and launcher tests
+        run: |
+          & .\.venv\Scripts\python.exe -m pytest -q -ra
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & .\.venv\Scripts\python.exe -m ruff check copilot tests
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build and verify the installable package
+        run: |
+          & .\.venv\Scripts\python.exe -m pip wheel --no-deps --wheel-dir .runtime\wheels .
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & .\.venv\Scripts\python.exe -c "from pathlib import Path; from zipfile import ZipFile; p=next(Path('.runtime/wheels').glob('*.whl')); z=ZipFile(p); assert all('copilot/static/'+n in z.namelist() for n in ['index.html','app.js','styles.css','favicon.svg']); assert 'copilot/windows_runtime.py' in z.namelist()"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Test Windows command launchers end to end without model downloads
+        shell: powershell
+        run: |
+          & .\tests\windows_smoke.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

@@ -1,11 +1,11 @@
 {
   "mcpServers": {
     "local-knowledge-memory": {
-      "command": "/absolute/path/to/MCP-Server/.venv/bin/python",
-      "args": ["-m", "copilot.mcp_server"],
+      "command": "C:\\Users\\Your Name\\Projects\\Local Knowledge\\MCP-Server\\.venv\\Scripts\\python.exe",
+      "args": ["-X", "utf8", "-m", "copilot.mcp_server"],
       "env": {
-        "COPILOT_DATA_DIR": "/absolute/path/to/MCP-Server/.local-copilot",
-        "COPILOT_OLLAMA_URL": "http://127.0.0.1:11434",
+        "COPILOT_DATA_DIR": "C:\\Users\\Your Name\\Projects\\Local Knowledge\\MCP-Server\\.local-copilot",
+        "COPILOT_OLLAMA_URL": "http://127.0.0.1:11435",
         "OLLAMA_NO_CLOUD": "1"
       }
     }

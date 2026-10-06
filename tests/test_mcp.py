@@ -1,5 +1,6 @@
 """Protocol-level coverage: a real SDK client launches the stdio server."""
 
+import errno
 import json
 import os
 import sys
@@ -153,6 +154,12 @@ async def test_stdio_rejects_root_replaced_by_symlink(indexed_library):
         source_root = document_path.parent
         moved_root = source_root.with_name("knowledge-moved")
         source_root.rename(moved_root)
-        source_root.symlink_to(moved_root, target_is_directory=True)
+        try:
+            source_root.symlink_to(moved_root, target_is_directory=True)
+        except OSError as exc:
+            if os.name == "nt" and (getattr(exc, "winerror", None) in {50, 1314}
+                                    or exc.errno in {errno.ENOSYS, errno.EOPNOTSUPP}):
+                pytest.skip("This Windows account/filesystem does not support creating symbolic links.")
+            raise
         result = await mcp_session.call_tool("read_document", {"document_id": document["id"]})
         assert result.isError and "symbolic link" in result.content[0].text

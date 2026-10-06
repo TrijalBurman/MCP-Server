@@ -1,3 +1,4 @@
+import errno
 import os
 import zipfile
 
@@ -6,6 +7,16 @@ import pytest
 from copilot.config import Settings
 from copilot.library import Library, chunk_text
 from copilot.store import Store
+
+
+def symlink_or_skip(path, target, *, target_is_directory=False):
+    try:
+        path.symlink_to(target, target_is_directory=target_is_directory)
+    except OSError as exc:
+        if os.name == "nt" and (getattr(exc, "winerror", None) in {50, 1314}
+                                or exc.errno in {errno.ENOSYS, errno.EOPNOTSUPP}):
+            pytest.skip("This Windows account/filesystem does not support creating symbolic links.")
+        raise
 
 
 @pytest.fixture
@@ -57,7 +68,7 @@ def test_changed_deleted_and_symlink_sources_excluded_before_rescan(setup, tmp_p
     assert not library.retrieve("Historical")
     target = tmp_path / "external.md"
     target.write_text("External information")
-    note.symlink_to(target)
+    symlink_or_skip(note, target)
     assert not library.retrieve("Historical")
 
 
@@ -76,8 +87,8 @@ def test_symlinks_secrets_dependencies_and_data_folder_excluded(setup, tmp_path)
     external = tmp_path / "external"
     external.mkdir()
     (external / "notes.md").write_text("Out of approved scope")
-    (folder / "linked-file.md").symlink_to(external / "notes.md")
-    (folder / "linked-folder").symlink_to(external, target_is_directory=True)
+    symlink_or_skip(folder / "linked-file.md", external / "notes.md")
+    symlink_or_skip(folder / "linked-folder", external, target_is_directory=True)
     library.scan(root["id"])
     assert [doc["title"] for doc in store.list_documents()] == ["readme.md"]
     with pytest.raises(ValueError, match="symbolic-link"):

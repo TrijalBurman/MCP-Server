@@ -10,6 +10,14 @@ from pathlib import Path
 from typing import Callable
 from xml.etree import ElementTree
 
+from .filesystem import (
+    checked_source_stat,
+    has_redirects,
+    is_hidden_or_system,
+    read_windows_file,
+    validate_native_windows_root,
+    validate_windows_path,
+)
 from .store import Store
 
 TEXT_EXTENSIONS = {
@@ -48,7 +56,8 @@ def _is_secret(name: str) -> bool:
 
 
 def _has_symlink(path: Path) -> bool:
-    return any(part.is_symlink() for part in (path, *path.parents))
+    # Includes Windows junctions and all reparse-point types.
+    return has_redirects(path)
 
 
 def chunk_text(text: str, pages: list[tuple[int, int, int | None]] | None = None,
@@ -83,19 +92,28 @@ class Library:
         self.data_dir = Path(settings.data_dir).expanduser().resolve()
 
     def _validate_root(self, path: str | Path) -> Path:
+        if os.name == "nt":
+            # Reject UNC/device namespaces before any filesystem query can
+            # contact a network share. Drive-relative C:folder is ambiguous.
+            raw = os.fspath(path)
+            if raw.startswith(("\\\\", "//")) or (len(raw) >= 2 and raw[1] == ":" and raw[2:3] not in {"\\", "/"}):
+                validate_windows_path(raw)
         source = Path(path).expanduser().absolute()
+        if os.name == "nt":
+            validate_native_windows_root(source)
         if _has_symlink(source):
-            raise ValueError("Choose the actual folder path; symbolic-link folders are excluded.")
+            raise ValueError("Choose the actual folder path; symbolic-link folders, junctions and reparse points are excluded.")
         canonical = source.resolve()
         if not canonical.is_dir():
             raise ValueError("Choose an existing local folder.")
         if _inside(canonical, self.data_dir):
             raise ValueError("The copilot's own data directory cannot be indexed.")
-        protected = ("/bin", "/sbin", "/usr", "/etc", "/lib", "/lib64", "/proc", "/sys", "/dev", "/boot")
-        if canonical == Path("/") or any(_inside(canonical, Path(p)) for p in protected):
-            raise ValueError("System folders cannot be selected. Choose a documents folder or mounted drive.")
-        if _inside(canonical, Path("/run")) and not _inside(canonical, Path("/run/media")):
-            raise ValueError("Choose a documents folder or mounted drive, rather than a system runtime folder.")
+        if os.name != "nt":
+            protected = ("/bin", "/sbin", "/usr", "/etc", "/lib", "/lib64", "/proc", "/sys", "/dev", "/boot")
+            if canonical == Path("/") or any(_inside(canonical, Path(p)) for p in protected):
+                raise ValueError("System folders cannot be selected. Choose a documents folder or mounted drive.")
+            if _inside(canonical, Path("/run")) and not _inside(canonical, Path("/run/media")):
+                raise ValueError("Choose a documents folder or mounted drive, rather than a system runtime folder.")
         return canonical
 
     def add_root(self, path: str | Path, label: str = "") -> dict:
@@ -110,10 +128,12 @@ class Library:
 
     def _ignore_directory(self, path: Path) -> bool:
         return (path.name.startswith(".") or path.name.lower() in IGNORED_DIRECTORIES
-                or path.is_symlink() or _inside(path.resolve(), self.data_dir))
+                or _has_symlink(path) or is_hidden_or_system(path) or _inside(path.resolve(), self.data_dir))
 
     def _read_file(self, path: Path, root: Path) -> tuple[bytes, os.stat_result]:
         """Open each path component without following links, including concurrent replacements."""
+        if os.name == "nt":
+            return read_windows_file(path, root, self.settings.max_file_bytes)
         relative = path.relative_to(root)
         nofollow = getattr(os, "O_NOFOLLOW", 0)
         directory_flag = getattr(os, "O_DIRECTORY", 0)
@@ -286,10 +306,13 @@ class Library:
                     break
                 examined += 1
                 try:
-                    if path.is_symlink() or _has_symlink(path) or not _inside(path.resolve(), root):
+                    if _has_symlink(path) or not _inside(path.resolve(), root):
                         result["skipped"] += 1
                         continue
-                    metadata = path.stat(follow_symlinks=False)
+                    if is_hidden_or_system(path):
+                        result["skipped"] += 1
+                        continue
+                    metadata = checked_source_stat(path, root) if os.name == "nt" else path.stat(follow_symlinks=False)
                     if not stat.S_ISREG(metadata.st_mode):
                         result["skipped"] += 1
                         continue
@@ -359,9 +382,7 @@ class Library:
                         continue
                     root = self._validate_root(approved[signature["root_id"]])
                     source = Path(hit["path"])
-                    if _has_symlink(source) or not _inside(source.resolve(), root):
-                        continue
-                    metadata = source.stat(follow_symlinks=False)
+                    metadata = checked_source_stat(source, root)
                     fresh[document_id] = (stat.S_ISREG(metadata.st_mode)
                                           and (metadata.st_mtime_ns, metadata.st_size)
                                           == (signature["mtime_ns"], signature["size"]))

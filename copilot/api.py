@@ -130,7 +130,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     def status():
         with index_lock:
             index_status = dict(indexing)
-        return {"app": "LocalMind", "version": "0.1.0", "local_only": True,
+        return {"app": "LocalMind", "version": "0.1.0", "edition": "windows", "local_only": True,
                 "ollama": ollama.status(), "settings": settings.public(),
                 "stats": store.stats(), "indexing": index_status}
 
@@ -254,7 +254,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         data = store.get_project(project_id)
         plan = settings.data_dir / "projects" / str(project_id) / "PLAN.md"
         if plan.is_file():
-            data = {**data, "plan": plan.read_text(), "plan_path": str(plan)}
+            data = {**data, "plan": plan.read_text(encoding="utf-8"), "plan_path": str(plan)}
         return data
 
     @app.post("/api/projects/{project_id}/plan")
@@ -268,7 +268,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             raise HTTPException(503, "The local model returned an empty plan")
         path = settings.data_dir / "projects" / str(project_id) / "PLAN.md"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content)
+        path.write_text(content, encoding="utf-8")
         return {"content": content, "path": str(path)}
 
     @app.get("/api/sessions")

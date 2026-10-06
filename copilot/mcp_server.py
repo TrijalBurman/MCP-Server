@@ -16,6 +16,7 @@ from mcp.types import ToolAnnotations
 from pydantic import Field
 
 from copilot.config import Settings
+from copilot.filesystem import checked_source_stat
 from copilot.library import Library
 from copilot.ollama import Ollama
 from copilot.store import Store
@@ -40,17 +41,7 @@ def _document_snapshot(store: Store, document_id: int) -> dict[str, Any]:
         raise ValueError("This document no longer belongs to an approved folder.")
     source = Path(document["path"])
     try:
-        resolved_root = root.resolve(strict=True)
-        resolved_source = source.resolve(strict=True)
-        if not resolved_source.is_relative_to(resolved_root):
-            raise ValueError("Document path is outside its approved folder or is a symbolic link.")
-        # Include the approved root and its ancestors, which could be replaced
-        # by symlinks after indexing as well as descendants of that root.
-        if any(part.is_symlink() for part in (source, *source.parents)):
-            raise ValueError("Document path contains a symbolic link. Reindex its folder.")
-        stat = source.stat()
-        if not source.is_file():
-            raise ValueError("The indexed source is no longer a regular file. Reindex its folder.")
+        stat = checked_source_stat(source, root)
     except (OSError, RuntimeError) as error:
         raise ValueError("The indexed source is unavailable. Reindex its folder.") from error
     if document.get("mtime_ns") is not None and (

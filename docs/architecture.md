@@ -1,17 +1,17 @@
 # Architecture
 
-The application is a local web UI, a Python API, an on-device model client, and an independent MCP memory service. One SQLite database contains indexed knowledge, persistent memory, projects, and conversation history. The MCP server uses the official `mcp.server.fastmcp.FastMCP` implementation from the [Python SDK v1 maintenance line](https://py.sdk.modelcontextprotocol.io/v1/).
+The Windows edition is a native local web UI, Python API, on-device model client, and independent MCP memory service. It uses Windows processes and filesystem APIs without WSL or Docker. One SQLite database contains indexed knowledge, persistent memory, projects, and conversation history. The MCP server uses the official `mcp.server.fastmcp.FastMCP` implementation from the [Python SDK v1 maintenance line](https://py.sdk.modelcontextprotocol.io/v1/).
 
 ```mermaid
 flowchart LR
-    User[Local browser] --> API[FastAPI on 127.0.0.1]
+    User[Local browser] --> API[FastAPI on 127.0.0.1:8765]
     API --> Agent[Bounded agent]
     API --> Library[Indexer and document reader]
     Library --> Files[Approved HDD / SSD folders]
     Library --> DB[(Local SQLite database)]
     Agent -->|MCP stdio| MCP[Custom memory server]
     MCP --> DB
-    Agent -->|Loopback HTTP| Ollama[Local Ollama models]
+    Agent -->|Loopback HTTP| Ollama[Managed Ollama on 127.0.0.1:11435]
     Library -->|Local embeddings| Ollama
     MCP -->|Query embedding| Ollama
 ```
@@ -23,17 +23,23 @@ flowchart LR
 | `copilot/config.py` | Local data directory, persisted settings, loopback endpoint validation |
 | `copilot/store.py` | SQLite storage, FTS5 search, vector ranking, projects, memory, conversation history |
 | `copilot/library.py` | Folder approval, bounded extraction, incremental indexing, local retrieval |
+| `copilot/filesystem.py` | Shared local-path policy, Windows handle validation, source freshness |
 | `copilot/ollama.py` | Local model readiness, embeddings, chat, tool-call handling |
 | `copilot/mcp_server.py` | Official MCP stdio tools and memory resources |
 | `copilot/agent.py` | MCP client, bounded retrieval loop, source context, document summaries |
 | `copilot/api.py` | Local REST API, background indexing, explicit memory writes, saved project plans |
 | `copilot/static/` | Bundled responsive UI with no external asset dependencies |
+| `copilot/windows_runtime.py` and `scripts/*.ps1` / `*.cmd` | Native setup, isolated runtime, process identity, start/stop lifecycle |
 
-The web API and MCP process use `Settings.from_env()` and the same `COPILOT_DATA_DIR`. Database connections are opened per operation, with SQLite write-ahead logging allowing normal reads while another process writes. Neither service needs a hosted database.
+The web API and MCP process use `Settings.from_env()` and the same `COPILOT_DATA_DIR`, normally `<checkout>\.local-copilot`. Database connections are opened per operation, with SQLite write-ahead logging allowing normal reads while another process writes. Neither service needs a hosted database. UTF-8 is used for saved settings and project plans.
+
+The launcher downloads the official standalone Windows Ollama runtime into `.runtime\ollama`, stores its models in `.runtime\models`, and isolates it on port 11435 from a tray instance on 11434. Process identity records let start/stop operate only on children belonging to the checkout. The app is foreground by default; it is not installed as a Windows service or configured to start at login.
 
 ## Indexing and complete contents
 
-The user first approves an existing directory. The library rejects operating-system roots, the application data directory, symbolic-link roots, and overlapping selections. Scanning skips hidden entries, dependency/build folders, known credentials, and unsupported formats. Each source file is opened without following symbolic links; concurrent source changes are detected during reading.
+The user first approves an ordinary existing folder on a fixed or removable local drive. The library rejects whole drive roots, Windows system directories, UNC/device namespaces, mapped network drives, the application data directory, overlapping selections, and symbolic links/junctions/reparse points in sources or their ancestors. OneDrive-style placeholders are outside this source policy. Scanning skips hidden entries, dependency/build folders, known credentials, and unsupported formats.
+
+The native reader holds ancestor and file handles while reading, denies write/delete sharing, verifies final handle paths, and checks regular-file, size, and modification-time bounds. It uses Windows [`CreateFileW`](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew) handles and [`GetFinalPathNameByHandleW`](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfinalpathnamebyhandlew) path validation. This is the Windows source-validation path; the Linux edition on `main` uses its separate `dir_fd` / `O_NOFOLLOW` implementation.
 
 Text and common source-code formats are decoded locally. PDFs use `pypdf` text extraction with page boundaries retained for citations. DOCX extraction reads paragraph and table text from its document XML, including available headers, footers, footnotes, and endnotes. It does not reproduce the original visual layout, images, comments, or embedded media. Files with no extractable PDF text report an OCR limitation.
 
@@ -63,7 +69,7 @@ If the chat model is not ready, chat returns a labeled extractive response with 
 
 A project stores a name, description, and linked explicit memories. Its conversation sessions retain project context. A user-triggered plan opens an actual MCP stdio session and searches indexed knowledge using the project name, description, and request. The local model receives bounded source passages plus project and global memories to draft goals, milestones, architecture, tasks, and acceptance criteria. When sources are found, the saved plan appends a numbered local-reference list with document titles and paths. Assumptions and proposed dates are requested explicitly rather than presented as established source facts.
 
-The API saves the result as `projects/<id>/PLAN.md` under the application data directory. Project planning does not scaffold or execute arbitrary application code.
+The API saves the result as `projects\<id>\PLAN.md` under the application data directory. Project planning does not scaffold or execute arbitrary application code.
 
 ## Limits of this version
 
@@ -74,4 +80,4 @@ The API saves the result as `projects/<id>/PLAN.md` under the application data d
 - No guarantee that a small local model follows every tool protocol correctly or produces a factually complete summary.
 - No measured throughput claim for this laptop; driver, context, and active applications affect memory and speed.
 
-Protocol tests verify the actual MCP handshake, discovery, tool calls, resource reads, persistent writes, complete-document pagination, and validation of stale sources. Store/library and API/agent tests cover the remaining local behavior without requiring a downloaded model.
+Protocol tests exercise the actual MCP handshake, discovery, tool calls, resource reads, persistent writes, complete-document pagination, and validation of stale sources. Store/library and API/agent tests cover the remaining local behavior without requiring a downloaded model. Native Windows GitHub Actions are intended to run on Windows Server runners with Python 3.12/3.13 and a fake runtime for launcher lifecycle checks. Results remain pending until confirmed; this does not establish Windows 11 laptop GPU performance. See the [validation record](validation.md).

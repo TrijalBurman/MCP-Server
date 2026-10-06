@@ -94,3 +94,19 @@ def test_plan_written_inside_project_directory(tmp_path, monkeypatch):
     assert path.is_relative_to(tmp_path / "data" / "projects")
     assert path.read_text().startswith("# Plan")
     assert client.get(f"/api/projects/{project['id']}").json()["plan"] == path.read_text()
+
+
+def test_unicode_project_plan_round_trip(tmp_path, monkeypatch):
+    client, app = client_at(tmp_path / "Research space 東京")
+    project = client.post("/api/projects", json={"name": "योजना 東京"}).json()
+    content = "# योजना 東京\n\nRésumé: use SQLite — café."
+
+    async def make_plan(*args):
+        return content
+
+    monkeypatch.setattr(app.state.agent, "project_plan", make_plan)
+    response = client.post(f"/api/projects/{project['id']}/plan", json={"prompt": "Create a plan"})
+    assert response.status_code == 200, response.text
+    path = Path(response.json()["path"])
+    assert path.read_bytes() == content.encode("utf-8")
+    assert client.get(f"/api/projects/{project['id']}").json()["plan"] == content

@@ -4,9 +4,15 @@
 
 ## Connect a local client
 
-The sample [configuration](../examples/mcp-client.json) uses placeholder absolute paths. **Replace `/absolute/path/to/MCP-Server` in both fields with your actual project checkout directory before using it.** Merge its `mcpServers` entry into the configuration expected by your MCP client; client configuration formats can vary. Install this project using `./scripts/setup.sh` first so `python -m copilot.mcp_server` works outside the repository's current directory.
+The sample [Windows configuration](../examples/mcp-client.json) uses an absolute executable and data directory with spaces in the account/project names. **Replace `C:\Users\Your Name\Projects\Local Knowledge\MCP-Server` with your actual checkout directory in both fields.** Preserve JSON's doubled backslashes. Merge the `mcpServers` entry into the format expected by your local client. Run `scripts\setup.cmd` first so `python -m copilot.mcp_server` works outside the repository's current directory.
 
-The executable is `<project-checkout>/.venv/bin/python`, with arguments `-m copilot.mcp_server`. Set `COPILOT_DATA_DIR` to exactly the app's data directory. The default is `<project-checkout>/.local-copilot`. A different directory creates a separate memory database. Standard MCP JSON configurations do not necessarily expand `~` or shell variables, so use concrete absolute paths.
+The executable is `<checkout>\.venv\Scripts\python.exe`, with arguments `-X utf8 -m copilot.mcp_server`. Set `COPILOT_DATA_DIR` to exactly the app's data directory, normally `<checkout>\.local-copilot`, and `COPILOT_OLLAMA_URL` to `http://127.0.0.1:11435`. The managed model server must be running for local semantic search. A different data directory creates a separate memory database. Client JSON does not necessarily expand `%USERPROFILE%`, `$env:USERPROFILE`, or `~`, so use concrete absolute paths.
+
+To start the stdio server manually from PowerShell:
+
+```powershell
+& ".\.venv\Scripts\python.exe" -X utf8 -m copilot.mcp_server
+```
 
 Keep the client and its inference local to preserve the local data boundary. An external hosted client receives the contents returned by this server even though the server itself only talks to local resources.
 
@@ -43,7 +49,7 @@ A result has this shape:
 {
   "document_id": 1,
   "title": "notes.md",
-  "path": "/home/your-user/Documents/notes.md",
+  "path": "D:\\Knowledge\\notes.md",
   "text": "...",
   "offset": 0,
   "length": 12000,
@@ -56,7 +62,7 @@ A result has this shape:
 
 Continue with `offset=next_offset` until `next_offset` is `null`. Concatenating the returned `text` pages recovers the complete stored extraction without a top-k search limit. Calling with `offset=total` returns an empty page; an offset greater than `total` is an error.
 
-The reader validates that the source still exists, remains inside its approved root, has no symbolic-link path components, and matches its indexed modification time and size. A changed or unavailable source returns an instruction to reindex. It never interprets a document ID as an arbitrary filesystem path.
+The reader validates that the source still exists, remains inside an approved local root, has no symbolic-link, junction, or reparse-point components, and matches its indexed modification time and size. A changed or unavailable source returns an instruction to reindex. It never interprets a document ID as an arbitrary filesystem path. UNC/device paths, mapped network drives, drive roots, and system folders are outside the Windows source policy.
 
 ## Resources
 
@@ -67,10 +73,10 @@ Project resources use positive numeric project IDs returned by `list_projects` o
 
 ## Protocol verification
 
-```bash
-.venv/bin/python -m pytest -q tests/test_mcp.py
+```powershell
+& ".\.venv\Scripts\python.exe" -X utf8 -m pytest -q tests/test_mcp.py
 ```
 
-The tests create a temporary source folder and database, start a real subprocess with `StdioServerParameters`, initialize an SDK `ClientSession`, discover tools/resources, exercise memory writes against shared storage, search saved conversations, and read a document larger than one page. They also check invalid pagination and changed/deleted sources. No network model service or paid API is needed.
+The tests create a temporary source folder and database, start a real subprocess with `StdioServerParameters`, initialize an SDK `ClientSession`, discover tools/resources, exercise memory writes against shared storage, search saved conversations, and read a document larger than one page. They also check invalid pagination and changed/deleted sources. No network model service or paid API is needed. The Linux baseline has been exercised; native Windows CI results are tracked separately in the [validation record](validation.md) and remain pending until confirmed.
 
 Do not add `print()` calls to this server: stdout is reserved for protocol messages. Diagnostics must go to stderr. The executable can be run manually, but it waits for protocol input and is not an interactive command prompt.

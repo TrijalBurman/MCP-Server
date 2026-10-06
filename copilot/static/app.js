@@ -482,7 +482,7 @@ function formField(label, input, help) {
 }
 
 function folderModal() {
-  const path = el("input", { class: "field-input", type: "text", placeholder: "/home/you/Documents or D:\\Notes", required: true, autocomplete: "off", spellcheck: "false" });
+  const path = el("input", { class: "field-input", type: "text", placeholder: "D:\\Knowledge or C:\\Users\\Your Name\\Documents", required: true, autocomplete: "off", spellcheck: "false" });
   const label = el("input", { class: "field-input", type: "text", placeholder: "e.g. University notes", maxlength: "120" });
   const submit = el("button", { class: "button primary", type: "submit" }, icon("folder"), "Connect & index");
   const error = el("div");
@@ -670,7 +670,7 @@ async function renderSettings(version) {
     el("div", { class: "runtime-line" }, el("span", { text: "Semantic search" }), el("strong", { text: runtime.embedding_ready ? "Ready" : "Keyword search available" })),
     el("p", { class: "runtime-description", text: "Documents, search, and memory work without a chat model. Until the model is ready, chat returns local excerpts instead of a generated answer." }));
   if (runtime.error) runtimePanel.append(el("p", { class: "runtime-error", text: runtime.error }));
-  if (!runtime.chat_ready || !runtime.embedding_ready) runtimePanel.append(el("p", { class: "field-help", text: "Start Ollama and download your models once from your terminal. Downloads need an internet connection; processing stays local." }), el("div", { class: "setup-commands", text: `ollama serve\nollama pull ${settings.chat_model}\nollama pull ${settings.embedding_model}` }));
+  if (!runtime.chat_ready || !runtime.embedding_ready) runtimePanel.append(el("p", { class: "field-help", text: "Run setup-models.cmd from this project's scripts folder once, then start.cmd. Downloads need an internet connection; processing stays local. The Windows edition uses its own local model service." }), el("div", { class: "setup-commands", text: "scripts\\setup-models.cmd\nscripts\\start.cmd" }));
   runtimePanel.append(button("Refresh status", async () => { await pollStatus(); renderView("settings"); }, { class: "subtle small", icon: "refresh" }));
   const privacy = el("section", { class: "panel" }, el("div", { class: "panel-header" }, el("h2", { text: "A private workspace" }), icon("shield")),
     el("div", { class: "privacy-item" }, icon("check"), "Your files are read from folders you choose."),

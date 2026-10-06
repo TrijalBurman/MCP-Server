@@ -1,17 +1,32 @@
 # Validation record
 
-Verified during development on **2 October 2026**, on a Linux development laptop with an RTX 5050 with 8 GB VRAM, Ryzen 7 250, and 16 GB RAM. This is a record of checks on that machine, not a claim that every operating system or hardware configuration has been tested.
+The Windows edition targets native Windows 11 x64. Its validation is separate from the earlier Linux edition; a passing Linux test does not prove the Windows filesystem or launcher behavior.
 
-| Check | Verified evidence |
+## Native Windows status
+
+As of **6 October 2026**, native Windows CI has been prepared for the following checks, but **no successful run is claimed yet**:
+
+| Check | Intended coverage / current status |
 | --- | --- |
-| Automated backend checks | **43 tests passed**, covering local storage, indexing, retrieval, API behavior, agent context handling, and MCP integration. |
-| MCP protocol | The official SDK client started the actual stdio server, negotiated its handshake, discovered tools and resources, called tools, and read resource contents. Full-document pagination and invalid or stale-source reads were exercised. |
-| Local inference | `qwen3:4b-instruct-2507-q4_K_M` and `embeddinggemma` were verified running locally with GPU acceleration. Chat used the default **8,192-token context**; the embedding model uses its own model context. |
-| Browser library workflow | Connected the supplied example knowledge folder, indexed its documents, and read complete extracted contents. |
-| Browser memory workflow | Saved a project memory and edited it through the app. |
-| Browser assistant workflow | Generated a cited chat response and follow-up, a full-document summary, and a saved project plan through the app. |
-| Grounded project planning | A live local-model integration check retrieved document evidence over MCP and generated a plan with file references. |
+| Windows GitHub Actions | Windows Server runner (`windows-latest`), Python 3.12 and 3.13; results pending confirmation. |
+| File, API, and MCP tests | Ordinary local paths, paths with spaces, source exclusions, persistence, API behavior, actual SDK stdio handshake/tools/resources, and complete-document pagination; native results pending. |
+| Windows launchers | PowerShell 5.1 syntax, CMD wrappers, owned-process start/stop and cleanup using a fake local Ollama runtime; native results pending. |
+| Windows 11 laptop / GPU | Not tested. CI does not download the language models or provide the target laptop's GPU. |
 
-**Only the supplied example knowledge was indexed for these checks; personal HDD/SSD document folders were not scanned.** On your installation, add the desired folders in Library and index them to make their supported contents available to the assistant. The example folder demonstrates the workflow without silently scanning personal files.
+The planned launcher checks validate process ownership and cleanup without paid services or model downloads. They are not a Windows GPU benchmark or a live local-model compatibility result. This record should be updated with the actual workflow result once available.
 
-These checks establish functional behavior on the current laptop configuration. They do not establish a fixed response-time guarantee, exhaustive accuracy across document types, or completeness of a future personal library. Model loading, context size, document length, and available GPU memory affect response time. Source citations and the complete extracted-text reader remain available for checking generated answers.
+## Earlier Linux baseline
+
+Verified on **2 October 2026**, on a Linux development laptop with an RTX 5050 with 8 GB VRAM, Ryzen 7 250, and 16 GB RAM:
+
+| Check | Recorded evidence |
+| --- | --- |
+| Automated backend checks | 43 tests passed for the earlier Linux edition, covering storage, indexing, retrieval, API behavior, context handling, and MCP integration. |
+| MCP protocol | The official SDK client started the actual stdio server, negotiated its handshake, discovered and called tools, and read resources. Full-document pagination and invalid or stale-source reads were exercised. |
+| Local inference | `qwen3:4b-instruct-2507-q4_K_M` and `embeddinggemma` ran locally with GPU acceleration. Chat used an 8,192-token context; embeddings used their own model context. |
+| Browser workflows | Connected the supplied example knowledge folder, read complete extracted contents, saved and edited project memory, generated cited chat and a follow-up, summarized a complete document, and saved a project plan. |
+| Grounded project planning | A separate live local-model check retrieved evidence over MCP and generated a plan with local file references. |
+
+Only supplied example knowledge was indexed for those checks; personal HDD/SSD folders were not scanned. New installations require explicit source-folder selection in Library.
+
+The recorded checks establish behavior for their stated environment and scope. They do not establish a fixed response-time guarantee, accuracy across every document format, or completeness of a personal library. Model loading, context, document length, driver support, and available GPU memory affect results. Use source citations and the complete extracted-text reader to check generated answers.

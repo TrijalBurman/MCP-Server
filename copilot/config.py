@@ -3,11 +3,13 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urlparse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+DEFAULT_OLLAMA_URL = "http://127.0.0.1:11435" if sys.platform == "win32" else "http://127.0.0.1:11434"
 
 
 def local_url(value: str) -> str:
@@ -29,7 +31,7 @@ def local_model(value: str) -> str:
 @dataclass
 class Settings:
     data_dir: Path = field(default_factory=lambda: BASE_DIR / ".local-copilot")
-    ollama_url: str = "http://127.0.0.1:11434"
+    ollama_url: str = DEFAULT_OLLAMA_URL
     chat_model: str = "qwen3:4b-instruct-2507-q4_K_M"
     embedding_model: str = "embeddinggemma"
     context_size: int = 8192
@@ -54,9 +56,9 @@ class Settings:
         saved = {}
         path = data_dir / "settings.json"
         if path.is_file():
-            saved = json.loads(path.read_text())
+            saved = json.loads(path.read_text(encoding="utf-8"))
         return cls(data_dir=data_dir,
-                   ollama_url=os.environ.get("COPILOT_OLLAMA_URL", "http://127.0.0.1:11434"),
+                   ollama_url=os.environ.get("COPILOT_OLLAMA_URL", DEFAULT_OLLAMA_URL),
                    chat_model=os.environ.get("COPILOT_CHAT_MODEL", saved.get("chat_model", "qwen3:4b-instruct-2507-q4_K_M")),
                    embedding_model=os.environ.get("COPILOT_EMBEDDING_MODEL", saved.get("embedding_model", "embeddinggemma")),
                    context_size=int(os.environ.get("COPILOT_CONTEXT_SIZE", saved.get("context_size", 8192))))
@@ -70,5 +72,5 @@ class Settings:
         self.data_dir.mkdir(parents=True, exist_ok=True)
         path = self.data_dir / "settings.json"
         temporary = path.with_suffix(".tmp")
-        temporary.write_text(json.dumps(self.public(), indent=2))
+        temporary.write_text(json.dumps(self.public(), indent=2), encoding="utf-8")
         temporary.replace(path)
