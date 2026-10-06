@@ -268,7 +268,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             raise HTTPException(503, "The local model returned an empty plan")
         path = settings.data_dir / "projects" / str(project_id) / "PLAN.md"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, encoding="utf-8")
+        path.write_text(content, encoding="utf-8", newline="\n")
         return {"content": content, "path": str(path)}
 
     @app.get("/api/sessions")
