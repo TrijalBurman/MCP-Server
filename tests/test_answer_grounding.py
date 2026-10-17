@@ -179,6 +179,8 @@ async def test_empty_conversation_search_does_not_bypass_document_reference_guar
 
 
 async def test_another_search_refreshes_complete_numbered_records_and_visible_sources(knowledge):
+    # Exercise refresh rather than budget starvation with longer Windows temp paths.
+    knowledge.settings.context_size = 12288
     first = add_document(knowledge, "aurora.md", "Aurora database uses SQLite.")
     second = add_document(knowledge, "cobalt.md", "Cobalt ledger: HarborBridge.")
 

@@ -136,8 +136,11 @@ They are **not general answer accuracy, a universal model ranking, or a new
 research-paper benchmark**. Cold loading, available VRAM, CPU offload, document
 length and concurrent applications can change latency and quality substantially.
 
-The final source regression suites passed **135 tests on Linux** and **172 tests
-with six platform-specific skips for the Windows copy tested on Linux**. They
+At that model-selection snapshot, the source suites passed **135 tests on
+Linux** and **172 tests with six platform-specific skips for the Windows
+copy tested on Linux**. Those are historical counts. The later routing
+repair passed **163 Linux tests** and **200 Windows-copy tests on Linux**,
+with six native checks skipped. These local suites
 use scripted inference and temporary libraries. They check metadata routing,
 evidence packing, citation bounds and safe retry behavior; they do not measure
 model intelligence or replace native Windows GPU testing.
