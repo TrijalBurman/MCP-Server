@@ -39,6 +39,8 @@ The private server uses **11435**, keeping it separate from an existing Ollama t
 
 The selected [Qwen3 Instruct model](https://ollama.com/library/qwen3:4b-instruct-2507-q4_K_M) is approximately 2.5 GB and [EmbeddingGemma](https://ollama.com/library/embeddinggemma) is about 0.62 GB. Allow additional disk space for Ollama, its GPU libraries, downloads, and your index. The same model configuration was validated on a **Linux** laptop with an RTX 5050 with 8 GB VRAM, Ryzen 7 250, and 16 GB RAM. Native Windows testing is tracked in the [validation record](docs/validation.md); Windows GPU performance has not been established.
 
+An optional **Qwen3.5 9B / 12,288-token** profile was checked on that Linux laptop. See [model profiles and Windows installation instructions](docs/model-profiles.md) for the private-server download command and test scope. The committed defaults remain 4B / 8,192; Settings saves your chosen profile locally. Shared reports and presentation materials are listed in the [project deliverables index on `main`](https://github.com/TrijalBurman/MCP-Server/blob/main/output/README.md).
+
 Search, file reading, explicit memory, and project workspaces work without a downloaded model. Generative summaries, conversational answers, and project plans require the local chat model. Semantic search uses the embedding model, with a lexical fallback when it is unavailable. The app requests ten-minute model keep-alives, subject to available memory.
 
 The managed launcher requires the Ollama runtime binary. To use the app alone after Python setup, without installing Ollama or models, run:
@@ -62,6 +64,28 @@ Folders on fixed or removable local drives are supported. Adding folders is expl
 Supported formats include text, Markdown, common source code, text-based PDFs, and DOCX. Hidden items, known credentials, dependencies, and the app's data folder are skipped. Limits include 20 MiB per source file and 20,000 supported files per scan. **Scanned image PDFs need OCR, which this edition does not provide.** Complete contents means complete extracted text of supported indexed files, not original images, formatting, or every binary file on disk.
 
 Rescan after changing or deleting files. Readers reject changed or missing sources until reindexing refreshes the snapshot. Retrieval selects relevant passages; full-document summaries process all extracted sections in bounded passes. The completed response contains section traces; live section progress is not streamed.
+
+## Grounded file answers
+
+Questions such as “List all indexed files” and “Is there a file named api.md?”
+use paginated index metadata directly through MCP. They do not ask the language
+model to infer file existence from search passages. Duplicate filenames retain
+separate paths. Chat displays up to 1,000 entries and discloses any larger total.
+The result describes the index; rescan folders after changing files on disk.
+
+Document questions receive exact query-centered excerpts packed as complete
+numbered records within the model budget, including after document tool calls.
+Earlier assistant claims are omitted when current document evidence is present.
+Invalid explicit reference numbers trigger a labeled source-excerpt fallback.
+If a document-grounded answer has no citations and usable excerpts exist, the
+app regenerates it **once**, using freshly packed evidence and no tools or copy
+of the uncited draft. The regenerated answer must pass the same reference checks.
+An unsuccessful retry keeps the original safe source excerpts and cards. Valid
+answers, accepted unknown abstentions, and accepted conversation recall do not
+trigger that retry; answers without document evidence cannot use it. Code indexes
+inside Markdown code are not mistaken for citations. These checks do not prove semantic correctness;
+verify important claims in the source reader. Existing conversations retain their
+historical messages; ask again or start a new conversation to see repaired behavior.
 
 ## Persistent storage and privacy
 

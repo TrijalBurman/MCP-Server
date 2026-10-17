@@ -2,7 +2,8 @@
 set -euo pipefail
 TASK_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$TASK_DIR"
-mkdir -p .runtime/ollama .runtime/models
+mkdir -p .runtime/ollama .runtime/models .runtime/tmp
+export TMPDIR="$TASK_DIR/.runtime/tmp"
 if command -v ollama >/dev/null 2>&1; then
   OLLAMA_BIN="$(command -v ollama)"
 else

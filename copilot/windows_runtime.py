@@ -237,6 +237,7 @@ class Runtime:
         self.directory = self.workspace / ".runtime"
         self.logs = self.directory / "logs"
         self.models = self.directory / "models"
+        self.temporary = self.directory / "tmp"
         self.ollama = self.directory / "ollama" / "ollama.exe"
         self.state_path = self.directory / "windows-processes.json"
         self.lock_path = self.directory / "windows-launch.lock"
@@ -253,6 +254,7 @@ class Runtime:
         self.directory.mkdir(parents=True, exist_ok=True)
         self.logs.mkdir(exist_ok=True)
         self.models.mkdir(exist_ok=True)
+        self.temporary.mkdir(exist_ok=True)
 
     def environment(self) -> dict[str, str]:
         environment = os.environ.copy()
@@ -260,6 +262,7 @@ class Runtime:
             "OLLAMA_HOST": f"127.0.0.1:{OLLAMA_PORT}", "OLLAMA_NO_CLOUD": "1",
             "OLLAMA_MODELS": str(self.models), "OLLAMA_NUM_PARALLEL": "1",
             "OLLAMA_MAX_LOADED_MODELS": "2", "COPILOT_OLLAMA_URL": OLLAMA_URL,
+            "TEMP": str(self.temporary), "TMP": str(self.temporary),
             "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8",
         })
         environment.setdefault("COPILOT_DATA_DIR", str(self.workspace / ".local-copilot"))

@@ -217,7 +217,8 @@ function updateStatus() {
     pill.classList.add("disconnected"); $("#runtime-label").textContent = "Local service unavailable";
   } else if (runtime?.chat_ready) {
     const model = state.settings?.chat_model || "ready";
-    const modelLabel = /^qwen3:4b(?:$|-)/i.test(model) ? "Qwen3 4B" : model;
+    const qwen = model.match(/^qwen(3(?:\.5)?):(\d+)b(?:$|-)/i);
+    const modelLabel = qwen ? `Qwen${qwen[1]} ${qwen[2]}B` : model;
     pill.classList.add("online"); $("#runtime-label").textContent = `Local model · ${modelLabel}`;
     pill.title = `Local model: ${model}. View local model settings.`;
   } else {

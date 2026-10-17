@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 
 from copilot.library import chunk_text
-from copilot.store import Store
+from copilot.store import Store, _document_name_matcher
 
 
 @pytest.fixture
@@ -105,6 +105,76 @@ def test_filtered_document_count_matches_listing_for_pagination(store, tmp_path)
     assert store.count_documents("%") == 1
     assert store.count_documents("missing") == 0
     assert store.count_documents() == store.stats()["documents"] == 4
+
+
+def test_metadata_catalog_pages_are_complete_filtered_and_persistent(store, tmp_path):
+    first = store.add_root(tmp_path / "first")
+    second = store.add_root(tmp_path / "second")
+    for number in range(7):
+        insert_document(store, first, tmp_path / "first" / f"api-{number}.md", "Repeated shared passage")
+    insert_document(store, second, tmp_path / "second" / "api-extra.md", "Another source")
+    reopened = Store(store.database_path)
+    offset, collected = 0, []
+    while True:
+        page = reopened.page_documents("api", limit=3, offset=offset, root_id=first["id"])
+        assert page["total"] == 7 and page["offset"] == offset and page["scope"] == "indexed"
+        assert all("text" not in row and row["root_id"] == first["id"] for row in page["documents"])
+        collected.extend(row["id"] for row in page["documents"])
+        if page["next_offset"] is None:
+            break
+        assert page["next_offset"] > offset
+        offset = page["next_offset"]
+    assert len(set(collected)) == len(collected) == 7
+    assert reopened.count_documents("api", first["id"]) == 7
+    assert len(reopened.list_documents("api", root_id=second["id"])) == 1
+    assert reopened.page_documents("api", root_id=999)["total"] == 0
+    empty = reopened.page_documents(offset=100)
+    assert empty["total"] == 8 and empty["documents"] == [] and empty["next_offset"] is None
+
+
+def test_exact_document_names_paths_duplicates_and_index_scope(store, tmp_path):
+    root = store.add_root(tmp_path / "knowledge")
+    first = insert_document(store, root, tmp_path / "knowledge" / "api.md", "Source body")
+    second = store.upsert_document(root["id"], tmp_path / "knowledge" / "nested" / "api.md",
+                                   "A display title", "Different body", 1234, 14, chunk_text("Different body"))
+    insert_document(store, root, tmp_path / "knowledge" / "api.md.md", "Not the exact filename")
+    insert_document(store, root, tmp_path / "knowledge" / "notes.md", "The contents mention api.md")
+    special = insert_document(store, root, tmp_path / "knowledge" / "100%_[1].md", "Literal wildcards")
+    first_page = store.find_documents("api.md", limit=1)
+    assert first_page["total"] == 2 and first_page["next_offset"] == 1
+    last_page = store.find_documents("api.md", limit=1, offset=1)
+    assert last_page["next_offset"] is None
+    ids = {row["id"] for row in first_page["documents"] + last_page["documents"]}
+    assert ids == {first["id"], second["id"]}
+    assert all("text" not in row for row in first_page["documents"] + last_page["documents"])
+    assert store.find_documents(str(second["path"]))["documents"][0]["id"] == second["id"]
+    assert store.find_documents("nested/api.md")["documents"][0]["id"] == second["id"]
+    assert store.find_documents("100%_[1].md")["documents"][0]["id"] == special["id"]
+    assert store.find_documents("api")["total"] == 0
+    assert store.find_documents("*.md")["total"] == 0
+    assert store.find_documents("api.md", root_id=root["id"] + 1)["total"] == 0
+    # These are index records even though no source files were created by this test.
+    assert first_page["scope"] == "indexed"
+    assert store.remove_root(root["id"])
+    assert store.find_documents("api.md")["total"] == 0
+
+
+def test_native_exact_name_policy_and_no_path_resolution():
+    windows = _document_name_matcher("CAFÉ.MD", windows=True)
+    assert windows(r"C:\Knowledge\café.md", r"C:\Knowledge") == 1
+    relative = _document_name_matcher(r"Nested\API.md", windows=True)
+    assert relative(r"C:\Knowledge\nested\api.md", r"c:\knowledge") == 1
+    assert relative(r"C:\Other\nested\api.md", r"C:\Knowledge") == 0
+    absolute = _document_name_matcher("C:/Knowledge/API.md", windows=True)
+    assert absolute(r"c:\knowledge\api.md", r"C:\Knowledge") == 1
+    linux = _document_name_matcher("api.md", windows=False)
+    assert linux("/knowledge/API.md", "/knowledge") == 0
+    assert linux("/knowledge/api.md", "/knowledge") == 1
+    assert _document_name_matcher(r"api\notes.md", windows=False)(r"/knowledge/api\notes.md", "/knowledge") == 1
+    for name, native_windows in [("", False), ("../api.md", False), (r"..\api.md", True),
+                                 (r"C:api.md", True), ("api\x00.md", False)]:
+        with pytest.raises(ValueError):
+            _document_name_matcher(name, windows=native_windows)
 
 
 def test_safe_prune_handles_more_than_sql_variable_limit(store, tmp_path):

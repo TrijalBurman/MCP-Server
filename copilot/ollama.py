@@ -13,16 +13,14 @@ class OllamaUnavailable(RuntimeError):
     pass
 
 
-def _clip_bytes(text: str, budget: int) -> str:
-    return text.encode("utf-8")[:max(0, budget)].decode("utf-8", errors="ignore")
-
-
 def fit_context(messages: list[dict], tools: list[dict] | None, context_size: int):
     """Use a conservative byte bound, keeping safety instructions and the current request.
 
     Byte length is an upper bound for ordinary byte-level tokenizer tokens. Reserve
     generation and protocol framing space, and include tool schemas in the bound.
     Old history is dropped first; reference/tool data may be shortened explicitly.
+    Prefixes are fitted against their serialized UTF-8 cost, including JSON escaping,
+    message metadata and the shortening marker.
     """
     reserve = min(1536, context_size // 3)
     budget = context_size - reserve - 256
@@ -50,15 +48,28 @@ def fit_context(messages: list[dict], tools: list[dict] | None, context_size: in
     priorities += [i for i in reversed(range(len(messages))) if i not in pinned and i not in priorities]
     for i in priorities:
         item = dict(messages[i])
-        if available <= 100:
+        if available <= 0:
             break
         if cost(item) > available:
             if item.get("tool_calls"):
                 continue
-            limit = available - 120
-            if limit < 100:
+            content = item.get("content", "")
+            marker = "\n[Local context shortened.]"
+            item["content"] = marker
+            if cost(item) > available:
                 continue
-            item["content"] = _clip_bytes(item.get("content", ""), limit) + "\n[Local context shortened.]"
+            # Serialization can expand quotes, backslashes and control characters.
+            # Find the longest whole-character prefix that actually fits instead of
+            # discarding the evidence after an approximate raw-byte clip overshoots.
+            low, high = 0, min(len(content), available)
+            while low < high:
+                middle = (low + high + 1) // 2
+                item["content"] = content[:middle] + marker
+                if cost(item) <= available:
+                    low = middle
+                else:
+                    high = middle - 1
+            item["content"] = content[:low] + marker
         amount = cost(item)
         if amount <= available:
             selected[i] = item

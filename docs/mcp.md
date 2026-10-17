@@ -21,7 +21,8 @@ Keep the client and its inference local to preserve the local data boundary. An 
 | Tool | Arguments | Result | Change permitted |
 | --- | --- | --- | --- |
 | `knowledge_search` | `query`, `limit=8` | `{results: [...]}` with document/page/offset evidence | None |
-| `list_documents` | `query=""`, `limit=100`, `offset=0` | `{documents: [...]}` | None |
+| `list_documents` | `query=""`, `limit=100`, `offset=0`, `root_id=null` | Indexed metadata, `total`, `offset`, `next_offset`, `scope` | None |
+| `find_documents` | `name`, `limit=100`, `offset=0`, `root_id=null` | Exact indexed filename/path matches, total and pagination | None |
 | `read_document` | `document_id`, `offset=0`, `length=12000` | Extracted text page, total characters, next offset | None |
 | `recall` | `project_id=null`, `query=""` | `{memories: [...]}` | None |
 | `search_conversations` | `query`, `limit=6`, `project_id=null` | `{messages: [...]}` with saved session context | None |
@@ -33,7 +34,9 @@ Keep the client and its inference local to preserve the local data boundary. An 
 
 Tools have protocol annotations describing read-only and destructive behavior. Write tools are available to external clients; the application's model only receives read-only tool schemas. No MCP tool approves arbitrary new folders, traverses an arbitrary requested path, starts a network request to the internet, or runs a command.
 
-Search limits are 1–30 results, document list pages are 1–200 entries, and reader pages are 1–50,000 characters. Offsets are nonnegative character positions, not byte positions. Blank searches, invalid identifiers, and invalid bounds return MCP tool errors.
+Search limits are 1–30 results, document list pages are 1–200 entries, and reader pages are 1–50,000 characters. List offsets count metadata rows; reader offsets count characters, not bytes. Both are nonnegative. Blank searches, invalid identifiers, and invalid bounds return MCP tool errors.
+
+File inventory is separate from passage search. Follow `next_offset` until null to enumerate indexed metadata. `find_documents` compares the exact basename, absolute indexed path, or approved-root-relative path; it returns every matching basename across folders. Matching is case-sensitive on Linux and case-insensitive on Windows. It does not search document contents or traverse the filesystem. A zero result means not indexed in the requested scope; rescan to reflect disk changes.
 
 ## Read every extracted character
 
