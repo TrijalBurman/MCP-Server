@@ -1,0 +1,47 @@
+{
+  "request": "Summarize this brief in at most four sentences, preserving the storage profile, backup interval and review date. Cite [1].",
+  "response": {
+    "content": "Kestrel Grove is a fictional offline field-notes project utilizing the Cedar Box storage profile [1]. The system is configured to perform backups every 61 hours, with the initial review scheduled for May 11, 2028 [1]. Currently, the first release supports only extracted text, as scanned images require a future OCR extension [1]. This summary preserves the project's defined storage characteristics and scheduling constraints while noting current functional limitations [1].",
+    "sources": [
+      {
+        "document_id": 5,
+        "title": "kestrel-summary.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/kestrel-summary.md",
+        "text": "# Kestrel Grove project brief\n\nKestrel Grove is a fictional offline field-notes project.\nIts adopted storage profile is Cedar Box profile.\nIts backup interval is 61 hours.\nThe first review is scheduled for 11 May 2028.\nThe first release supports extracted text; scanned images require a future OCR extension.\n",
+        "page": null
+      }
+    ],
+    "trace": [
+      {
+        "tool": "read_document",
+        "detail": "Read the full extracted document via MCP"
+      },
+      {
+        "tool": "read_document",
+        "detail": "Read extracted section 1/1"
+      }
+    ],
+    "mode": "agent"
+  },
+  "seconds": 4.9615491130007285,
+  "error": null,
+  "scores": {
+    "expected_literals_present": [
+      false,
+      true,
+      false
+    ],
+    "all_expected_literals_present": false,
+    "exact_abstention": false,
+    "delivered_literal_check_pass": false,
+    "generated_literal_check_pass": false,
+    "numeric_citations": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "citation_indices_valid": true,
+    "warning": "Literal overlap can count contradictory or unsupported wording; inspect raw responses."
+  }
+}

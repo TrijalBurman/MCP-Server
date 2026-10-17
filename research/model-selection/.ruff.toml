@@ -1,0 +1,6 @@
+extend = "../../pyproject.toml"
+# Historical snapshots remain byte-identical to their recorded hashes.
+extend-exclude = ["results", "original-harness"]
+
+[lint.isort]
+known-first-party = ["copilot"]

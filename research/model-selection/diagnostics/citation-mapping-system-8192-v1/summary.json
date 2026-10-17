@@ -1,0 +1,33 @@
+{
+  "label": "Two-case post-selection diagnostic; no general accuracy claim.",
+  "results": [
+    {
+      "case": "P01",
+      "complete_evidence_message_retained": true,
+      "actual_payload_complete_evidence": true,
+      "seconds": 1.274241205999715,
+      "citation_numbers": [
+        2
+      ],
+      "valid_citations": true,
+      "expected_literals_present": [
+        true
+      ]
+    },
+    {
+      "case": "P07",
+      "complete_evidence_message_retained": true,
+      "actual_payload_complete_evidence": true,
+      "seconds": 1.4793721170008212,
+      "citation_numbers": [
+        2,
+        3
+      ],
+      "valid_citations": true,
+      "expected_literals_present": [
+        true,
+        true
+      ]
+    }
+  ]
+}

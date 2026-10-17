@@ -1,0 +1,1436 @@
+[
+  {
+    "time": 1792176941.9355178,
+    "rss_sum_mib": 2328.17578125,
+    "gpu_total_used_mib": 5094.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176942.972248,
+    "rss_sum_mib": 2615.8125,
+    "gpu_total_used_mib": 5138.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176944.0079162,
+    "rss_sum_mib": 2665.30078125,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176945.0422537,
+    "rss_sum_mib": 2672.703125,
+    "gpu_total_used_mib": 5138.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176946.0778768,
+    "rss_sum_mib": 2663.40625,
+    "gpu_total_used_mib": 5138.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176947.110596,
+    "rss_sum_mib": 2671.203125,
+    "gpu_total_used_mib": 5138.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176948.1446347,
+    "rss_sum_mib": 2666.125,
+    "gpu_total_used_mib": 5137.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176949.1791222,
+    "rss_sum_mib": 2713.81640625,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 5.0
+  },
+  {
+    "time": 1792176950.2235646,
+    "rss_sum_mib": 2748.609375,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 30.0
+  },
+  {
+    "time": 1792176951.2564673,
+    "rss_sum_mib": 2775.46875,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 15.0
+  },
+  {
+    "time": 1792176952.2918713,
+    "rss_sum_mib": 2790.8125,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 10.0
+  },
+  {
+    "time": 1792176953.326785,
+    "rss_sum_mib": 2805.73828125,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 20.0
+  },
+  {
+    "time": 1792176954.365628,
+    "rss_sum_mib": 2820.59765625,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 24.0
+  },
+  {
+    "time": 1792176955.3991363,
+    "rss_sum_mib": 2856.0625,
+    "gpu_total_used_mib": 5139.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176956.434043,
+    "rss_sum_mib": 2883.65234375,
+    "gpu_total_used_mib": 5141.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176957.472129,
+    "rss_sum_mib": 2897.5703125,
+    "gpu_total_used_mib": 5141.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176958.5061872,
+    "rss_sum_mib": 2916.3984375,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176959.5398777,
+    "rss_sum_mib": 2916.515625,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176960.5733578,
+    "rss_sum_mib": 2919.07421875,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176961.6061587,
+    "rss_sum_mib": 2919.1015625,
+    "gpu_total_used_mib": 5141.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176962.6413662,
+    "rss_sum_mib": 2926.5234375,
+    "gpu_total_used_mib": 5141.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176963.6759105,
+    "rss_sum_mib": 2926.5234375,
+    "gpu_total_used_mib": 5141.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176964.7102282,
+    "rss_sum_mib": 2935.8359375,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176965.7471457,
+    "rss_sum_mib": 2943.62890625,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176966.7822096,
+    "rss_sum_mib": 2947.2734375,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 3.0
+  },
+  {
+    "time": 1792176967.8169317,
+    "rss_sum_mib": 2982.1953125,
+    "gpu_total_used_mib": 5140.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176968.851299,
+    "rss_sum_mib": 2990.88671875,
+    "gpu_total_used_mib": 5137.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176969.8862753,
+    "rss_sum_mib": 2978.09765625,
+    "gpu_total_used_mib": 5136.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176970.9226599,
+    "rss_sum_mib": 2978.81640625,
+    "gpu_total_used_mib": 5136.0,
+    "gpu_utilization_percent": 3.0
+  },
+  {
+    "time": 1792176971.9550505,
+    "rss_sum_mib": 3033.1875,
+    "gpu_total_used_mib": 5136.0,
+    "gpu_utilization_percent": 9.0
+  },
+  {
+    "time": 1792176972.987488,
+    "rss_sum_mib": 3033.22265625,
+    "gpu_total_used_mib": 5136.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176974.021935,
+    "rss_sum_mib": 3034.85546875,
+    "gpu_total_used_mib": 5136.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176975.0603926,
+    "rss_sum_mib": 3071.84375,
+    "gpu_total_used_mib": 5136.0,
+    "gpu_utilization_percent": 8.0
+  },
+  {
+    "time": 1792176976.0959568,
+    "rss_sum_mib": 3132.32421875,
+    "gpu_total_used_mib": 5138.0,
+    "gpu_utilization_percent": 73.0
+  },
+  {
+    "time": 1792176977.1303146,
+    "rss_sum_mib": 3204.9140625,
+    "gpu_total_used_mib": 5144.0,
+    "gpu_utilization_percent": 20.0
+  },
+  {
+    "time": 1792176978.1643884,
+    "rss_sum_mib": 3315.171875,
+    "gpu_total_used_mib": 5189.0,
+    "gpu_utilization_percent": 7.0
+  },
+  {
+    "time": 1792176979.1993418,
+    "rss_sum_mib": 3344.55859375,
+    "gpu_total_used_mib": 5176.0,
+    "gpu_utilization_percent": 30.0
+  },
+  {
+    "time": 1792176980.234095,
+    "rss_sum_mib": 3455.2890625,
+    "gpu_total_used_mib": 5169.0,
+    "gpu_utilization_percent": 26.0
+  },
+  {
+    "time": 1792176981.2777061,
+    "rss_sum_mib": 3541.0390625,
+    "gpu_total_used_mib": 5169.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176982.3134491,
+    "rss_sum_mib": 3648.96875,
+    "gpu_total_used_mib": 5171.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176983.350545,
+    "rss_sum_mib": 3762.4453125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792176984.3882592,
+    "rss_sum_mib": 3758.140625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176985.421309,
+    "rss_sum_mib": 3873.44921875,
+    "gpu_total_used_mib": 5158.0,
+    "gpu_utilization_percent": 24.0
+  },
+  {
+    "time": 1792176986.4732306,
+    "rss_sum_mib": 3985.6875,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 74.0
+  },
+  {
+    "time": 1792176987.5070775,
+    "rss_sum_mib": 4080.015625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 85.0
+  },
+  {
+    "time": 1792176988.5423348,
+    "rss_sum_mib": 4099.31640625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792176989.5845435,
+    "rss_sum_mib": 4208.51171875,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792176990.6213212,
+    "rss_sum_mib": 4319.453125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792176991.6550634,
+    "rss_sum_mib": 4380.08203125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 61.0
+  },
+  {
+    "time": 1792176992.6889267,
+    "rss_sum_mib": 4491.21484375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 84.0
+  },
+  {
+    "time": 1792176993.723153,
+    "rss_sum_mib": 4610.32421875,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 82.0
+  },
+  {
+    "time": 1792176994.7629118,
+    "rss_sum_mib": 4679.546875,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 15.0
+  },
+  {
+    "time": 1792176995.8041112,
+    "rss_sum_mib": 4790.6796875,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 42.0
+  },
+  {
+    "time": 1792176996.8476274,
+    "rss_sum_mib": 4902.6953125,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 42.0
+  },
+  {
+    "time": 1792176997.8896947,
+    "rss_sum_mib": 5013.4609375,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 89.0
+  },
+  {
+    "time": 1792176998.9245536,
+    "rss_sum_mib": 5041.42578125,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 34.0
+  },
+  {
+    "time": 1792176999.9578705,
+    "rss_sum_mib": 5155.22265625,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 4.0
+  },
+  {
+    "time": 1792177000.99611,
+    "rss_sum_mib": 5269.6484375,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177002.034112,
+    "rss_sum_mib": 5267.78125,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177003.0761564,
+    "rss_sum_mib": 5399.65234375,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177004.1097913,
+    "rss_sum_mib": 5514.07421875,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177005.1441576,
+    "rss_sum_mib": 5626.1484375,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177006.17958,
+    "rss_sum_mib": 5734.5390625,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792177007.2163599,
+    "rss_sum_mib": 5817.796875,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 31.0
+  },
+  {
+    "time": 1792177008.2503486,
+    "rss_sum_mib": 5849.4765625,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177009.284271,
+    "rss_sum_mib": 5980.7734375,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177010.318473,
+    "rss_sum_mib": 6056.16796875,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 36.0
+  },
+  {
+    "time": 1792177011.3541622,
+    "rss_sum_mib": 6009.3984375,
+    "gpu_total_used_mib": 5152.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177012.3923595,
+    "rss_sum_mib": 6009.421875,
+    "gpu_total_used_mib": 5152.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177013.4283469,
+    "rss_sum_mib": 6009.53515625,
+    "gpu_total_used_mib": 5148.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177014.4668007,
+    "rss_sum_mib": 6009.5390625,
+    "gpu_total_used_mib": 5175.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177015.5055587,
+    "rss_sum_mib": 6009.54296875,
+    "gpu_total_used_mib": 5179.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177016.541117,
+    "rss_sum_mib": 6009.546875,
+    "gpu_total_used_mib": 5162.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177017.5766613,
+    "rss_sum_mib": 6009.55078125,
+    "gpu_total_used_mib": 5161.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177018.612042,
+    "rss_sum_mib": 6009.55078125,
+    "gpu_total_used_mib": 5164.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177019.6473632,
+    "rss_sum_mib": 6236.22265625,
+    "gpu_total_used_mib": 5163.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177020.6822278,
+    "rss_sum_mib": 6236.2421875,
+    "gpu_total_used_mib": 5150.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177021.7196841,
+    "rss_sum_mib": 6236.2421875,
+    "gpu_total_used_mib": 5147.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177022.7541296,
+    "rss_sum_mib": 6236.2421875,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177023.789515,
+    "rss_sum_mib": 6236.24609375,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177024.8256345,
+    "rss_sum_mib": 6236.2578125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177025.8621235,
+    "rss_sum_mib": 6236.2578125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177026.8977342,
+    "rss_sum_mib": 6236.2578125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177027.9332004,
+    "rss_sum_mib": 6468.1484375,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 100.0
+  },
+  {
+    "time": 1792177028.9678943,
+    "rss_sum_mib": 6468.16015625,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177030.0012174,
+    "rss_sum_mib": 6468.16015625,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177031.0364072,
+    "rss_sum_mib": 6468.16796875,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177032.0708203,
+    "rss_sum_mib": 6468.16796875,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177033.1057854,
+    "rss_sum_mib": 6468.16796875,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177034.1430824,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177035.1776772,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177036.2122717,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177037.2463112,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177038.2813044,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177039.3154724,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177040.3502455,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177041.384914,
+    "rss_sum_mib": 6643.828125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177042.4262407,
+    "rss_sum_mib": 6877.1953125,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 65.0
+  },
+  {
+    "time": 1792177043.461907,
+    "rss_sum_mib": 6876.7734375,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177044.4967346,
+    "rss_sum_mib": 6876.7734375,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177045.5356767,
+    "rss_sum_mib": 6960.06640625,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 49.0
+  },
+  {
+    "time": 1792177046.5712936,
+    "rss_sum_mib": 6960.078125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177047.6055532,
+    "rss_sum_mib": 6960.078125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177048.641465,
+    "rss_sum_mib": 6960.078125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177049.6775472,
+    "rss_sum_mib": 6960.078125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177050.7133782,
+    "rss_sum_mib": 6960.078125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177051.7490125,
+    "rss_sum_mib": 7186.55078125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177052.7845929,
+    "rss_sum_mib": 7186.58203125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177053.8202846,
+    "rss_sum_mib": 7186.58203125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177054.8561437,
+    "rss_sum_mib": 7186.58203125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177055.8918996,
+    "rss_sum_mib": 7186.58203125,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177056.9296377,
+    "rss_sum_mib": 7187.98046875,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177057.96386,
+    "rss_sum_mib": 7156.21484375,
+    "gpu_total_used_mib": 5249.0,
+    "gpu_utilization_percent": 99.0
+  },
+  {
+    "time": 1792177058.9982927,
+    "rss_sum_mib": 7156.21484375,
+    "gpu_total_used_mib": 5241.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177060.0371869,
+    "rss_sum_mib": 7179.859375,
+    "gpu_total_used_mib": 5238.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177061.0721407,
+    "rss_sum_mib": 7179.859375,
+    "gpu_total_used_mib": 5209.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177062.1118338,
+    "rss_sum_mib": 7179.859375,
+    "gpu_total_used_mib": 5203.0,
+    "gpu_utilization_percent": 91.0
+  },
+  {
+    "time": 1792177063.1509738,
+    "rss_sum_mib": 7055.96484375,
+    "gpu_total_used_mib": 5203.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177064.1879148,
+    "rss_sum_mib": 7055.96484375,
+    "gpu_total_used_mib": 5200.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177065.2242053,
+    "rss_sum_mib": 7055.96484375,
+    "gpu_total_used_mib": 5165.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177066.2606015,
+    "rss_sum_mib": 7211.41796875,
+    "gpu_total_used_mib": 5163.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177067.2968302,
+    "rss_sum_mib": 7211.4296875,
+    "gpu_total_used_mib": 5161.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177068.3334203,
+    "rss_sum_mib": 7264.21875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177069.3682778,
+    "rss_sum_mib": 7264.21875,
+    "gpu_total_used_mib": 5156.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177070.4030092,
+    "rss_sum_mib": 7264.21875,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177071.4369104,
+    "rss_sum_mib": 7264.21875,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177072.4722843,
+    "rss_sum_mib": 7264.21875,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177073.5076847,
+    "rss_sum_mib": 7264.21875,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177074.5482574,
+    "rss_sum_mib": 7279.07421875,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177075.58271,
+    "rss_sum_mib": 7312.3828125,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177076.6180298,
+    "rss_sum_mib": 7327.234375,
+    "gpu_total_used_mib": 5155.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177077.6550815,
+    "rss_sum_mib": 7383.59765625,
+    "gpu_total_used_mib": 5155.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177078.6902907,
+    "rss_sum_mib": 7383.59765625,
+    "gpu_total_used_mib": 5154.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177079.7243943,
+    "rss_sum_mib": 7383.59765625,
+    "gpu_total_used_mib": 5154.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177080.762291,
+    "rss_sum_mib": 7383.59765625,
+    "gpu_total_used_mib": 5154.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177081.7973158,
+    "rss_sum_mib": 7569.390625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 74.0
+  },
+  {
+    "time": 1792177082.8436408,
+    "rss_sum_mib": 7569.265625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177083.8793323,
+    "rss_sum_mib": 7569.234375,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177084.9167092,
+    "rss_sum_mib": 7569.234375,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177085.9566817,
+    "rss_sum_mib": 7569.234375,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177086.9926808,
+    "rss_sum_mib": 7569.234375,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177088.033101,
+    "rss_sum_mib": 7771.12890625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792177089.0694923,
+    "rss_sum_mib": 7771.140625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177090.1056492,
+    "rss_sum_mib": 7771.140625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177091.141018,
+    "rss_sum_mib": 7771.140625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177092.1765926,
+    "rss_sum_mib": 7771.140625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177093.2133458,
+    "rss_sum_mib": 7771.15625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177094.2496412,
+    "rss_sum_mib": 7976.1015625,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 100.0
+  },
+  {
+    "time": 1792177095.2845716,
+    "rss_sum_mib": 7976.12109375,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 95.0
+  },
+  {
+    "time": 1792177096.3193965,
+    "rss_sum_mib": 7976.125,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177097.3555381,
+    "rss_sum_mib": 7976.1328125,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177098.3918817,
+    "rss_sum_mib": 7976.1328125,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177099.427572,
+    "rss_sum_mib": 7976.1328125,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177100.4667351,
+    "rss_sum_mib": 7976.1328125,
+    "gpu_total_used_mib": 5153.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177101.5021372,
+    "rss_sum_mib": 8136.43359375,
+    "gpu_total_used_mib": 5149.0,
+    "gpu_utilization_percent": 1.0
+  },
+  {
+    "time": 1792177102.5391383,
+    "rss_sum_mib": 8136.43359375,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177103.5771716,
+    "rss_sum_mib": 8136.43359375,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177104.6138024,
+    "rss_sum_mib": 8061.55859375,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177105.6487215,
+    "rss_sum_mib": 8061.5625,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177106.684469,
+    "rss_sum_mib": 8061.5625,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177107.7187264,
+    "rss_sum_mib": 8061.5625,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177108.758677,
+    "rss_sum_mib": 8141.1875,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 28.0
+  },
+  {
+    "time": 1792177109.7951741,
+    "rss_sum_mib": 8106.23046875,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177110.8318598,
+    "rss_sum_mib": 8106.23046875,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177111.8676057,
+    "rss_sum_mib": 8106.23046875,
+    "gpu_total_used_mib": 5151.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177112.9023545,
+    "rss_sum_mib": 8106.23046875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177113.9385672,
+    "rss_sum_mib": 8106.23046875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177114.9782805,
+    "rss_sum_mib": 8032.8984375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177116.0133455,
+    "rss_sum_mib": 8032.90234375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177117.0498815,
+    "rss_sum_mib": 8014.49609375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 37.0
+  },
+  {
+    "time": 1792177118.0915315,
+    "rss_sum_mib": 8075.16796875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 43.0
+  },
+  {
+    "time": 1792177119.1286862,
+    "rss_sum_mib": 8050.62109375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177120.1645598,
+    "rss_sum_mib": 8050.62109375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177121.2006187,
+    "rss_sum_mib": 8050.68359375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177122.237293,
+    "rss_sum_mib": 8050.76953125,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177123.275051,
+    "rss_sum_mib": 8050.8359375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177124.3112442,
+    "rss_sum_mib": 8120.4296875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177125.3463523,
+    "rss_sum_mib": 8121.6640625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177126.386363,
+    "rss_sum_mib": 8121.67578125,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177127.4243078,
+    "rss_sum_mib": 8121.67578125,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177128.4608278,
+    "rss_sum_mib": 8121.68359375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177129.4976952,
+    "rss_sum_mib": 8121.71875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177130.5339274,
+    "rss_sum_mib": 8121.74609375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177131.5682056,
+    "rss_sum_mib": 8121.76953125,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177132.6029208,
+    "rss_sum_mib": 8141.37890625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792177133.6369643,
+    "rss_sum_mib": 8111.13671875,
+    "gpu_total_used_mib": 5162.0,
+    "gpu_utilization_percent": 2.0
+  },
+  {
+    "time": 1792177134.6726692,
+    "rss_sum_mib": 8119.734375,
+    "gpu_total_used_mib": 5162.0,
+    "gpu_utilization_percent": 73.0
+  },
+  {
+    "time": 1792177135.709176,
+    "rss_sum_mib": 8119.77734375,
+    "gpu_total_used_mib": 5161.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177136.7444606,
+    "rss_sum_mib": 8119.77734375,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177137.7792711,
+    "rss_sum_mib": 8119.90625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177138.8165243,
+    "rss_sum_mib": 8119.78515625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177139.851447,
+    "rss_sum_mib": 8043.44921875,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177140.8882926,
+    "rss_sum_mib": 8244.22265625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177141.9255407,
+    "rss_sum_mib": 8146.09765625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177142.960962,
+    "rss_sum_mib": 8146.1328125,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177143.9953249,
+    "rss_sum_mib": 8146.25,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177145.0296311,
+    "rss_sum_mib": 8146.25390625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177146.0701773,
+    "rss_sum_mib": 8035.2578125,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177147.10681,
+    "rss_sum_mib": 8029.265625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177148.1442606,
+    "rss_sum_mib": 8029.265625,
+    "gpu_total_used_mib": 5160.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177149.180407,
+    "rss_sum_mib": 7955.625,
+    "gpu_total_used_mib": 5196.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177150.218191,
+    "rss_sum_mib": 7955.703125,
+    "gpu_total_used_mib": 5181.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177151.2541711,
+    "rss_sum_mib": 7955.703125,
+    "gpu_total_used_mib": 5182.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177152.3227665,
+    "rss_sum_mib": 8088.5390625,
+    "gpu_total_used_mib": 5182.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177153.359188,
+    "rss_sum_mib": 8070.109375,
+    "gpu_total_used_mib": 5157.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177154.3975492,
+    "rss_sum_mib": 7989.828125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177155.432255,
+    "rss_sum_mib": 7989.890625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177156.4676905,
+    "rss_sum_mib": 7989.89453125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177157.5039082,
+    "rss_sum_mib": 7989.90234375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177158.5400145,
+    "rss_sum_mib": 7990.03515625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177159.577939,
+    "rss_sum_mib": 7990.19140625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177160.6176722,
+    "rss_sum_mib": 8015.51953125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177161.6536536,
+    "rss_sum_mib": 8015.66015625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177162.6887038,
+    "rss_sum_mib": 8015.8515625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177163.7256694,
+    "rss_sum_mib": 7937.8125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177164.7613633,
+    "rss_sum_mib": 7937.890625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177165.7976463,
+    "rss_sum_mib": 7937.890625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177166.8327844,
+    "rss_sum_mib": 7938.01953125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177167.8694246,
+    "rss_sum_mib": 7938.02734375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177168.9040353,
+    "rss_sum_mib": 7938.02734375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177169.940524,
+    "rss_sum_mib": 7938.04296875,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177170.976694,
+    "rss_sum_mib": 8098.9140625,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177172.0120542,
+    "rss_sum_mib": 8098.9296875,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177173.0465114,
+    "rss_sum_mib": 8098.95703125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177174.0822937,
+    "rss_sum_mib": 8098.95703125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177175.1169422,
+    "rss_sum_mib": 8098.96484375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177176.1569436,
+    "rss_sum_mib": 8184.77734375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177177.1916153,
+    "rss_sum_mib": 8168.5234375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177178.2286239,
+    "rss_sum_mib": 8258.89453125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177179.264104,
+    "rss_sum_mib": 8199.92578125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 97.0
+  },
+  {
+    "time": 1792177180.2985058,
+    "rss_sum_mib": 8199.93359375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177181.3375876,
+    "rss_sum_mib": 8200.05078125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177182.3742924,
+    "rss_sum_mib": 8200.05078125,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177183.4126043,
+    "rss_sum_mib": 8200.05859375,
+    "gpu_total_used_mib": 5159.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177184.4574733,
+    "rss_sum_mib": 8189.29296875,
+    "gpu_total_used_mib": 5317.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177185.4959583,
+    "rss_sum_mib": 8100.00390625,
+    "gpu_total_used_mib": 5270.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177186.5357375,
+    "rss_sum_mib": 8112.03515625,
+    "gpu_total_used_mib": 5231.0,
+    "gpu_utilization_percent": 96.0
+  },
+  {
+    "time": 1792177187.5711339,
+    "rss_sum_mib": 8112.03515625,
+    "gpu_total_used_mib": 5224.0,
+    "gpu_utilization_percent": 98.0
+  },
+  {
+    "time": 1792177188.6064894,
+    "rss_sum_mib": 8112.04296875,
+    "gpu_total_used_mib": 5224.0,
+    "gpu_utilization_percent": 98.0
+  }
+]

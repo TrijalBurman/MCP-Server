@@ -1,0 +1,11 @@
+{
+  "case": "P07",
+  "label": "Post-selection citation-mapping development diagnostic; not part of fixed comparison.",
+  "context_size": 8192,
+  "complete_evidence_message_retained": false,
+  "schemas_unchanged": true,
+  "reminder": "Use each record source_number as citation: source_number 2 means [2]. Include citations after document claims.\n",
+  "source_run": "candidate-qwen35-9b-v1",
+  "changed_only": "Prefix citation mapping within the existing evidence system message; then apply production fitter.",
+  "skipped": "Would truncate evidence; no inference performed."
+}

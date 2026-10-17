@@ -1,0 +1,52 @@
+{
+  "recorded_at_utc": "2026-10-17T06:37:52.971Z",
+  "scope": "Citation retry regression verification after production implementation was frozen",
+  "edited_sources": [
+    "tests/test_answer_grounding.py",
+    ".runtime/windows/tests/test_answer_grounding.py"
+  ],
+  "production_source_changes": false,
+  "real_inference_calls": false,
+  "server_or_model_settings_changes": false,
+  "grounding_file_cases": 30,
+  "coverage": [
+    "Successful uncited-to-cited regeneration with a single tool-free retry",
+    "Still-uncited, invalid-reference, empty, tool-call, OllamaUnavailable and ValueError retry failures",
+    "No retry for valid references, invalid original numeric references, accepted unknown abstention, no evidence or genuine conversation recall",
+    "Full original source-pool repacking with larger retry excerpts under an 8192-context stress fixture",
+    "Successful answer cards match the actual fitted retry payload",
+    "Failed retry cards and quoted excerpts remain the original safe evidence",
+    "No draft, assistant envelope, tool-result envelope or tool schemas in the retry payload",
+    "Single retry maximum and both normal and forced-final synthesis paths"
+  ],
+  "linux": {
+    "passed": 135,
+    "skipped": 0,
+    "warnings": 1,
+    "seconds": 21.32,
+    "exit_code": 0,
+    "log": "citation-retry-linux-pytest.log"
+  },
+  "windows_copy_on_linux": {
+    "passed": 172,
+    "skipped": 6,
+    "warnings": 1,
+    "seconds": 21.06,
+    "exit_code": 0,
+    "log": "citation-retry-windows-on-linux-pytest.log",
+    "native_windows_validation": false
+  },
+  "checks": {
+    "linux_ruff": "passed",
+    "windows_ruff": "passed",
+    "linux_diff_whitespace": "passed",
+    "windows_diff_whitespace": "passed",
+    "guard_regressions": "passed as part of both full suites"
+  },
+  "warning": "Existing StarletteDeprecationWarning for using httpx with starlette.testclient; no failed tests.",
+  "sha256_identical_in_both_worktrees": {
+    "copilot/agent.py": "ab0c885bf1363ef0217127876ec38d0d190bd767bad1361d2ad442af8ae33330",
+    "copilot/grounding.py": "a0f259cc50bfe0a3903afaed897014ea898e057d72259c84b22ac303fc468cc1",
+    "tests/test_answer_grounding.py": "8091184073f4391ec54219c6147dbb547fdf222cc398e645c00b059f234314a4"
+  }
+}

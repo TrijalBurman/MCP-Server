@@ -2,7 +2,8 @@
 set -euo pipefail
 TASK_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$TASK_DIR"
-mkdir -p .runtime
+mkdir -p .runtime/tmp
+export TMPDIR="$TASK_DIR/.runtime/tmp"
 export COPILOT_DATA_DIR="${COPILOT_DATA_DIR:-$TASK_DIR/.local-copilot}"
 export OLLAMA_HOST=127.0.0.1:11434 OLLAMA_NO_CLOUD=1
 export OLLAMA_MODELS="$TASK_DIR/.runtime/models"

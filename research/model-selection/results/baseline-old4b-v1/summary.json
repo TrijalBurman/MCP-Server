@@ -1,0 +1,21 @@
+{
+  "label": "Model selection development probe; not held-out validation or paper accuracy.",
+  "model": "qwen3:4b-instruct-2507-q4_K_M",
+  "run_id": "baseline-old4b-v1",
+  "completed_utc": "2026-10-17T06:04:25.010332+00:00",
+  "questions": 10,
+  "answerable_generated_literal_checks": 7,
+  "answerable_count": 8,
+  "unknown_exact_abstentions": 2,
+  "unknown_count": 2,
+  "extractive_fallbacks": 0,
+  "question_errors": 0,
+  "median_question_seconds": 1.1135749219997706,
+  "short_summary_literal_check": false,
+  "short_summary_seconds": 1.3199889870002153,
+  "native_tool_smoke": true,
+  "native_tool_seconds": 0.42313463899972703,
+  "chat_model_calls": 12,
+  "embedding_model_calls": 15,
+  "warning": "Small development probe with literal scoring, unseeded generation and no semantic judge; not general accuracy."
+}

@@ -1,0 +1,25 @@
+{
+  "label": "Two-case post-selection development diagnostic; no general accuracy claim.",
+  "results": [
+    {
+      "case": "P01",
+      "complete_evidence_message_retained": false,
+      "actual_payload_complete_evidence": null,
+      "seconds": null,
+      "citation_numbers": null,
+      "valid_citations": null,
+      "expected_literals_present": null,
+      "skipped": "Would truncate evidence; no inference performed."
+    },
+    {
+      "case": "P07",
+      "complete_evidence_message_retained": false,
+      "actual_payload_complete_evidence": null,
+      "seconds": null,
+      "citation_numbers": null,
+      "valid_citations": null,
+      "expected_literals_present": null,
+      "skipped": "Would truncate evidence; no inference performed."
+    }
+  ]
+}

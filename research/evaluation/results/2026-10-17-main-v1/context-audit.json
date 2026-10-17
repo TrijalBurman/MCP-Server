@@ -1,0 +1,3362 @@
+{
+  "audit_type": "Post-hoc deterministic context reconstruction; no inference and no application changes",
+  "primary_run": "2026-10-17-main-v1",
+  "primary_commit": "ddbbbb7be35a83c6ebc32706bb0aaf41ff379ff8",
+  "primary_identity_file_sha256": "9ce44ef9982baaeb4b5057b2cd54a3afe580a157884ac456f3d8b7f73a709691",
+  "primary_dataset_sha256": "12eb3a92e86f9d0af0e85b8071f91723a545194fd4482c08bf4dc38a32c4c55d",
+  "primary_engine_sha256": "0eaf7350af76fef586ea7b9139733a829d493d07184a791704ffc4a42fc1ef6f",
+  "primary_generation_jsonl_sha256": "4f080bf8c1e534344b88212bfa0eb5f052c21180406c136cf9b06d0f731fd928",
+  "current_dataset_and_corpus_match_primary_identity": true,
+  "application_sources_sha256": {
+    "agent.py": "71ba0d87d2f5662343c1f0e02566a20815cb986dc90b549c56634c92697786c4",
+    "ollama.py": "45a3426f9ff5f9589689c6cf0500bdcfb8a72e8755dc6330f6c5727c3773d7e8",
+    "mcp_server.py": "e76bd6b092146a67f6584aeedc9ca13443efb1cd9f26dd5e5c09ce794ff061b7"
+  },
+  "schema_reconstruction": {
+    "method": "Official-SDK build_server/list_tools with audit-process-only no-op Store constructor; handlers not called; no DB opens/subprocesses/inference",
+    "tool_names": [
+      "knowledge_search",
+      "list_documents",
+      "read_document",
+      "recall",
+      "list_projects",
+      "search_conversations"
+    ],
+    "schemas_sha256": "3e88e5a101299b1223b231fc182acd10e20060efa98e142430ab81189a9d0b55"
+  },
+  "model_template": {
+    "source": "Read-only local POST /api/show, plus GET /api/tags for digest verification",
+    "model": "qwen3:4b-instruct-2507-q4_K_M",
+    "model_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+    "template_sha256": "40c21f34cf67d8c760ef72f8ad3ae5afad514299d4b06e91dd9a8d705af7b541",
+    "late_system_rendering_condition": "{%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) %}",
+    "late_system_messages_explicitly_supported": true,
+    "interpretation": "Cached template does not omit late system messages; original evidence was dropped by application fit_context before reaching runtime",
+    "modelfile_renderer_or_parser_lines": []
+  },
+  "cause": {
+    "function": "copilot.ollama.fit_context",
+    "mechanism": "When optional evidence exceeds remaining budget, it clips content raw UTF-8 bytes to available-120 and appends a marker. JSON serialization then escapes the nested evidence JSON again. If resulting cost still exceeds remaining budget, amount<=available fails and the entire block is silently omitted; no iterative exact-cost shrink occurs.",
+    "limits": "Coverage metrics are normalized alias/path heuristics. Reconstruction uses saved initial sources; there were no extra successful tools in these primary rows. Prompt-evaluation counts are corroboration, not direct prompt capture."
+  },
+  "aggregates": {
+    "single_pass_rag": {
+      "all_rows": 32,
+      "answerable_rows": 24,
+      "gold_fact_slots": 32,
+      "document_evidence_blocks_retained": 0,
+      "all_recorded_tools_flags_match_reconstruction": true,
+      "all_answers_exact_abstention": true,
+      "coverage": {
+        "gold_facts_in_full_retrieved_sources": {
+          "fact_slots_present": 32,
+          "complete_answerable_rows": 24
+        },
+        "gold_facts_in_first_1000_source_characters": {
+          "fact_slots_present": 15,
+          "complete_answerable_rows": 7
+        },
+        "gold_facts_in_prefit_evidence_block": {
+          "fact_slots_present": 15,
+          "complete_answerable_rows": 7
+        },
+        "gold_facts_in_actual_fitted_evidence": {
+          "fact_slots_present": 0,
+          "complete_answerable_rows": 0
+        }
+      }
+    },
+    "mcp_agent": {
+      "all_rows": 32,
+      "answerable_rows": 24,
+      "gold_fact_slots": 32,
+      "document_evidence_blocks_retained": 0,
+      "all_recorded_tools_flags_match_reconstruction": true,
+      "all_answers_exact_abstention": false,
+      "coverage": {
+        "gold_facts_in_full_retrieved_sources": {
+          "fact_slots_present": 32,
+          "complete_answerable_rows": 24
+        },
+        "gold_facts_in_first_1000_source_characters": {
+          "fact_slots_present": 15,
+          "complete_answerable_rows": 7
+        },
+        "gold_facts_in_prefit_evidence_block": {
+          "fact_slots_present": 15,
+          "complete_answerable_rows": 7
+        },
+        "gold_facts_in_actual_fitted_evidence": {
+          "fact_slots_present": 0,
+          "complete_answerable_rows": 0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "Q001",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        166,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 211,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 951,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5323,
+        "evidence_original_content_utf8_bytes": 5229,
+        "evidence_original_serialized_cost": 5383,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5203,
+        "post_clip_content_utf8_bytes": 5230,
+        "post_clip_serialized_cost": 5383,
+        "post_clip_overflow_bytes": 60,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q001",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        166,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 736,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 951,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2819,
+        "evidence_original_content_utf8_bytes": 5229,
+        "evidence_original_serialized_cost": 5383,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2699,
+        "post_clip_content_utf8_bytes": 2726,
+        "post_clip_serialized_cost": 2837,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q005",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        199,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 219,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 984,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5290,
+        "evidence_original_content_utf8_bytes": 5394,
+        "evidence_original_serialized_cost": 5553,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5170,
+        "post_clip_content_utf8_bytes": 5197,
+        "post_clip_serialized_cost": 5354,
+        "post_clip_overflow_bytes": 64,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q005",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        199,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 744,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 984,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2786,
+        "evidence_original_content_utf8_bytes": 5394,
+        "evidence_original_serialized_cost": 5553,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2666,
+        "post_clip_content_utf8_bytes": 2693,
+        "post_clip_serialized_cost": 2806,
+        "post_clip_overflow_bytes": 20,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q013",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        201,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 744,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 986,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2784,
+        "evidence_original_content_utf8_bytes": 5384,
+        "evidence_original_serialized_cost": 5539,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2664,
+        "post_clip_content_utf8_bytes": 2691,
+        "post_clip_serialized_cost": 2798,
+        "post_clip_overflow_bytes": 14,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q013",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        201,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 219,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 986,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5288,
+        "evidence_original_content_utf8_bytes": 5384,
+        "evidence_original_serialized_cost": 5539,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5168,
+        "post_clip_content_utf8_bytes": 5195,
+        "post_clip_serialized_cost": 5346,
+        "post_clip_overflow_bytes": 58,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q016",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        224,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 746,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1009,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2761,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5531,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2641,
+        "post_clip_content_utf8_bytes": 2668,
+        "post_clip_serialized_cost": 2777,
+        "post_clip_overflow_bytes": 16,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q016",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        224,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 221,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1009,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5265,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5531,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5145,
+        "post_clip_content_utf8_bytes": 5172,
+        "post_clip_serialized_cost": 5323,
+        "post_clip_overflow_bytes": 58,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q017",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        168,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 953,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5321,
+        "evidence_original_content_utf8_bytes": 5387,
+        "evidence_original_serialized_cost": 5548,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5201,
+        "post_clip_content_utf8_bytes": 5228,
+        "post_clip_serialized_cost": 5387,
+        "post_clip_overflow_bytes": 66,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q017",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        168,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 953,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2817,
+        "evidence_original_content_utf8_bytes": 5387,
+        "evidence_original_serialized_cost": 5548,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2697,
+        "post_clip_content_utf8_bytes": 2724,
+        "post_clip_serialized_cost": 2835,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q024",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        224,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 222,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1009,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5265,
+        "evidence_original_content_utf8_bytes": 5260,
+        "evidence_original_serialized_cost": 5414,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5145,
+        "post_clip_content_utf8_bytes": 5172,
+        "post_clip_serialized_cost": 5326,
+        "post_clip_overflow_bytes": 61,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q024",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        224,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 747,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1009,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2761,
+        "evidence_original_content_utf8_bytes": 5260,
+        "evidence_original_serialized_cost": 5414,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2641,
+        "post_clip_content_utf8_bytes": 2668,
+        "post_clip_serialized_cost": 2774,
+        "post_clip_overflow_bytes": 13,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q025",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        168,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 953,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5321,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5534,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5201,
+        "post_clip_content_utf8_bytes": 5228,
+        "post_clip_serialized_cost": 5383,
+        "post_clip_overflow_bytes": 62,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q025",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        168,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 953,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2817,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5534,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2697,
+        "post_clip_content_utf8_bytes": 2724,
+        "post_clip_serialized_cost": 2835,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q029",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        201,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 745,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 986,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2784,
+        "evidence_original_content_utf8_bytes": 5390,
+        "evidence_original_serialized_cost": 5545,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2664,
+        "post_clip_content_utf8_bytes": 2691,
+        "post_clip_serialized_cost": 2796,
+        "post_clip_overflow_bytes": 12,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q029",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        201,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 220,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 986,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5288,
+        "evidence_original_content_utf8_bytes": 5390,
+        "evidence_original_serialized_cost": 5545,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5168,
+        "post_clip_content_utf8_bytes": 5195,
+        "post_clip_serialized_cost": 5348,
+        "post_clip_overflow_bytes": 60,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q037",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        199,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 745,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 984,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2786,
+        "evidence_original_content_utf8_bytes": 5387,
+        "evidence_original_serialized_cost": 5544,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2666,
+        "post_clip_content_utf8_bytes": 2693,
+        "post_clip_serialized_cost": 2804,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q037",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        199,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 220,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 984,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5290,
+        "evidence_original_content_utf8_bytes": 5387,
+        "evidence_original_serialized_cost": 5544,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5170,
+        "post_clip_content_utf8_bytes": 5197,
+        "post_clip_serialized_cost": 5352,
+        "post_clip_overflow_bytes": 62,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q040",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        222,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 747,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1007,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2763,
+        "evidence_original_content_utf8_bytes": 5388,
+        "evidence_original_serialized_cost": 5547,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2643,
+        "post_clip_content_utf8_bytes": 2670,
+        "post_clip_serialized_cost": 2777,
+        "post_clip_overflow_bytes": 14,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q040",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        222,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 222,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1007,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5267,
+        "evidence_original_content_utf8_bytes": 5388,
+        "evidence_original_serialized_cost": 5547,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5147,
+        "post_clip_content_utf8_bytes": 5174,
+        "post_clip_serialized_cost": 5329,
+        "post_clip_overflow_bytes": 62,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q041",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        167,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 952,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5322,
+        "evidence_original_content_utf8_bytes": 5386,
+        "evidence_original_serialized_cost": 5543,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5202,
+        "post_clip_content_utf8_bytes": 5229,
+        "post_clip_serialized_cost": 5384,
+        "post_clip_overflow_bytes": 62,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q041",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        167,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 952,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2818,
+        "evidence_original_content_utf8_bytes": 5386,
+        "evidence_original_serialized_cost": 5543,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2698,
+        "post_clip_content_utf8_bytes": 2725,
+        "post_clip_serialized_cost": 2836,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q048",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        223,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 222,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1008,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5266,
+        "evidence_original_content_utf8_bytes": 5386,
+        "evidence_original_serialized_cost": 5543,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5146,
+        "post_clip_content_utf8_bytes": 5173,
+        "post_clip_serialized_cost": 5326,
+        "post_clip_overflow_bytes": 60,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q048",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        223,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 747,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1008,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2762,
+        "evidence_original_content_utf8_bytes": 5386,
+        "evidence_original_serialized_cost": 5543,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2642,
+        "post_clip_content_utf8_bytes": 2669,
+        "post_clip_serialized_cost": 2776,
+        "post_clip_overflow_bytes": 14,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q049",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        169,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 954,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5320,
+        "evidence_original_content_utf8_bytes": 5268,
+        "evidence_original_serialized_cost": 5422,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5200,
+        "post_clip_content_utf8_bytes": 5227,
+        "post_clip_serialized_cost": 5381,
+        "post_clip_overflow_bytes": 61,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q049",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        169,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 954,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2816,
+        "evidence_original_content_utf8_bytes": 5268,
+        "evidence_original_serialized_cost": 5422,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2696,
+        "post_clip_content_utf8_bytes": 2723,
+        "post_clip_serialized_cost": 2835,
+        "post_clip_overflow_bytes": 19,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q053",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        202,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 745,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 987,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2783,
+        "evidence_original_content_utf8_bytes": 5392,
+        "evidence_original_serialized_cost": 5549,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2663,
+        "post_clip_content_utf8_bytes": 2690,
+        "post_clip_serialized_cost": 2801,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q053",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        202,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 220,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 987,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5287,
+        "evidence_original_content_utf8_bytes": 5392,
+        "evidence_original_serialized_cost": 5549,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5167,
+        "post_clip_content_utf8_bytes": 5194,
+        "post_clip_serialized_cost": 5351,
+        "post_clip_overflow_bytes": 64,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q061",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        200,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 744,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 985,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2785,
+        "evidence_original_content_utf8_bytes": 5392,
+        "evidence_original_serialized_cost": 5549,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2665,
+        "post_clip_content_utf8_bytes": 2692,
+        "post_clip_serialized_cost": 2803,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q061",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        200,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 219,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 985,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5289,
+        "evidence_original_content_utf8_bytes": 5392,
+        "evidence_original_serialized_cost": 5549,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5169,
+        "post_clip_content_utf8_bytes": 5196,
+        "post_clip_serialized_cost": 5353,
+        "post_clip_overflow_bytes": 64,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q064",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        223,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 746,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1008,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2762,
+        "evidence_original_content_utf8_bytes": 5371,
+        "evidence_original_serialized_cost": 5523,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2642,
+        "post_clip_content_utf8_bytes": 2669,
+        "post_clip_serialized_cost": 2776,
+        "post_clip_overflow_bytes": 14,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q064",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        223,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 221,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1008,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5266,
+        "evidence_original_content_utf8_bytes": 5371,
+        "evidence_original_serialized_cost": 5523,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5146,
+        "post_clip_content_utf8_bytes": 5173,
+        "post_clip_serialized_cost": 5323,
+        "post_clip_overflow_bytes": 57,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q065",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        168,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 953,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2817,
+        "evidence_original_content_utf8_bytes": 5380,
+        "evidence_original_serialized_cost": 5538,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2697,
+        "post_clip_content_utf8_bytes": 2724,
+        "post_clip_serialized_cost": 2837,
+        "post_clip_overflow_bytes": 20,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q065",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        168,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 953,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5321,
+        "evidence_original_content_utf8_bytes": 5380,
+        "evidence_original_serialized_cost": 5538,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5201,
+        "post_clip_content_utf8_bytes": 5228,
+        "post_clip_serialized_cost": 5386,
+        "post_clip_overflow_bytes": 65,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q072",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        224,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 747,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1009,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2761,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5534,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2641,
+        "post_clip_content_utf8_bytes": 2668,
+        "post_clip_serialized_cost": 2774,
+        "post_clip_overflow_bytes": 13,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q072",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        224,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 222,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1009,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5265,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5534,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5145,
+        "post_clip_content_utf8_bytes": 5172,
+        "post_clip_serialized_cost": 5324,
+        "post_clip_overflow_bytes": 59,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q073",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        169,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 954,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2816,
+        "evidence_original_content_utf8_bytes": 5380,
+        "evidence_original_serialized_cost": 5531,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2696,
+        "post_clip_content_utf8_bytes": 2723,
+        "post_clip_serialized_cost": 2834,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q073",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        169,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 954,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5320,
+        "evidence_original_content_utf8_bytes": 5380,
+        "evidence_original_serialized_cost": 5531,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5200,
+        "post_clip_content_utf8_bytes": 5227,
+        "post_clip_serialized_cost": 5378,
+        "post_clip_overflow_bytes": 58,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q077",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        202,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 220,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 987,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5287,
+        "evidence_original_content_utf8_bytes": 5390,
+        "evidence_original_serialized_cost": 5545,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5167,
+        "post_clip_content_utf8_bytes": 5194,
+        "post_clip_serialized_cost": 5349,
+        "post_clip_overflow_bytes": 62,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q077",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        202,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 745,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 987,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2783,
+        "evidence_original_content_utf8_bytes": 5390,
+        "evidence_original_serialized_cost": 5545,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2663,
+        "post_clip_content_utf8_bytes": 2690,
+        "post_clip_serialized_cost": 2795,
+        "post_clip_overflow_bytes": 12,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q085",
+      "method": "single_pass_rag",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        202,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 221,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 987,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5287,
+        "evidence_original_content_utf8_bytes": 5384,
+        "evidence_original_serialized_cost": 5540,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5167,
+        "post_clip_content_utf8_bytes": 5194,
+        "post_clip_serialized_cost": 5348,
+        "post_clip_overflow_bytes": 61,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q085",
+      "method": "mcp_agent",
+      "kind": "paraphrase",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        202,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 746,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 987,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2783,
+        "evidence_original_content_utf8_bytes": 5384,
+        "evidence_original_serialized_cost": 5540,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2663,
+        "post_clip_content_utf8_bytes": 2690,
+        "post_clip_serialized_cost": 2800,
+        "post_clip_overflow_bytes": 17,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q088",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        225,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 748,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1010,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2760,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5534,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2640,
+        "post_clip_content_utf8_bytes": 2667,
+        "post_clip_serialized_cost": 2773,
+        "post_clip_overflow_bytes": 13,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q088",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        true
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        true
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        225,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 223,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1010,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5264,
+        "evidence_original_content_utf8_bytes": 5378,
+        "evidence_original_serialized_cost": 5534,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5144,
+        "post_clip_content_utf8_bytes": 5171,
+        "post_clip_serialized_cost": 5327,
+        "post_clip_overflow_bytes": 63,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q089",
+      "method": "single_pass_rag",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        167,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 212,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 952,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5322,
+        "evidence_original_content_utf8_bytes": 5284,
+        "evidence_original_serialized_cost": 5438,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5202,
+        "post_clip_content_utf8_bytes": 5229,
+        "post_clip_serialized_cost": 5382,
+        "post_clip_overflow_bytes": 60,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q089",
+      "method": "mcp_agent",
+      "kind": "lexical",
+      "answerable": true,
+      "gold_fact_count": 1,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        167,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 737,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 952,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2818,
+        "evidence_original_content_utf8_bytes": 5284,
+        "evidence_original_serialized_cost": 5438,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2698,
+        "post_clip_content_utf8_bytes": 2725,
+        "post_clip_serialized_cost": 2836,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q096",
+      "method": "single_pass_rag",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        223,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 222,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1008,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5266,
+        "evidence_original_content_utf8_bytes": 5284,
+        "evidence_original_serialized_cost": 5438,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5146,
+        "post_clip_content_utf8_bytes": 5173,
+        "post_clip_serialized_cost": 5325,
+        "post_clip_overflow_bytes": 59,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "Q096",
+      "method": "mcp_agent",
+      "kind": "cross_document",
+      "answerable": true,
+      "gold_fact_count": 2,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [
+        true,
+        true
+      ],
+      "gold_facts_in_first_1000_source_characters": [
+        true,
+        false
+      ],
+      "gold_facts_in_prefit_evidence_block": [
+        true,
+        false
+      ],
+      "gold_facts_in_actual_fitted_evidence": [
+        false,
+        false
+      ],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        223,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 747,
+      "recorded_answer": "I cannot locate any document that mentions \"Lumen Field\" or its release guardrails or decision review dates. Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 1008,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2762,
+        "evidence_original_content_utf8_bytes": 5284,
+        "evidence_original_serialized_cost": 5438,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2642,
+        "post_clip_content_utf8_bytes": 2669,
+        "post_clip_serialized_cost": 2776,
+        "post_clip_overflow_bytes": 14,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U001",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        179,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 738,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 964,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2806,
+        "evidence_original_content_utf8_bytes": 5229,
+        "evidence_original_serialized_cost": 5383,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2686,
+        "post_clip_content_utf8_bytes": 2713,
+        "post_clip_serialized_cost": 2824,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U001",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        179,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 213,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 964,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5310,
+        "evidence_original_content_utf8_bytes": 5229,
+        "evidence_original_serialized_cost": 5383,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5190,
+        "post_clip_content_utf8_bytes": 5217,
+        "post_clip_serialized_cost": 5371,
+        "post_clip_overflow_bytes": 61,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U002",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        183,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 739,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 968,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2802,
+        "evidence_original_content_utf8_bytes": 5384,
+        "evidence_original_serialized_cost": 5539,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2682,
+        "post_clip_content_utf8_bytes": 2709,
+        "post_clip_serialized_cost": 2820,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U002",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        183,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 214,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 968,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5306,
+        "evidence_original_content_utf8_bytes": 5384,
+        "evidence_original_serialized_cost": 5539,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5186,
+        "post_clip_content_utf8_bytes": 5213,
+        "post_clip_serialized_cost": 5366,
+        "post_clip_overflow_bytes": 60,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U003",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        198,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 743,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 983,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2787,
+        "evidence_original_content_utf8_bytes": 5256,
+        "evidence_original_serialized_cost": 5414,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2667,
+        "post_clip_content_utf8_bytes": 2694,
+        "post_clip_serialized_cost": 2805,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U003",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        198,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 218,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 983,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5291,
+        "evidence_original_content_utf8_bytes": 5256,
+        "evidence_original_serialized_cost": 5414,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5171,
+        "post_clip_content_utf8_bytes": 5198,
+        "post_clip_serialized_cost": 5354,
+        "post_clip_overflow_bytes": 63,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U004",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        190,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 741,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 975,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2795,
+        "evidence_original_content_utf8_bytes": 5389,
+        "evidence_original_serialized_cost": 5548,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2675,
+        "post_clip_content_utf8_bytes": 2702,
+        "post_clip_serialized_cost": 2813,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U004",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        190,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 216,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 975,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5299,
+        "evidence_original_content_utf8_bytes": 5389,
+        "evidence_original_serialized_cost": 5548,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5179,
+        "post_clip_content_utf8_bytes": 5206,
+        "post_clip_serialized_cost": 5365,
+        "post_clip_overflow_bytes": 66,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U005",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        188,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 740,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 973,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2797,
+        "evidence_original_content_utf8_bytes": 5389,
+        "evidence_original_serialized_cost": 5548,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2677,
+        "post_clip_content_utf8_bytes": 2704,
+        "post_clip_serialized_cost": 2817,
+        "post_clip_overflow_bytes": 20,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U005",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        188,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 215,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 973,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5301,
+        "evidence_original_content_utf8_bytes": 5389,
+        "evidence_original_serialized_cost": 5548,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5181,
+        "post_clip_content_utf8_bytes": 5208,
+        "post_clip_serialized_cost": 5365,
+        "post_clip_overflow_bytes": 64,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U006",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        198,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 217,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 983,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5291,
+        "evidence_original_content_utf8_bytes": 5382,
+        "evidence_original_serialized_cost": 5539,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5171,
+        "post_clip_content_utf8_bytes": 5198,
+        "post_clip_serialized_cost": 5355,
+        "post_clip_overflow_bytes": 64,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U006",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        198,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 742,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 983,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2787,
+        "evidence_original_content_utf8_bytes": 5382,
+        "evidence_original_serialized_cost": 5539,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2667,
+        "post_clip_content_utf8_bytes": 2694,
+        "post_clip_serialized_cost": 2805,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U007",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        189,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 742,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 974,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2796,
+        "evidence_original_content_utf8_bytes": 5379,
+        "evidence_original_serialized_cost": 5532,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2676,
+        "post_clip_content_utf8_bytes": 2703,
+        "post_clip_serialized_cost": 2814,
+        "post_clip_overflow_bytes": 18,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U007",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        189,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 217,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 974,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5300,
+        "evidence_original_content_utf8_bytes": 5379,
+        "evidence_original_serialized_cost": 5532,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5180,
+        "post_clip_content_utf8_bytes": 5207,
+        "post_clip_serialized_cost": 5358,
+        "post_clip_overflow_bytes": 58,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U008",
+      "method": "mcp_agent",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        189,
+        69
+      ],
+      "recorded_tools_sent": true,
+      "reconstructed_tools_sent": true,
+      "recorded_prompt_eval_count": 738,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 974,
+        "tool_schemas_retained": true,
+        "tool_schema_serialized_bytes": 2504,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 2796,
+        "evidence_original_content_utf8_bytes": 5392,
+        "evidence_original_serialized_cost": 5553,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 2676,
+        "post_clip_content_utf8_bytes": 2703,
+        "post_clip_serialized_cost": 2818,
+        "post_clip_overflow_bytes": 22,
+        "evidence_would_be_admitted": false
+      }
+    },
+    {
+      "id": "U008",
+      "method": "single_pass_rag",
+      "kind": "unanswerable",
+      "answerable": false,
+      "gold_fact_count": 0,
+      "source_count": 5,
+      "gold_facts_in_full_retrieved_sources": [],
+      "gold_facts_in_first_1000_source_characters": [],
+      "gold_facts_in_prefit_evidence_block": [],
+      "gold_facts_in_actual_fitted_evidence": [],
+      "document_evidence_block_retained": false,
+      "fitted_message_roles": [
+        "system",
+        "user",
+        "system"
+      ],
+      "fitted_message_content_utf8_bytes": [
+        672,
+        189,
+        69
+      ],
+      "recorded_tools_sent": false,
+      "reconstructed_tools_sent": false,
+      "recorded_prompt_eval_count": 213,
+      "recorded_answer": "Not in the documents.",
+      "context_fit_attempt": {
+        "context_size": 8192,
+        "input_budget_bytes": 6400,
+        "pinned_serialized_cost": 974,
+        "tool_schemas_retained": false,
+        "tool_schema_serialized_bytes": 0,
+        "personal_reference_serialized_cost": 126,
+        "remaining_for_document_evidence": 5300,
+        "evidence_original_content_utf8_bytes": 5392,
+        "evidence_original_serialized_cost": 5553,
+        "clipping_attempted": true,
+        "content_clip_limit_bytes": 5180,
+        "post_clip_content_utf8_bytes": 5207,
+        "post_clip_serialized_cost": 5366,
+        "post_clip_overflow_bytes": 66,
+        "evidence_would_be_admitted": false
+      }
+    }
+  ]
+}

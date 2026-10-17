@@ -28,7 +28,9 @@ The following defaults were validated on a development laptop with an **RTX 5050
 | Parallel model requests | 1 | Reduces memory pressure |
 | Maximum loaded models | 2 | Lets the small chat and embedding models remain resident together |
 
-Ollama lists the selected [Qwen3 4B Instruct model](https://ollama.com/library/qwen3:4b-instruct-2507-q4_K_M) at approximately 2.5 GB and [EmbeddingGemma](https://ollama.com/library/embeddinggemma) at about 0.62 GB (approximately 621 MB in the installed runtime). Runtime memory also includes context and other overhead. These defaults are a hardware sizing choice, not a measured speed guarantee. Larger models can be selected in Settings after you install them yourself.
+Ollama lists the selected [Qwen3 4B Instruct model](https://ollama.com/library/qwen3:4b-instruct-2507-q4_K_M) at approximately 2.5 GB and [EmbeddingGemma](https://ollama.com/library/embeddinggemma) at about 0.62 GB (approximately 621 MB in the installed runtime). Runtime memory also includes context and other overhead. These defaults are a hardware sizing choice, not a measured speed guarantee. An optional **Qwen3.5 9B / 12,288-token** profile was checked on the Linux development laptop; see [model profiles and reproduction](docs/model-profiles.md). Model selection is saved locally in Settings; the committed defaults remain 4B / 8,192.
+
+The [project deliverables index](output/README.md) links the report, research paper, presentation materials, and supporting records.
 
 ## Use your local drive
 
@@ -49,6 +51,28 @@ Rescan after adding, modifying, or removing files. Indexing preserves complete e
 ## What works without the model
 
 Folder indexing, full extracted document reading, lexical search, saved memory, and projects work without Ollama. Chat clearly labels an extractive fallback that returns matched source passages. Generative summaries, reasoned multi-turn responses, and generated project plans require the local chat model. Semantic retrieval requires the embedding model; search falls back to SQLite full-text search if embeddings are unavailable.
+
+## Grounded file answers
+
+Questions such as “List all indexed files” and “Is there a file named api.md?”
+use paginated index metadata directly through MCP. They do not ask the language
+model to infer file existence from search passages. Duplicate filenames retain
+separate paths. Chat displays up to 1,000 entries and discloses any larger total.
+The result describes the index; rescan folders after changing files on disk.
+
+Document questions receive exact query-centered excerpts packed as complete
+numbered records within the model budget, including after document tool calls.
+Earlier assistant claims are omitted when current document evidence is present.
+Invalid explicit reference numbers trigger a labeled source-excerpt fallback.
+If a document-grounded answer has no citations and usable excerpts exist, the
+app regenerates it **once**, using freshly packed evidence and no tools or copy
+of the uncited draft. The regenerated answer must pass the same reference checks.
+An unsuccessful retry keeps the original safe source excerpts and cards. Valid
+answers, accepted unknown abstentions, and accepted conversation recall do not
+trigger that retry; answers without document evidence cannot use it. Code indexes
+inside Markdown code are not mistaken for citations. These checks do not prove semantic correctness;
+verify important claims in the source reader. Existing conversations retain their
+historical messages; ask again or start a new conversation to see repaired behavior.
 
 ## Persistent data and privacy
 

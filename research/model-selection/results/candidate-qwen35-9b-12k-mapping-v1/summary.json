@@ -1,0 +1,22 @@
+{
+  "label": "Model selection development probe; not held-out validation or paper accuracy.",
+  "model": "qwen3.5:9b-q4_K_M",
+  "run_id": "candidate-qwen35-9b-12k-mapping-v1",
+  "context_size": 12288,
+  "completed_utc": "2026-10-17T06:29:05.956562+00:00",
+  "questions": 10,
+  "answerable_generated_literal_checks": 4,
+  "answerable_count": 8,
+  "unknown_exact_abstentions": 1,
+  "unknown_count": 2,
+  "extractive_fallbacks": 4,
+  "question_errors": 0,
+  "median_question_seconds": 3.1242521514986947,
+  "short_summary_literal_check": false,
+  "short_summary_seconds": 4.9615491130007285,
+  "native_tool_smoke": true,
+  "native_tool_seconds": 1.686279318000743,
+  "chat_model_calls": 12,
+  "embedding_model_calls": 15,
+  "warning": "Small development probe with literal scoring, unseeded generation and no semantic judge; not general accuracy."
+}

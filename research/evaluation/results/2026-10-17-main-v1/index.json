@@ -1,0 +1,19 @@
+{
+  "result": {
+    "indexed": 39,
+    "unchanged": 0,
+    "removed": 0,
+    "skipped": 0,
+    "errors": [],
+    "embedded": 141
+  },
+  "wall_seconds": 12.875130555999931,
+  "counts": {
+    "documents": 39,
+    "chunks": 141,
+    "memories": 0,
+    "projects": 0,
+    "roots": 1,
+    "sessions": 0
+  }
+}

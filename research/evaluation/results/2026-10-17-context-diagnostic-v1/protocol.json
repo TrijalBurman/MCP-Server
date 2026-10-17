@@ -1,0 +1,488 @@
+{
+  "description": "Post-hoc mechanism diagnostic after inspecting primary failures; not independent confirmation.",
+  "independent_confirmation": false,
+  "primary_identity": {
+    "dataset_sha256": "12eb3a92e86f9d0af0e85b8071f91723a545194fd4482c08bf4dc38a32c4c55d",
+    "engine_sha256": "0eaf7350af76fef586ea7b9139733a829d493d07184a791704ffc4a42fc1ef6f",
+    "corpus_files_sha256": {
+      "projects/aster-vale/decisions.md": "191c520ef1c84f53200ec06f6f01b33332f4648f1a26a9e61a8400bffd80c51c",
+      "projects/aster-vale/specifications.md": "0fe9460a50a9841b2f7fdf1da2c6b4d3d9e0bf659a8bd42a076d666c6a375b2b",
+      "projects/aster-vale/operations.md": "835885d0161a1e573c9b845619bd3db7e73e0a60e454be50b32ede255ad15a3b",
+      "projects/birch-harbor/decisions.md": "4185197b3883a349f8b9c6fddbe3d2d100ff02a2ce67250393f22a7f0b1c4fdc",
+      "projects/birch-harbor/specifications.md": "a8ebe1c0283143dce243e7c9a5df21276e71f28bec7b95e1f9edf6106679c287",
+      "projects/birch-harbor/operations.md": "9b1859e298616da79edb2e17fd7bdb2bd7db513bfba5969ee864fb5b2674386a",
+      "projects/cobalt-ridge/decisions.md": "1b9db1419d91e9d0588080d2805bdeb9ad6b8c379d72b0202272cf3331523658",
+      "projects/cobalt-ridge/specifications.md": "9e7beaef0aa73f1d4817a02719008589ab316c8433029621a9a71c0db8f9821e",
+      "projects/cobalt-ridge/operations.md": "bce34cf53026a021e26d1b01726441c261a34ea4b4aad2716b0390ecc434585e",
+      "projects/drift-meadow/decisions.md": "b4797485008fb9df2fd2c8c827a87c294a6a85c73669c11edbf1d3d550c70103",
+      "projects/drift-meadow/specifications.md": "0de11f3303749abf992602be93e108b99f32bf9bf36793bc5f49843317a45de6",
+      "projects/drift-meadow/operations.md": "8b899846a23433d3fb4f19bf2367c9a01622eed25f4c63be00f9854eac19da70",
+      "projects/ember-quay/decisions.md": "06ad20928c1bfecc5a775458a6947828a58b5c49c39874d980ca89e7ea99cd96",
+      "projects/ember-quay/specifications.md": "f4480a99ffc31dfa76770eb2f2595a6784814166e2744722006df23d87d784f5",
+      "projects/ember-quay/operations.md": "27489e44a32d734ac0e31bc706a18d028cc17fc6fcf16e048ee50b8e36fd8f3f",
+      "projects/fable-grove/decisions.md": "e12f293e75c5c86ee12e309bd0378f8fe68827331ac8d56cc5d50d7f70b80d98",
+      "projects/fable-grove/specifications.md": "26e1f1468a8b2361d495dec032a0565a05f12c6eb44c3901839dab08ac6814ab",
+      "projects/fable-grove/operations.md": "fa0bf8a40e567c507f33706ceaea9e6d3ff0c83175d2cf5bad5f32841fdcbb53",
+      "projects/garnet-hollow/decisions.md": "62083451833a505e45db97e2f22fa676c7bb8a0f5e8d09eb4ac024ecebd7c59d",
+      "projects/garnet-hollow/specifications.md": "0ba245510cf638f49402e441dba2f6617fd72dd6bf3b0c47de42a686770ce94a",
+      "projects/garnet-hollow/operations.md": "458aa30e20dd13b2e6f2cd7aaaeed7b5a24512488d79ad937ae6b8d71d0aa4cf",
+      "projects/hazel-reach/decisions.md": "948c0821bacaa4764534ed9b211eabe78e115482bc23855e7a8c7cf716d7ae56",
+      "projects/hazel-reach/specifications.md": "8957049fd3d98628668c32b0c03ec4c90f6bb48c89738a9c733498e93292fe84",
+      "projects/hazel-reach/operations.md": "387fc30ed1a3ed9bb268ca0fea33e88041cecd535b17154979aeaa059cd93f79",
+      "projects/indigo-marsh/decisions.md": "db1cce2933a433c92d50729be41f02b5fcc457837d0fa8e49ae99c663e23ed13",
+      "projects/indigo-marsh/specifications.md": "c7cffb526459f0eeb2de792fd14826b219536c108bedb34823fdbdcfbac6b853",
+      "projects/indigo-marsh/operations.md": "f2ef51ec2a4ad3995128b0f0600230e4b46421ad3e0b3d92207eb5849c8c7091",
+      "projects/juniper-crest/decisions.md": "283dc60842e0ee5cd8af5e0459ab6f7e4b5297b7f1d41dcb2460d8ce1f22b13e",
+      "projects/juniper-crest/specifications.md": "a2efe827fa27be3f711f5aaece6e339b010c1581f6184c3726d7cc58e8b80f47",
+      "projects/juniper-crest/operations.md": "89c4d1e6627a4c69fd9b7de0674e5fec390762e62fefb415448b4ac171c8d9fc",
+      "projects/kestrel-brook/decisions.md": "3264c69e226d61e104a4f4391420189b13c8900dea75a63761fb4e0e5d249351",
+      "projects/kestrel-brook/specifications.md": "08853fee384ab3604190553a05a808af2ff5bc81b968c8a537e907b39f6ba1ee",
+      "projects/kestrel-brook/operations.md": "50fb220577f8253144a2fbb92165f1740bbdb8c9f2d3a7f9ae0a861709c740be",
+      "projects/lumen-field/decisions.md": "87f9bbfd01cb320167d57c0bb8364b6d84a4200b9ff59a8bd3137818851d12f7",
+      "projects/lumen-field/specifications.md": "d1f4415f2a987979319b49f7f0ce176086d00ebfac1ed51bd3fccda4d5e60c65",
+      "projects/lumen-field/operations.md": "0c1e3fa492f463bd00d06b11f515a64eb6b910f64f2fb6433306ce95da54069d",
+      "long/morrow-annex.md": "b304006fca07c535349e01003352545697bc21d335060199675832a9f47c4153",
+      "long/oriole-basin.md": "f861fe81dae0f87799c5e98065a635c96d74133b6dbb9cd3ea3b3f1cbeec7803",
+      "long/tamarisk-span.md": "f5b5ff00667b1ac66a1dc4eeecf3e1f7444cd2ef2ebd4974530e0960cc5dc5c5"
+    },
+    "models": {
+      "qwen3:4b-instruct-2507-q4_K_M": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+    },
+    "ollama": {
+      "version": "0.35.0"
+    },
+    "settings": {
+      "chat_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "embedding_model": "embeddinggemma",
+      "context_size": 8192,
+      "data_dir": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/research/index/2026-10-17-main-v1"
+    },
+    "temperature": 0.25,
+    "seed": null,
+    "qa_selection": "rotating pairs (0,4),(4,7),(0,7)"
+  },
+  "primary_identity_sha256": "9ce44ef9982baaeb4b5057b2cd54a3afe580a157884ac456f3d8b7f73a709691",
+  "primary_generation_sha256": "4f080bf8c1e534344b88212bfa0eb5f052c21180406c136cf9b06d0f731fd928",
+  "parent_engine_sha256": "0eaf7350af76fef586ea7b9139733a829d493d07184a791704ffc4a42fc1ef6f",
+  "diagnostic_engine_sha256": "2a24211a75fde814152256021e8d34352f8a4c80ab6a82aa530766cde0ca7b05",
+  "released_ollama_module_sha256": "45a3426f9ff5f9589689c6cf0500bdcfb8a72e8755dc6330f6c5727c3773d7e8",
+  "released_fitter_source_sha256": "af855986b360faf6d41624909658926fbc4a935881d1e2ffeac128bc863f5ec0",
+  "index_snapshot": {
+    "source_index": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/research/index/2026-10-17-main-v1",
+    "source_database_sha256": "f64aab7fc1292e719e8a3ec844ebd49d1d351f8540f65294c5a246b7e5cbb3bd",
+    "initial_backup_sha256": "af14e7a345d3d45a33238bbc5ac66abc341c8cb69c0e52a76fb15098ca4e4ae8",
+    "method": "SQLite backup API; primary source database is never written"
+  },
+  "settings": {
+    "chat_model": "qwen3:4b-instruct-2507-q4_K_M",
+    "embedding_model": "embeddinggemma",
+    "context_size": 8192,
+    "data_dir": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/research/context-diagnostic-index/2026-10-17-context-diagnostic-v1"
+  },
+  "ollama_url": "http://127.0.0.1:11437",
+  "models": {
+    "qwen3:4b-instruct-2507-q4_K_M": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+    "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+  },
+  "ollama": {
+    "version": "0.35.0"
+  },
+  "temperature": 0.25,
+  "seed": null,
+  "source_prefix_characters": 1000,
+  "selection": "Exact primary generation row prompts and method-pair order; no selection from outcomes or gold labels.",
+  "change": "Longest actual-JSON-cost-fitting character prefix; released policy thresholds/order/pinning unchanged.",
+  "runtime_pid": 21656,
+  "replay_order": [
+    {
+      "id": "Q001",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "81e21b9fa339c7898a29a77fd7e2d76a92da1e76aad030151a9f901d36b91345"
+    },
+    {
+      "id": "Q001",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "81e21b9fa339c7898a29a77fd7e2d76a92da1e76aad030151a9f901d36b91345"
+    },
+    {
+      "id": "Q005",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "298477656fb43bf029db9172d10f8a959d3740bcbe16d8ecf4739c870212eb12"
+    },
+    {
+      "id": "Q005",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "298477656fb43bf029db9172d10f8a959d3740bcbe16d8ecf4739c870212eb12"
+    },
+    {
+      "id": "Q013",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "e37b67e63bbbb546959f658d2ed8d99c504a4a8b2ad8ffb129a22a6147092d27"
+    },
+    {
+      "id": "Q013",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "e37b67e63bbbb546959f658d2ed8d99c504a4a8b2ad8ffb129a22a6147092d27"
+    },
+    {
+      "id": "Q016",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "78bc8fc10770662596857f9aded8e7a6ead352906c2443f531909b83998ee64f"
+    },
+    {
+      "id": "Q016",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "78bc8fc10770662596857f9aded8e7a6ead352906c2443f531909b83998ee64f"
+    },
+    {
+      "id": "Q017",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "a781ab3fce64842850e6c89d593f5c24f39aeadbd846a6c55e32cf7643cdbd92"
+    },
+    {
+      "id": "Q017",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "a781ab3fce64842850e6c89d593f5c24f39aeadbd846a6c55e32cf7643cdbd92"
+    },
+    {
+      "id": "Q024",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "b60d9281be5666eab3572469a519c86c5425372c661062ff3b9bb6b9c5e656a3"
+    },
+    {
+      "id": "Q024",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "b60d9281be5666eab3572469a519c86c5425372c661062ff3b9bb6b9c5e656a3"
+    },
+    {
+      "id": "Q025",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "5292ee8c7c267685910794ec4b299d61b8dae110248d03a5a3e0254bdb769af2"
+    },
+    {
+      "id": "Q025",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "5292ee8c7c267685910794ec4b299d61b8dae110248d03a5a3e0254bdb769af2"
+    },
+    {
+      "id": "Q029",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "4b28ce329453cc14e01fc2a062356e85a43981ea59460cd06f93e0e8d63f9ffc"
+    },
+    {
+      "id": "Q029",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "4b28ce329453cc14e01fc2a062356e85a43981ea59460cd06f93e0e8d63f9ffc"
+    },
+    {
+      "id": "Q037",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "81d9b7739c9ab256b8a3434ff64a74b4e632a8e964cc127aaec4b5e864b8529d"
+    },
+    {
+      "id": "Q037",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "81d9b7739c9ab256b8a3434ff64a74b4e632a8e964cc127aaec4b5e864b8529d"
+    },
+    {
+      "id": "Q040",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "4f15e351eab72840ef9df7fb6c1880dfb4028c4286ddfbc4eec2bb8b1998c742"
+    },
+    {
+      "id": "Q040",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "4f15e351eab72840ef9df7fb6c1880dfb4028c4286ddfbc4eec2bb8b1998c742"
+    },
+    {
+      "id": "Q041",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "1c0e04962c5f6375d65a5d14c275e9baadbc3a3f439efc9d55fb9b2785755b2f"
+    },
+    {
+      "id": "Q041",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "1c0e04962c5f6375d65a5d14c275e9baadbc3a3f439efc9d55fb9b2785755b2f"
+    },
+    {
+      "id": "Q048",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "b2b72aab5224b7e9da0ba34a6edc4eb89333e00b20b14bd828cca0bf2317c03f"
+    },
+    {
+      "id": "Q048",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "b2b72aab5224b7e9da0ba34a6edc4eb89333e00b20b14bd828cca0bf2317c03f"
+    },
+    {
+      "id": "Q049",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "a429cf985122c58cc959725b71b538206620647f778321b860816e30d6630158"
+    },
+    {
+      "id": "Q049",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "a429cf985122c58cc959725b71b538206620647f778321b860816e30d6630158"
+    },
+    {
+      "id": "Q053",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "865554ce53044c5e1931272b25767d8f3785c66de846493c02c861f4f25fab96"
+    },
+    {
+      "id": "Q053",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "865554ce53044c5e1931272b25767d8f3785c66de846493c02c861f4f25fab96"
+    },
+    {
+      "id": "Q061",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "3ccf1d30cf1ab4758e6ab228c8219dbb9b74d38aac9cdfa249ddadec7ba7de62"
+    },
+    {
+      "id": "Q061",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "3ccf1d30cf1ab4758e6ab228c8219dbb9b74d38aac9cdfa249ddadec7ba7de62"
+    },
+    {
+      "id": "Q064",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "5402c195f0498418a226c5a3a388b4f708140bc9ead41fb35ac6c1048b44ae08"
+    },
+    {
+      "id": "Q064",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "5402c195f0498418a226c5a3a388b4f708140bc9ead41fb35ac6c1048b44ae08"
+    },
+    {
+      "id": "Q065",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "effe48c15a799599aedee13abc9015c5e8c8ec1a1c120dfd87b7ac81fe071443"
+    },
+    {
+      "id": "Q065",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "effe48c15a799599aedee13abc9015c5e8c8ec1a1c120dfd87b7ac81fe071443"
+    },
+    {
+      "id": "Q072",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "fb17aada2c8bfccc7411ab0160a97a787233330757fdb22f12bdeaeb8fea40fa"
+    },
+    {
+      "id": "Q072",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "fb17aada2c8bfccc7411ab0160a97a787233330757fdb22f12bdeaeb8fea40fa"
+    },
+    {
+      "id": "Q073",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "be637373f105302959a446423854f3064eae227d79aba5e98b71ad1b9d54aa8e"
+    },
+    {
+      "id": "Q073",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "be637373f105302959a446423854f3064eae227d79aba5e98b71ad1b9d54aa8e"
+    },
+    {
+      "id": "Q077",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "21f2e8ba0bd630a10594d07f930ab2fc313f1cef90ed5e75c6a270da0fc4a324"
+    },
+    {
+      "id": "Q077",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "21f2e8ba0bd630a10594d07f930ab2fc313f1cef90ed5e75c6a270da0fc4a324"
+    },
+    {
+      "id": "Q085",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "a754bf0d9c03a846605af3c7abf81d64590a7643b1e11d7a9a82afeab8a907e9"
+    },
+    {
+      "id": "Q085",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "a754bf0d9c03a846605af3c7abf81d64590a7643b1e11d7a9a82afeab8a907e9"
+    },
+    {
+      "id": "Q088",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "63a6099eb40a86a761bfdecb8ac6eba2ff6f263bd720342896358e7224aca387"
+    },
+    {
+      "id": "Q088",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "63a6099eb40a86a761bfdecb8ac6eba2ff6f263bd720342896358e7224aca387"
+    },
+    {
+      "id": "Q089",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "c0b74b2e417eafbb868d0a57ad46bc5b2ff1b78fce530fc179554d1053b38d68"
+    },
+    {
+      "id": "Q089",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "c0b74b2e417eafbb868d0a57ad46bc5b2ff1b78fce530fc179554d1053b38d68"
+    },
+    {
+      "id": "Q096",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "e847419793989a811150e911ea3860b68c8aa79ea97477169d911ebff3d510f8"
+    },
+    {
+      "id": "Q096",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "e847419793989a811150e911ea3860b68c8aa79ea97477169d911ebff3d510f8"
+    },
+    {
+      "id": "U001",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "d3b0ffaa12c28f230265a05637c5e2737d96affae44810259e98ffd8fe21c15e"
+    },
+    {
+      "id": "U001",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "d3b0ffaa12c28f230265a05637c5e2737d96affae44810259e98ffd8fe21c15e"
+    },
+    {
+      "id": "U002",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "e5823ba1839ff74c884439a22b237867886c2cf148c92eaeb5b59a17c760b4cf"
+    },
+    {
+      "id": "U002",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "e5823ba1839ff74c884439a22b237867886c2cf148c92eaeb5b59a17c760b4cf"
+    },
+    {
+      "id": "U003",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "9cf9edccaffb083e0a76da81566b10b884bfa67361d9ebd033e1acfe4579dcee"
+    },
+    {
+      "id": "U003",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "9cf9edccaffb083e0a76da81566b10b884bfa67361d9ebd033e1acfe4579dcee"
+    },
+    {
+      "id": "U004",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "ecb4cf699d0df4f5df99b4595ec540a381d60357b8c19f1f9d7deeaa331b0bf2"
+    },
+    {
+      "id": "U004",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "ecb4cf699d0df4f5df99b4595ec540a381d60357b8c19f1f9d7deeaa331b0bf2"
+    },
+    {
+      "id": "U005",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "c586540f0686e825e485a209257d4e54cfa5166524ae2258b33e4c0f4b9b2f39"
+    },
+    {
+      "id": "U005",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "c586540f0686e825e485a209257d4e54cfa5166524ae2258b33e4c0f4b9b2f39"
+    },
+    {
+      "id": "U006",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "f49d7e8d07caca3627ac4a16caa4611e88694b497cc85d7b0e38168a8d98820b"
+    },
+    {
+      "id": "U006",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "f49d7e8d07caca3627ac4a16caa4611e88694b497cc85d7b0e38168a8d98820b"
+    },
+    {
+      "id": "U007",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "026585c60db5eaea54cdc946db08746c4a99a93711c52d480da01b3135e3f247"
+    },
+    {
+      "id": "U007",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "026585c60db5eaea54cdc946db08746c4a99a93711c52d480da01b3135e3f247"
+    },
+    {
+      "id": "U008",
+      "primary_method": "mcp_agent",
+      "method": "mcp_agent_exact",
+      "prompt_sha256": "06a51ddec43b0ebc3c4f44f24a8fa644eda131ff07d4c7dc6db0ffa931c11c21"
+    },
+    {
+      "id": "U008",
+      "primary_method": "single_pass_rag",
+      "method": "single_pass_rag_exact",
+      "prompt_sha256": "06a51ddec43b0ebc3c4f44f24a8fa644eda131ff07d4c7dc6db0ffa931c11c21"
+    }
+  ],
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "summaries": "Not repeated: the three primary summary tasks remain unchanged and separate.",
+  "resource_scope": "Same ResourceMonitor as primary: benchmark/runtime descendants RSS sum and whole-GPU memory, sampled each second.",
+  "retained_fact_alias_matches": "Post-selection audit only; gold labels never influence fit_context or evidence ordering."
+}

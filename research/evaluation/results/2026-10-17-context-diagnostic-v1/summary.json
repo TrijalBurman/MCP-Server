@@ -1,0 +1,72 @@
+{
+  "description": "Post-hoc context-fitting diagnostic, not independent confirmation.",
+  "independent_confirmation": false,
+  "generation": {
+    "single_pass_rag_exact": {
+      "n": 32,
+      "answerable_n": 24,
+      "complete_correct": 7,
+      "complete_accuracy": 0.2916666666666667,
+      "complete_accuracy_wilson_ci95": [
+        0.14914648196961158,
+        0.4916769366449609
+      ],
+      "fact_recall": 0.375,
+      "unanswerable_n": 8,
+      "explicit_abstention_n": 8,
+      "all_gold_documents_cited_n": 11,
+      "errors_n": 0,
+      "extra_tool_calls_n": 0,
+      "wall_seconds": {
+        "n": 32,
+        "mean": 1.9753925421562002,
+        "median": 0.7782118989998708,
+        "p95": 3.0179818992001377,
+        "min": 0.5021900619999542,
+        "max": 36.17001651500004
+      },
+      "model_calls": {
+        "n": 32,
+        "mean": 1,
+        "median": 1.0,
+        "p95": 1.0,
+        "min": 1,
+        "max": 1
+      },
+      "rows_with_retained_reference_n": 32
+    },
+    "mcp_agent_exact": {
+      "n": 32,
+      "answerable_n": 24,
+      "complete_correct": 3,
+      "complete_accuracy": 0.125,
+      "complete_accuracy_wilson_ci95": [
+        0.043443340801235575,
+        0.31003881270499467
+      ],
+      "fact_recall": 0.2708333333333333,
+      "unanswerable_n": 8,
+      "explicit_abstention_n": 7,
+      "all_gold_documents_cited_n": 4,
+      "errors_n": 0,
+      "extra_tool_calls_n": 0,
+      "wall_seconds": {
+        "n": 32,
+        "mean": 1.1734314445625387,
+        "median": 1.1331811279999329,
+        "p95": 1.6991959544998734,
+        "min": 0.8344508810000661,
+        "max": 1.9890595730003042
+      },
+      "model_calls": {
+        "n": 32,
+        "mean": 1,
+        "median": 1.0,
+        "p95": 1.0,
+        "min": 1,
+        "max": 1
+      },
+      "rows_with_retained_reference_n": 32
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "linux": {
+    "commit": "ddbbbb7be35a83c6ebc32706bb0aaf41ff379ff8",
+    "date_local": "2026-10-17",
+    "python": "3.14.4",
+    "passed": 43,
+    "skipped": 0,
+    "wall_seconds": 17.64,
+    "warning": "One third-party Starlette test-client deprecation warning"
+  },
+  "windows": {
+    "commit": "0e0bbf6f944bc6f2534f882c858ca4cdd22e6443",
+    "date": "2026-10-06",
+    "runner": "Microsoft Windows Server2025",
+    "workflow_url": "https://github.com/TrijalBurman/MCP-Server/actions/runs/37470160711",
+    "jobs": [
+      {
+        "python": "3.12.10",
+        "passed": 86,
+        "skipped": 0,
+        "suite_seconds": 27.84
+      },
+      {
+        "python": "3.13.15",
+        "passed": 86,
+        "skipped": 0,
+        "suite_seconds": 29.76
+      }
+    ],
+    "gpu_inference_tested": false
+  }
+}

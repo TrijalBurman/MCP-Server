@@ -1,0 +1,4 @@
+4fd90e637494836b98a341b69a4426507882b309b2b5edbd941f7de49b338eb6  localmind-ieee-research-paper.pdf
+abe57ec1a761ada7969ed666c890575a826d1117a8657da293c09c4736825bc8  localmind-ieee-research-paper.tex
+47aae80d50e6306f1c60a4ffc67b8abd97d139db37de340c1ab11666d747bfa4  research-artifact-readme.md
+d22611a293f9e64a1223280b176c9bf1ca3dedf29cc02a1c25d0e5127e6c113d  localmind-research-artifacts.zip

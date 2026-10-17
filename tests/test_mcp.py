@@ -55,16 +55,18 @@ async def test_stdio_discovery_search_and_complete_document(indexed_library):
         _, _, document, _, original = indexed_library
         tools = {tool.name: tool for tool in (await mcp_session.list_tools()).tools}
         assert set(tools) == {
-            "knowledge_search", "list_documents", "read_document", "remember", "recall", "forget",
+            "knowledge_search", "list_documents", "find_documents", "read_document", "remember", "recall", "forget",
             "list_projects", "create_project", "list_sources", "search_conversations",
         }
         assert tools["read_document"].annotations.readOnlyHint is True
+        assert tools["find_documents"].annotations.readOnlyHint is True
         assert tools["forget"].annotations.destructiveHint is True
 
         sources = result_data(await mcp_session.call_tool("list_sources", {}))
         assert sources["roots"][0]["label"] == "Test knowledge"
         listed = result_data(await mcp_session.call_tool("list_documents", {"query": "lighthouse", "limit": 1}))
         assert listed["documents"][0]["id"] == document["id"]
+        assert listed["total"] == 1 and listed["offset"] == 0 and listed["next_offset"] is None
         search = result_data(await mcp_session.call_tool("knowledge_search", {"query": "lighthouse", "limit": 3}))
         assert search["results"]
         assert all(hit["document_id"] == document["id"] for hit in search["results"])
@@ -156,3 +158,62 @@ async def test_stdio_rejects_root_replaced_by_symlink(indexed_library):
         source_root.symlink_to(moved_root, target_is_directory=True)
         result = await mcp_session.call_tool("read_document", {"document_id": document["id"]})
         assert result.isError and "symbolic link" in result.content[0].text
+
+
+async def test_stdio_catalog_pagination_exact_names_and_duplicate_paths(indexed_library):
+    settings, store, document, document_path, _ = indexed_library
+    root = document_path.parent
+    for relative in ["api.md", "nested/api.md", "notes.md", "guide.md", "context.md", "other.md"]:
+        path = root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("Every document mentions api.md in content.\n", encoding="utf-8")
+    assert Library(settings, store).scan(document["root_id"])["indexed"] == 6
+
+    async with open_mcp(indexed_library) as session:
+        offset, all_documents = 0, []
+        while True:
+            page = result_data(await session.call_tool("list_documents", {"limit": 2, "offset": offset}))
+            assert page["total"] == 7 and page["scope"] == "indexed" and page["offset"] == offset
+            assert all("text" not in row for row in page["documents"])
+            all_documents.extend(page["documents"])
+            if page["next_offset"] is None:
+                break
+            assert page["next_offset"] > offset
+            offset = page["next_offset"]
+        assert len({row["id"] for row in all_documents}) == len(all_documents) == 7
+        assert {row["title"] for row in all_documents} == {
+            "api.md", "notes.md", "guide.md", "context.md", "other.md", "lighthouse.md",
+        }
+        filtered = result_data(await session.call_tool("list_documents", {"query": "api", "limit": 1}))
+        assert filtered["total"] == 2 and filtered["next_offset"] == 1
+        first = result_data(await session.call_tool("find_documents", {"name": "api.md", "limit": 1}))
+        assert first["total"] == 2 and first["next_offset"] == 1 and first["scope"] == "indexed"
+        last = result_data(await session.call_tool("find_documents", {"name": "api.md", "offset": 1}))
+        assert last["next_offset"] is None
+        assert {row["path"] for row in first["documents"] + last["documents"]} == {
+            str(root / "api.md"), str(root / "nested" / "api.md"),
+        }
+        relative = result_data(await session.call_tool("find_documents", {"name": "nested/api.md"}))
+        assert relative["total"] == 1 and relative["documents"][0]["path"] == str(root / "nested" / "api.md")
+        absolute = result_data(await session.call_tool("find_documents", {"name": str(root / "api.md")}))
+        assert absolute["total"] == 1 and absolute["documents"][0]["path"] == str(root / "api.md")
+        case = result_data(await session.call_tool("find_documents", {"name": "API.md"}))
+        assert case["total"] == (2 if os.name == "nt" else 0)
+        assert case["case_sensitive"] is (os.name != "nt")
+        for name in ["api", "api.md.backup", "*.md", "missing.md"]:
+            missing = result_data(await session.call_tool("find_documents", {"name": name}))
+            assert missing["total"] == 0 and missing["documents"] == []
+        scoped = result_data(await session.call_tool("find_documents", {
+            "name": "api.md", "root_id": document["root_id"] + 1,
+        }))
+        assert scoped["total"] == 0
+        beyond = result_data(await session.call_tool("list_documents", {"offset": 100}))
+        assert beyond["total"] == 7 and beyond["documents"] == [] and beyond["next_offset"] is None
+        for arguments in [{"name": " "}, {"name": "../api.md"}, {"name": "api.md", "limit": 201},
+                          {"name": "api.md", "offset": -1}, {"name": "api.md", "root_id": 0}]:
+            assert (await session.call_tool("find_documents", arguments)).isError
+        # A catalog reports indexed scope; it does not silently scan source files.
+        (root / "api.md").unlink()
+        assert result_data(await session.call_tool("find_documents", {"name": "api.md"}))["total"] == 2
+        store.remove_root(document["root_id"])
+        assert result_data(await session.call_tool("find_documents", {"name": "api.md"}))["total"] == 0

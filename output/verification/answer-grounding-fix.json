@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-17",
+  "scope": "Index metadata routing and evidence-grounding repair; no claim of hallucination-free generation.",
+  "tests": {
+    "linux_passed": 123,
+    "windows_copy_on_linux_passed": 160,
+    "native_windows_checks_skipped": 6
+  },
+  "live_http": {
+    "restarted_applications": {
+      "8765": {
+        "chat_ready": true,
+        "embedding_ready": true,
+        "stats": {
+          "documents": 7,
+          "chunks": 31,
+          "memories": 0,
+          "projects": 0,
+          "roots": 1,
+          "sessions": 1
+        }
+      },
+      "8766": {
+        "chat_ready": true,
+        "embedding_ready": true,
+        "stats": {
+          "documents": 2,
+          "chunks": 2,
+          "memories": 2,
+          "projects": 2,
+          "roots": 1,
+          "sessions": 5
+        }
+      }
+    },
+    "checks": [
+      {
+        "question": "tell the name of all the files indexed",
+        "matches": 7,
+        "mode": "catalog",
+        "tools": [
+          "list_documents"
+        ],
+        "seconds": 0.48062142500020855
+      },
+      {
+        "question": "is there a file names api.md",
+        "matches": 1,
+        "mode": "catalog",
+        "tools": [
+          "find_documents"
+        ],
+        "seconds": 0.4237135980001767
+      },
+      {
+        "question": "Does __missing_catalog_check_7981.md exist?",
+        "matches": 0,
+        "mode": "catalog",
+        "tools": [
+          "find_documents"
+        ],
+        "seconds": 0.45008920899999794
+      }
+    ],
+    "verification_conversation_removed": true,
+    "normal_data_counts_preserved": true
+  },
+  "local_synthetic_smoke": {
+    "answerable_requests": 3,
+    "all_requested_values_present": 3,
+    "unknown_requests": 1,
+    "unknown_abstentions": 1,
+    "scope": "Four fresh smoke questions only, not representative accuracy."
+  },
+  "source_sha256": {
+    "copilot/agent.py": "2593e6fdddb12a2be1723563cc1a3c75865e651e3241b52309b3fbb890ee3ffe",
+    "copilot/store.py": "ef5307e599d6bbc1cabfab5c77e13f959aece6c983c3c08a97895e9ba22df286",
+    "copilot/mcp_server.py": "25b7409ecf380f61a8b1ae8a9f681e7a860c355a284ae25043b5cf5d0d207a47",
+    "copilot/ollama.py": "1db1e79b7eac3dba77b2afaa2e852db847b7ae2169d7f92327b750dbaa4cdc25",
+    "copilot/grounding.py": "a0f259cc50bfe0a3903afaed897014ea898e057d72259c84b22ac303fc468cc1"
+  },
+  "publication_status": "Local changes only; not committed or pushed."
+}

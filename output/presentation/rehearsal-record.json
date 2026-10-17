@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-17",
+  "scope": "Two supplied sample documents only; one rehearsal, not an accuracy benchmark.",
+  "url": "http://127.0.0.1:8766",
+  "project": "Lighthouse Presentation",
+  "question": "What storage does the Lighthouse project use?",
+  "answer": "The Lighthouse project uses a local SQLite database for storing extracted document text, searchable chunks, conversation history, and project memories. Original source files are kept in their existing folders and are never sent to a paid API [1].",
+  "trace": [
+    {
+      "tool": "knowledge_search",
+      "detail": "Found 2 source passages via MCP"
+    },
+    {
+      "tool": "recall",
+      "detail": "Loaded saved local context via MCP"
+    }
+  ],
+  "earlier_browser_rehearsal": {
+    "memory_visible_after_browser_reload": true,
+    "explicit_memory_response": "Saved to your project memory:\n\nUse only the supplied Lighthouse sample files in this presentation.",
+    "screenshots": [
+      "rehearsal-library.png",
+      "rehearsal-memory.png"
+    ],
+    "scope": "Prepared browser rehearsal before restart; not a fresh live audience demo."
+  },
+  "post_restart_check": {
+    "date": "2026-10-17",
+    "post_repair_restart": true,
+    "project": "Lighthouse Presentation",
+    "question": "What storage does the Lighthouse project use?",
+    "answer": {
+      "session_id": 5,
+      "content": "The Lighthouse project uses a local SQLite database for storing extracted document text, searchable chunks, conversation history, and project memories. Original source files are kept in their existing folders and are never sent to a paid API [1].",
+      "sources": [
+        {
+          "document_id": 1,
+          "chunk_id": 1,
+          "title": "lighthouse-project.md",
+          "path": "/run/media/trijal/HDD/SpecialisationBySol/examples/knowledge/lighthouse-project.md",
+          "text": "# Lighthouse project\n\nLighthouse is a small offline study assistant. Its goal is to help a student find\ntheir own notes and continue project work without repeating old context.\n\n## Goals\n\n- Search local lecture notes, Markdown, text-based PDFs, and source code.\n- Show the filename behind each answer.\n- Keep explicit project decisions across restarts.\n- Draft a project plan using a model running on the laptop.\n\n## Storage decision\n\nUse a local SQLite database for extracted document text, searchable chunks,\nconversation history, and project memories. Keep original source files in their\nexisting folders. Never send document contents to a paid API.\n\n## First milestone\n\nCreate a tiny reference library, verify retrieval with known facts, and compare a\nsummary with its cited source text before indexing a larger collection.\n\n## Open question\n\nScanned PDFs contain image pages. A future version may add local OCR, but the\nfirst milestone supports PDFs with extractable text only.\n",
+          "start": 0,
+          "end": 983,
+          "page": null,
+          "score": 0.032787
+        },
+        {
+          "document_id": 2,
+          "chunk_id": 2,
+          "title": "study-notes.txt",
+          "path": "/run/media/trijal/HDD/SpecialisationBySol/examples/knowledge/study-notes.txt",
+          "text": "Offline study workflow\n\n1. Save lecture notes in a dedicated local folder.\n2. Index that folder after new notes are added.\n3. Ask the assistant to find a definition or compare two topics.\n4. Open the cited source to verify the answer.\n5. Save useful project decisions explicitly as memories.\n\nFor Lighthouse, the first evaluation should ask about the storage decision,\nsupported document types, and the limitation around scanned PDFs.\n",
+          "start": 0,
+          "end": 435,
+          "page": null,
+          "score": 0.032258
+        }
+      ],
+      "trace": [
+        {
+          "tool": "knowledge_search",
+          "detail": "Found 2 source passages via MCP"
+        },
+        {
+          "tool": "recall",
+          "detail": "Loaded saved local context via MCP"
+        }
+      ],
+      "mode": "agent"
+    },
+    "wall_seconds": 4.887764055000844,
+    "preserved_stats": {
+      "documents": 2,
+      "chunks": 2,
+      "memories": 2,
+      "projects": 2,
+      "roots": 1,
+      "sessions": 5
+    },
+    "existing_project_memories": {
+      "memories": [
+        {
+          "id": 2,
+          "content": "Use only the supplied Lighthouse sample files in this presentation.",
+          "kind": "note",
+          "project_id": 2,
+          "created_at": "2026-10-17T04:25:54+00:00"
+        }
+      ]
+    }
+  },
+  "post_repair_restart": true
+}

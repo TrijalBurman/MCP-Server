@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "prefix_cases": [
+    {
+      "case": "nested_quotes",
+      "context_size": 4096,
+      "serialized_cost": 2475,
+      "budget": 2475,
+      "retained_characters": 1241
+    },
+    {
+      "case": "backslashes",
+      "context_size": 4096,
+      "serialized_cost": 2475,
+      "budget": 2475,
+      "retained_characters": 1288
+    },
+    {
+      "case": "unicode",
+      "context_size": 4096,
+      "serialized_cost": 2473,
+      "budget": 2475,
+      "retained_characters": 593
+    },
+    {
+      "case": "nested_quotes",
+      "context_size": 8192,
+      "serialized_cost": 6400,
+      "budget": 6400,
+      "retained_characters": 4333
+    },
+    {
+      "case": "backslashes",
+      "context_size": 8192,
+      "serialized_cost": 6400,
+      "budget": 6400,
+      "retained_characters": 4500
+    },
+    {
+      "case": "unicode",
+      "context_size": 8192,
+      "serialized_cost": 6399,
+      "budget": 6400,
+      "retained_characters": 2035
+    },
+    {
+      "case": "nested_quotes",
+      "context_size": 16384,
+      "serialized_cost": 14592,
+      "budget": 14592,
+      "retained_characters": 10788
+    },
+    {
+      "case": "backslashes",
+      "context_size": 16384,
+      "serialized_cost": 14592,
+      "budget": 14592,
+      "retained_characters": 11203
+    },
+    {
+      "case": "unicode",
+      "context_size": 16384,
+      "serialized_cost": 14592,
+      "budget": 14592,
+      "retained_characters": 5045
+    }
+  ],
+  "additional_checks": [
+    "unmodified inputs",
+    "pinned system/current user",
+    "maximal serialized prefix",
+    "unchanged fully fitting input",
+    "schema keep/drop policy",
+    "personal/fresh-tool priority",
+    "oversized pinned request rejected"
+  ]
+}

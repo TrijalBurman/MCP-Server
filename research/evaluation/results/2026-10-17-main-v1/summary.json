@@ -1,0 +1,772 @@
+{
+  "dataset": "LM-Synth v1",
+  "retrieval": {
+    "lexical": {
+      "n": 96,
+      "metrics": {
+        "recall@1": 0.9270833333333334,
+        "all_facts@1": 0.8645833333333334,
+        "recall@3": 0.96875,
+        "all_facts@3": 0.9375,
+        "recall@5": 1.0,
+        "all_facts@5": 1.0,
+        "recall@10": 1.0,
+        "all_facts@10": 1.0,
+        "mrr@10": 0.9947916666666666
+      },
+      "ranking_ms": {
+        "n": 96,
+        "mean": 4.415719729159662,
+        "median": 4.024825499868712,
+        "p95": 4.769380750019536,
+        "min": 3.3594490000723454,
+        "max": 42.4495150000439
+      },
+      "by_kind": {
+        "cross_document": {
+          "n": 12,
+          "all_facts@5": 1.0
+        },
+        "lexical": {
+          "n": 48,
+          "all_facts@5": 1.0
+        },
+        "paraphrase": {
+          "n": 36,
+          "all_facts@5": 1.0
+        }
+      },
+      "all_facts@5_cluster_bootstrap_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "dense": {
+      "n": 96,
+      "metrics": {
+        "recall@1": 0.75,
+        "all_facts@1": 0.6875,
+        "recall@3": 0.921875,
+        "all_facts@3": 0.9166666666666666,
+        "recall@5": 0.9479166666666666,
+        "all_facts@5": 0.9479166666666666,
+        "recall@10": 1.0,
+        "all_facts@10": 1.0,
+        "mrr@10": 0.8754918981481481
+      },
+      "ranking_ms": {
+        "n": 96,
+        "mean": 0.13947869792000725,
+        "median": 0.13492399989445403,
+        "p95": 0.18795849990738134,
+        "min": 0.11713999992934987,
+        "max": 0.22768799999539624
+      },
+      "by_kind": {
+        "cross_document": {
+          "n": 12,
+          "all_facts@5": 1.0
+        },
+        "lexical": {
+          "n": 48,
+          "all_facts@5": 1.0
+        },
+        "paraphrase": {
+          "n": 36,
+          "all_facts@5": 0.8611111111111112
+        }
+      },
+      "all_facts@5_cluster_bootstrap_ci95": [
+        0.9166666666666666,
+        0.9791666666666666
+      ]
+    },
+    "hybrid": {
+      "n": 96,
+      "metrics": {
+        "recall@1": 0.8645833333333334,
+        "all_facts@1": 0.8020833333333334,
+        "recall@3": 0.9479166666666666,
+        "all_facts@3": 0.9479166666666666,
+        "recall@5": 1.0,
+        "all_facts@5": 1.0,
+        "recall@10": 1.0,
+        "all_facts@10": 1.0,
+        "mrr@10": 0.9494791666666667
+      },
+      "ranking_ms": {
+        "n": 96,
+        "mean": 5.146273166666049,
+        "median": 4.7624275000544,
+        "p95": 5.490494750063135,
+        "min": 4.139646999874458,
+        "max": 37.43207699994855
+      },
+      "by_kind": {
+        "cross_document": {
+          "n": 12,
+          "all_facts@5": 1.0
+        },
+        "lexical": {
+          "n": 48,
+          "all_facts@5": 1.0
+        },
+        "paraphrase": {
+          "n": 36,
+          "all_facts@5": 1.0
+        }
+      },
+      "all_facts@5_cluster_bootstrap_ci95": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "generation": {
+    "single_pass_rag": {
+      "answerable_n": 24,
+      "complete_correct": 0,
+      "complete_accuracy": 0.0,
+      "complete_accuracy_wilson_ci95": [
+        0,
+        0.13797620467497365
+      ],
+      "fact_recall": 0.0,
+      "negative_n": 8,
+      "explicit_abstention_n": 8,
+      "all_gold_documents_cited_n": 0,
+      "all_citation_indices_valid_n": 0,
+      "wall_seconds": {
+        "n": 32,
+        "mean": 0.18966818409375463,
+        "median": 0.1895555815000307,
+        "p95": 0.21280388624992383,
+        "min": 0.13217000400004508,
+        "max": 0.2994861929998933
+      },
+      "model_calls": {
+        "n": 32,
+        "mean": 1,
+        "median": 1.0,
+        "p95": 1.0,
+        "min": 1,
+        "max": 1
+      },
+      "extra_tool_calls_n": 0,
+      "errors_n": 0,
+      "by_kind": {
+        "cross_document": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "lexical": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "paraphrase": {
+          "n": 8,
+          "complete_correct": 0
+        }
+      },
+      "complete_accuracy_cluster_bootstrap_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "mcp_agent": {
+      "answerable_n": 24,
+      "complete_correct": 0,
+      "complete_accuracy": 0.0,
+      "complete_accuracy_wilson_ci95": [
+        0,
+        0.13797620467497365
+      ],
+      "fact_recall": 0.0,
+      "negative_n": 8,
+      "explicit_abstention_n": 8,
+      "all_gold_documents_cited_n": 0,
+      "all_citation_indices_valid_n": 0,
+      "wall_seconds": {
+        "n": 32,
+        "mean": 0.869342743468728,
+        "median": 0.8250382774999707,
+        "p95": 1.2213029271999971,
+        "min": 0.6536852869999166,
+        "max": 1.4202388730000166
+      },
+      "model_calls": {
+        "n": 32,
+        "mean": 1,
+        "median": 1.0,
+        "p95": 1.0,
+        "min": 1,
+        "max": 1
+      },
+      "extra_tool_calls_n": 0,
+      "errors_n": 0,
+      "by_kind": {
+        "cross_document": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "lexical": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "paraphrase": {
+          "n": 8,
+          "complete_correct": 0
+        }
+      },
+      "complete_accuracy_cluster_bootstrap_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "summaries": [
+    {
+      "id": "S001",
+      "document": "long/morrow-annex.md",
+      "wall_seconds": 64.37777865600015,
+      "characters": 16214,
+      "expected_sections": 5,
+      "sections_processed": 5,
+      "model_calls": [
+        {
+          "wall_seconds": 8.05872237299991,
+          "total_duration": 8054475886,
+          "load_duration": 1129856,
+          "prompt_eval_count": 931,
+          "prompt_eval_duration": 242705000,
+          "eval_count": 681,
+          "eval_duration": 7795856000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 8.282830114000035,
+          "total_duration": 8277548630,
+          "load_duration": 1399071,
+          "prompt_eval_count": 945,
+          "prompt_eval_duration": 212330000,
+          "eval_count": 693,
+          "eval_duration": 7939813000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.08950621300005,
+          "total_duration": 6084900770,
+          "load_duration": 1153199,
+          "prompt_eval_count": 936,
+          "prompt_eval_duration": 215197000,
+          "eval_count": 504,
+          "eval_duration": 5741854000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 8.534672302000217,
+          "total_duration": 8530163852,
+          "load_duration": 1057730,
+          "prompt_eval_count": 942,
+          "prompt_eval_duration": 208516000,
+          "eval_count": 717,
+          "eval_duration": 8209924000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 3.134278011999868,
+          "total_duration": 3129269752,
+          "load_duration": 1081986,
+          "prompt_eval_count": 311,
+          "prompt_eval_duration": 26596000,
+          "eval_count": 272,
+          "eval_duration": 2971256000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.00735989199984,
+          "total_duration": 6002876198,
+          "load_duration": 835101,
+          "prompt_eval_count": 1124,
+          "prompt_eval_duration": 285275000,
+          "eval_count": 491,
+          "eval_duration": 5663321000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 5.911805539999932,
+          "total_duration": 5907274608,
+          "load_duration": 1111791,
+          "prompt_eval_count": 1134,
+          "prompt_eval_duration": 253433000,
+          "eval_count": 481,
+          "eval_duration": 5529121000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 2.924629717000016,
+          "total_duration": 2920241864,
+          "load_duration": 951770,
+          "prompt_eval_count": 522,
+          "prompt_eval_duration": 87282000,
+          "eval_count": 236,
+          "eval_duration": 2708484000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 5.394742821000136,
+          "total_duration": 5389824980,
+          "load_duration": 1152087,
+          "prompt_eval_count": 1185,
+          "prompt_eval_duration": 298928000,
+          "eval_count": 425,
+          "eval_duration": 5018055000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 2.8113742519999505,
+          "total_duration": 2806637452,
+          "load_duration": 903840,
+          "prompt_eval_count": 486,
+          "prompt_eval_duration": 70500000,
+          "eval_count": 236,
+          "eval_duration": 2616849000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.020248153000011,
+          "total_duration": 6016132421,
+          "load_duration": 1161274,
+          "prompt_eval_count": 909,
+          "prompt_eval_duration": 194579000,
+          "eval_count": 506,
+          "eval_duration": 5756729000,
+          "tools_sent": false,
+          "error": null
+        }
+      ],
+      "fact_matches": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "response": {
+        "content": "The full Morrow Annex dossier, as provided in *morrow-annex.md* [1], does **not** contain the eight binding facts required to satisfy the request.  \n\n**Explicitly reported binding facts from the document [1]:**  \n1. **Maximum recovery time in minutes**: \"Binding fact for Morrow Annex - Maximum recovery time: 93 minutes.\" [1]  \n2. **Required release guardrail**: \"Binding fact for Morrow Annex - Required release guardrail: Crimson Pine checklist.\" [1]  \n3. & 4. **Sole release approver**: \"Binding fact for Morrow Annex - Sole release approver: Nila Varma.\" [1]  \n   → *Note: This fact is stated, but only once. It is not repeated or expanded.*  \n\n**Facts missing from the document [1]:**  \n- **Approved storage profile** → Not mentioned  \n- **Internal review date** → Not mentioned  \n- **Pilot rollout codename** → Not mentioned  \n- **Import item limit** → Not mentioned  \n- **Backup cadence in hours** → Not mentioned  \n\n**Critical assessment:**  \nThe document [1] fails to specify any of the operational parameters including storage profile, import limits, backup frequency, or internal review schedules. Section 5, which discusses interface behavior and task context preservation, does not contain any of the requested values. No later sections exist to supply these facts.  \n\n**Conclusion:**  \nThe request to summarize the full Morrow Annex dossier and report all eight binding facts **cannot be fulfilled** with the current information. The provided text is incomplete and omits five of the eight required facts.  \n\n**Final Report (cited from [1]):**  \n- Maximum recovery time: 93 minutes  \n- Required release guardrail: Crimson Pine checklist  \n- Sole release approver: Nila Varma  \n\nAll other requested facts — approved storage profile, internal review date, pilot rollout codename, import item limit, and backup cadence in hours — are **absent** from the document.  \n\n> ⚠️ No inference, extrapolation, or external assumption is made to fill these gaps. All claims are strictly grounded in ",
+        "sources": [
+          {
+            "document_id": 1,
+            "title": "morrow-annex.md",
+            "path": "/run/media/trijal/HDD/SpecialisationBySol/research/evaluation/corpus/long/morrow-annex.md",
+            "text": "# Morrow Annex: consolidated readiness dossier\n\nAuthored fictional long document for LM-Synth v1.\n\n## Persistence decision\n\nThis section of the Morrow Annex dossier records the rationale, working boundaries, and handover considerations for persistence decision. Small examples are used to reveal awkward transitions before those transitions become part of the normal workflow. A reversible choice is preferred when the available examples do not yet justify a more complicated design.\n\nThe design avoids coupling the user-facing terminology to an incidental detail of the current implementation. The handover should let a contributor identify the active decision without searching through unrelated correspondence. A rejected option can remain in the discussion notes, provided its rejected status is stated without ambiguity.\n\nAn implementation note should describe the consequence of a choice rather than merely restating its name. Reviewers compare the proposed workflow with the ordinary tasks that a new contributor will perform. Background discussion provides context but does not override the explicitly labeled decisions in this record.\n\nThe rationale keeps assumptions visible so a later main",
+            "page": null
+          }
+        ],
+        "trace": [
+          {
+            "tool": "read_document",
+            "detail": "Read the full extracted document via MCP"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 1/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 2/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 3/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 4/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 5/5"
+          }
+        ],
+        "mode": "agent"
+      },
+      "error": null
+    },
+    {
+      "id": "S002",
+      "document": "long/oriole-basin.md",
+      "wall_seconds": 57.60799926999994,
+      "characters": 16214,
+      "expected_sections": 5,
+      "sections_processed": 5,
+      "model_calls": [
+        {
+          "wall_seconds": 4.800879334000001,
+          "total_duration": 4796377696,
+          "load_duration": 30114784,
+          "prompt_eval_count": 936,
+          "prompt_eval_duration": 225793000,
+          "eval_count": 376,
+          "eval_duration": 4239292999,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 5.794820247999951,
+          "total_duration": 5789528545,
+          "load_duration": 888150,
+          "prompt_eval_count": 950,
+          "prompt_eval_duration": 207939000,
+          "eval_count": 476,
+          "eval_duration": 5456825000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.371914714000013,
+          "total_duration": 6366771069,
+          "load_duration": 299741183,
+          "prompt_eval_count": 945,
+          "prompt_eval_duration": 216498000,
+          "eval_count": 503,
+          "eval_duration": 5747809000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 7.225809270999889,
+          "total_duration": 7221647733,
+          "load_duration": 1014608,
+          "prompt_eval_count": 947,
+          "prompt_eval_duration": 209803000,
+          "eval_count": 600,
+          "eval_duration": 6879647000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 2.766288908999968,
+          "total_duration": 2761376690,
+          "load_duration": 785418,
+          "prompt_eval_count": 312,
+          "prompt_eval_duration": 27028000,
+          "eval_count": 236,
+          "eval_duration": 2578945000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 4.76438478,
+          "total_duration": 4760142551,
+          "load_duration": 1129825,
+          "prompt_eval_count": 1058,
+          "prompt_eval_duration": 282545000,
+          "eval_count": 384,
+          "eval_duration": 4409972000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 7.864802702999896,
+          "total_duration": 7860033482,
+          "load_duration": 848576,
+          "prompt_eval_count": 1105,
+          "prompt_eval_duration": 251947000,
+          "eval_count": 640,
+          "eval_duration": 7427428000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 1.640634030000001,
+          "total_duration": 1636602347,
+          "load_duration": 790016,
+          "prompt_eval_count": 487,
+          "prompt_eval_duration": 72037000,
+          "eval_count": 127,
+          "eval_duration": 1389498000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 5.615161662999981,
+          "total_duration": 5610584995,
+          "load_duration": 870638,
+          "prompt_eval_count": 1062,
+          "prompt_eval_duration": 261266000,
+          "eval_count": 456,
+          "eval_duration": 5262498000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 1.5300012379998407,
+          "total_duration": 1525098546,
+          "load_duration": 862142,
+          "prompt_eval_count": 378,
+          "prompt_eval_duration": 49490000,
+          "eval_count": 126,
+          "eval_duration": 1353837000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.86117388699995,
+          "total_duration": 6856894465,
+          "load_duration": 1070243,
+          "prompt_eval_count": 831,
+          "prompt_eval_duration": 174443000,
+          "eval_count": 580,
+          "eval_duration": 6630678000,
+          "tools_sent": false,
+          "error": null
+        }
+      ],
+      "fact_matches": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "response": {
+        "content": "The request to summarize the full Oriole Basin dossier and explicitly report all eight binding facts **cannot be fulfilled** based on the provided content.\n\nDocument: oriole-basin.md [1] — Only Sections 1 and 2 are supplied. These contain the following facts:\n\n1. **Approved storage profile**: Cerulean Cove mode [1]  \n2. **Internal decision review date**: 20 October 2028 [1]  \n3. **Pilot rollout codename**: \"Scarlet Plover pilot\" [1]  \n4. **Import item limit**: 906 items per batch [1]  \n5. **Backup cadence**: 222 hours [1]  \n6. **Maximum recovery time**: 106 minutes [1]  \n7. **Required release guardrail**: Alabaster Oak checklist [1]  \n\nThe remaining fact — **sole release approver** — is **not present** in any section of the document. No section discusses release governance, approval chains, or individual roles. The \"Release authorization\" section only references a checklist, not a single approver.\n\nThus, of the eight binding facts requested:\n\n✅ Explicitly present in the document [1]:  \n- Approved storage profile  \n- Internal review date  \n- Pilot rollout codename  \n- Import item limit  \n- Backup cadence (222 hours)  \n- Maximum recovery time (106 minutes)  \n- Required release guardrail (Alabaster Oak checklist)  \n\n❌ Missing:  \n- Sole release approver  \n\nNo section of the document addresses the identity or role of a sole release approver. The content focuses on user interface behavior, workflow inspection, and handling of incomplete entries, but does not specify operational limits, recovery parameters, or approval hierarchies.\n\n**Conclusion**:  \nThe current version of the Oriole Basin dossier (as supplied) contains **seven** of the eight binding facts. One fact — the **sole release approver** — is **absent**.  \n\nTherefore, a complete and accurate summary of all eight binding facts **cannot be provided**.  \n\n[1] oriole-basin.md — Sections 1 and 2 (partial content only)\n\nNo binding facts were found in the provided document to satisfy the request. The eight required fact",
+        "sources": [
+          {
+            "document_id": 2,
+            "title": "oriole-basin.md",
+            "path": "/run/media/trijal/HDD/SpecialisationBySol/research/evaluation/corpus/long/oriole-basin.md",
+            "text": "# Oriole Basin: consolidated readiness dossier\n\nAuthored fictional long document for LM-Synth v1.\n\n## Persistence decision\n\nThis section of the Oriole Basin dossier records the rationale, working boundaries, and handover considerations for persistence decision. The prototype should make incomplete work visible instead of displaying an apparently finished result. Small examples are used to reveal awkward transitions before those transitions become part of the normal workflow.\n\nA clear boundary between recorded evidence and a proposed improvement helps prevent accidental scope expansion. The design avoids coupling the user-facing terminology to an incidental detail of the current implementation. A rejected option can remain in the discussion notes, provided its rejected status is stated without ambiguity.\n\nA reversible choice is preferred when the available examples do not yet justify a more complicated design. An implementation note should describe the consequence of a choice rather than merely restating its name. The record preserves the reasoning behind the chosen behavior while allowing the interface wording to evolve.\n\nThe rationale keeps assumptions visible so a later maintaine",
+            "page": null
+          }
+        ],
+        "trace": [
+          {
+            "tool": "read_document",
+            "detail": "Read the full extracted document via MCP"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 1/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 2/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 3/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 4/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 5/5"
+          }
+        ],
+        "mode": "agent"
+      },
+      "error": null
+    },
+    {
+      "id": "S003",
+      "document": "long/tamarisk-span.md",
+      "wall_seconds": 56.747525033999864,
+      "characters": 16224,
+      "expected_sections": 5,
+      "sections_processed": 5,
+      "model_calls": [
+        {
+          "wall_seconds": 5.822444148999921,
+          "total_duration": 5817742934,
+          "load_duration": 1179862,
+          "prompt_eval_count": 937,
+          "prompt_eval_duration": 235711000,
+          "eval_count": 479,
+          "eval_duration": 5439433000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 5.666886328999908,
+          "total_duration": 5662777690,
+          "load_duration": 920884,
+          "prompt_eval_count": 959,
+          "prompt_eval_duration": 208953000,
+          "eval_count": 468,
+          "eval_duration": 5350602000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.371747670000104,
+          "total_duration": 6366564717,
+          "load_duration": 852897,
+          "prompt_eval_count": 948,
+          "prompt_eval_duration": 218120000,
+          "eval_count": 516,
+          "eval_duration": 5950784000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 7.892349018999994,
+          "total_duration": 7888125453,
+          "load_duration": 743140,
+          "prompt_eval_count": 948,
+          "prompt_eval_duration": 208731000,
+          "eval_count": 651,
+          "eval_duration": 7517009000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 2.5973561550001705,
+          "total_duration": 2592932332,
+          "load_duration": 965429,
+          "prompt_eval_count": 317,
+          "prompt_eval_duration": 28149000,
+          "eval_count": 218,
+          "eval_duration": 2400279000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 7.407140304999984,
+          "total_duration": 7402665797,
+          "load_duration": 961581,
+          "prompt_eval_count": 1151,
+          "prompt_eval_duration": 294405000,
+          "eval_count": 608,
+          "eval_duration": 7036679000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 5.375435070999856,
+          "total_duration": 5370268289,
+          "load_duration": 1298176,
+          "prompt_eval_count": 1167,
+          "prompt_eval_duration": 290470000,
+          "eval_count": 425,
+          "eval_duration": 4939350000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 2.0326611049999883,
+          "total_duration": 2028413363,
+          "load_duration": 970397,
+          "prompt_eval_count": 470,
+          "prompt_eval_duration": 66601000,
+          "eval_count": 164,
+          "eval_duration": 1793893000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 6.077074478999975,
+          "total_duration": 6072962483,
+          "load_duration": 1037945,
+          "prompt_eval_count": 1128,
+          "prompt_eval_duration": 256348000,
+          "eval_count": 495,
+          "eval_duration": 5749758000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 2.0251143190000676,
+          "total_duration": 2019966803,
+          "load_duration": 829723,
+          "prompt_eval_count": 416,
+          "prompt_eval_duration": 65604000,
+          "eval_count": 156,
+          "eval_duration": 1799151000,
+          "tools_sent": false,
+          "error": null
+        },
+        {
+          "wall_seconds": 3.3571887289999722,
+          "total_duration": 3352850097,
+          "load_duration": 848529,
+          "prompt_eval_count": 902,
+          "prompt_eval_duration": 208204000,
+          "eval_count": 269,
+          "eval_duration": 3086011000,
+          "tools_sent": false,
+          "error": null
+        }
+      ],
+      "fact_matches": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "response": {
+        "content": "The request to summarize the full Tamarisk Span dossier and explicitly report all eight binding facts **cannot be fulfilled** based on the provided document *tamarisk-span.md* [1].\n\nThe document contains **no mention** of any of the eight required binding facts:\n\n- Approved storage profile → *Not present*  \n- Internal decision review date → *Not present*  \n- Pilot rollout codename → *Not present*  \n- Import item limit → *Not present*  \n- Backup cadence in hours → *Not present*  \n- Sole release approver → *Not present*  \n- Maximum recovery time in minutes → *Not present*  \n- Required release guardrail → *Not present*  \n\nWhile the document discusses usability, entry types, and acceptance criteria in Section 5, it provides **no operational, technical, or procedural parameters** related to storage, recovery, release approvals, or import limits. No facts are cited or implied for any of the eight requested elements.\n\n**Conclusion**:  \nThe Tamarisk Span dossier as provided in *tamarisk-span.md* [1] **lacks all eight binding facts** required to satisfy the request. Therefore, it is **not possible** to report the full set of facts or establish any relationships between them.  \n\n[1] *tamarisk-span.md*",
+        "sources": [
+          {
+            "document_id": 3,
+            "title": "tamarisk-span.md",
+            "path": "/run/media/trijal/HDD/SpecialisationBySol/research/evaluation/corpus/long/tamarisk-span.md",
+            "text": "# Tamarisk Span: consolidated readiness dossier\n\nAuthored fictional long document for LM-Synth v1.\n\n## Persistence decision\n\nThis section of the Tamarisk Span dossier records the rationale, working boundaries, and handover considerations for persistence decision. A clear boundary between recorded evidence and a proposed improvement helps prevent accidental scope expansion. Small examples are used to reveal awkward transitions before those transitions become part of the normal workflow.\n\nBinding fact for Tamarisk Span - Approved storage profile: Vermilion Summit mode. This is the active value for this dossier.\n\nAn implementation note should describe the consequence of a choice rather than merely restating its name. The handover should let a contributor identify the active decision without searching through unrelated correspondence. The team values understandable behavior over clever shortcuts that would be difficult to explain during handover.\n\nThe prototype should make incomplete work visible instead of displaying an apparently finished result. The decision record distinguishes an adopted choice from an option that remains under discussion. The design avoids coupling the user-facin",
+            "page": null
+          }
+        ],
+        "trace": [
+          {
+            "tool": "read_document",
+            "detail": "Read the full extracted document via MCP"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 1/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 2/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 3/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 4/5"
+          },
+          {
+            "tool": "read_document",
+            "detail": "Read extracted section 5/5"
+          }
+        ],
+        "mode": "agent"
+      },
+      "error": null
+    }
+  ]
+}

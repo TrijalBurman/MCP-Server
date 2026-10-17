@@ -1,0 +1,108 @@
+{
+  "name": "LocalMind small synthetic model development probe v1",
+  "frozen_before_inference": true,
+  "purpose": "Model selection development probe; not held-out validation or paper accuracy.",
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "late_fact",
+      "question": "What approved storage profile does Citrine Leaf use?",
+      "expected": [
+        "Quartz Harbor ledger"
+      ]
+    },
+    {
+      "id": "P02",
+      "kind": "paraphrase",
+      "question": "Which persistence configuration did Citrine Leaf adopt?",
+      "expected": [
+        "Quartz Harbor ledger"
+      ]
+    },
+    {
+      "id": "P03",
+      "kind": "literal",
+      "question": "What is the backup cadence for Citrine Leaf?",
+      "expected": [
+        "53 hours"
+      ]
+    },
+    {
+      "id": "P04",
+      "kind": "paraphrase",
+      "question": "How often should Citrine Leaf make copies of its saved records?",
+      "expected": [
+        "53 hours"
+      ]
+    },
+    {
+      "id": "P05",
+      "kind": "literal",
+      "question": "What rollout codename is approved for Citrine Leaf?",
+      "expected": [
+        "Saffron Finch pilot"
+      ]
+    },
+    {
+      "id": "P06",
+      "kind": "literal",
+      "question": "Who coordinates Citrine Leaf?",
+      "expected": [
+        "Mira Sen"
+      ]
+    },
+    {
+      "id": "P07",
+      "kind": "cross_document",
+      "question": "Give the adopted storage profile and backup interval for Citrine Leaf.",
+      "expected": [
+        "Quartz Harbor ledger",
+        "53 hours"
+      ]
+    },
+    {
+      "id": "P08",
+      "kind": "cross_document",
+      "question": "Give Citrine Leaf's rollout codename and internal review date.",
+      "expected": [
+        "Saffron Finch pilot",
+        "18 March 2028"
+      ]
+    },
+    {
+      "id": "P09",
+      "kind": "unknown",
+      "question": "What is the approved annual maintenance cost for Citrine Leaf?",
+      "expected": []
+    },
+    {
+      "id": "P10",
+      "kind": "unknown",
+      "question": "What is Citrine Leaf's approved marketing slogan?",
+      "expected": []
+    }
+  ],
+  "question_suffix": " Answer in at most two sentences, using document evidence. If the answer is absent, say exactly: Not in the documents.",
+  "context_size": 12288,
+  "corpus_sha256": {
+    "citrine-decisions.md": "6e9660c7d1964dfa79103bf0616e4d5cc3d8998a6e3a8e52d9a87db0564b850d",
+    "citrine-operations.md": "29e0440585eabe256072199a2d7548c098117cbbe107a753f2feec0ab6076ceb",
+    "citrine-release.md": "ecbd99a0aaf7acb17626e12c6679344f52baf138423136e43fd9b6c861d03d44",
+    "beryl-decisions.md": "66176e755708594d26b96c09ef3a7360faa6db6cfa0d068005e8153d2cd96a12",
+    "kestrel-summary.md": "85c47c93a89a397d6c010748f52cdbacbc1d52ffc44f5ff3faf967ffe5c925af"
+  },
+  "summary_expected": [
+    "Cedar Box profile",
+    "61 hours",
+    "11 May 2028"
+  ],
+  "scoring": "Case-insensitive literal presence; exact unknown abstention; raw answers require review.",
+  "source_sha256": {
+    "copilot/agent.py": "44b84a2c48554dc5101caf22fc34df23424951f85a2b44a9eb71df9e546a86fe",
+    "copilot/grounding.py": "a0f259cc50bfe0a3903afaed897014ea898e057d72259c84b22ac303fc468cc1",
+    "copilot/ollama.py": "1db1e79b7eac3dba77b2afaa2e852db847b7ae2169d7f92327b750dbaa4cdc25",
+    "copilot/mcp_server.py": "25b7409ecf380f61a8b1ae8a9f681e7a860c355a284ae25043b5cf5d0d207a47",
+    "copilot/store.py": "ef5307e599d6bbc1cabfab5c77e13f959aece6c983c3c08a97895e9ba22df286",
+    "copilot/library.py": "d8454a45bb95b78cbe549a20225ba6ed10907fa6381ce4bd0e96387bb7c351ae"
+  }
+}

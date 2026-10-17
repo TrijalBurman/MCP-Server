@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-17",
+  "status": "passed",
+  "pages": {
+    "blackbook/localmind-blackbook-60-pages.pdf": 60,
+    "presentation/localmind-demo-and-speaking-guide.pdf": 12,
+    "pdf/localmind-ieee-research-paper.pdf": 11
+  },
+  "visual_review": {
+    "status": "passed",
+    "page_comparison": {
+      "blackbook-render-v3": {
+        "identical_previously_reviewed_pages": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          10,
+          16,
+          17,
+          19,
+          20,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          53,
+          54,
+          55,
+          56,
+          59
+        ],
+        "changed_pages_visually_reviewed": [
+          5,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13,
+          14,
+          15,
+          18,
+          21,
+          22,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          57,
+          58,
+          60
+        ]
+      },
+      "handbook-render-v1": {
+        "identical_previously_reviewed_pages": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9
+        ],
+        "changed_pages_visually_reviewed": [
+          4,
+          8,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    "paper_pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "institutional_template_unchanged": true,
+  "preserved_template_parts": 25,
+  "frozen_research_statistics_check": "Passed: original 64 primary + 64 diagnostic QA, 288 retrieval rows and 3 summary fact sets unchanged.",
+  "readiness_checked_at_utc": "2026-10-17T05:36:45.343145+00:00",
+  "applications": {
+    "normal": {
+      "url": "http://127.0.0.1:8765",
+      "chat_ready": true,
+      "embedding_ready": true
+    },
+    "presentation": {
+      "url": "http://127.0.0.1:8766",
+      "chat_ready": true,
+      "embedding_ready": true
+    }
+  },
+  "post_restart_rehearsal": "SQLite answer with source [1], real search/recall trace, existing saved project memory retained.",
+  "new_production_replay": "64/64 reference inputs retained within budget; RAG AFVM 7/24, MCP AFVM 3/24; reused questions, not held-out confirmation.",
+  "source_publication_status": "Repair applied locally to both copies; uncommitted and unpublished.",
+  "deliverable_sha256": {
+    "blackbook/localmind-blackbook-60-pages.docx": "30bdd2f4bbed56b06a6123cb2649bd025eed30c798fdd4d4250ebf82e3fc0491",
+    "blackbook/localmind-blackbook-60-pages.pdf": "cb141b64c7eb8b2fcfecb510a7d38f5a6864a4a5a585cb653394885ba0518ac0",
+    "pdf/localmind-ieee-research-paper.pdf": "4fd90e637494836b98a341b69a4426507882b309b2b5edbd941f7de49b338eb6",
+    "pdf/localmind-ieee-research-paper.tex": "abe57ec1a761ada7969ed666c890575a826d1117a8657da293c09c4736825bc8",
+    "pdf/research-artifact-readme.md": "47aae80d50e6306f1c60a4ffc67b8abd97d139db37de340c1ab11666d747bfa4",
+    "presentation/10-minute-group-script.md": "eaaa8fba128c8c68e66c86698ace721e39e743c3b8f9943a8a9aca0c2eef98d9",
+    "presentation/START-HERE.md": "b79d7ed5b355a6ffda0d22a65626f51b46c067adb5d48350781d5de0b91036ba",
+    "presentation/localmind-demo-and-speaking-guide.docx": "7aa9fbc9271763559c3dc784425344009f651e0933ad1f6eea869b8078054d5a",
+    "presentation/localmind-demo-and-speaking-guide.pdf": "0b92ecbe4ddca97f5fe3630ac7039b6132a7f780f9e1b5156eb4a8e905d9f7ac"
+  }
+}

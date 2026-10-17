@@ -1,0 +1,11 @@
+{
+  "seconds": 11.594532953000453,
+  "result": {
+    "indexed": 5,
+    "unchanged": 0,
+    "removed": 0,
+    "skipped": 0,
+    "errors": [],
+    "embedded": 5
+  }
+}

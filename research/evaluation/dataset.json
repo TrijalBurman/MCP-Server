@@ -1,0 +1,2121 @@
+{
+  "name": "LM-Synth v1",
+  "seed": 20261017,
+  "description": "Authored English synthetic mechanism-study corpus: twelve fictional project families with decisions, specifications, and operations records, plus three long readiness dossiers. Gold values and document labels are defined before model execution. Not a representative sample of real personal files or an external accuracy benchmark.",
+  "documents": [
+    {
+      "path": "projects/aster-vale/decisions.md",
+      "project": "Aster Vale",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/aster-vale/specifications.md",
+      "project": "Aster Vale",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/aster-vale/operations.md",
+      "project": "Aster Vale",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/birch-harbor/decisions.md",
+      "project": "Birch Harbor",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/birch-harbor/specifications.md",
+      "project": "Birch Harbor",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/birch-harbor/operations.md",
+      "project": "Birch Harbor",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/cobalt-ridge/decisions.md",
+      "project": "Cobalt Ridge",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/cobalt-ridge/specifications.md",
+      "project": "Cobalt Ridge",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/cobalt-ridge/operations.md",
+      "project": "Cobalt Ridge",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/drift-meadow/decisions.md",
+      "project": "Drift Meadow",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/drift-meadow/specifications.md",
+      "project": "Drift Meadow",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/drift-meadow/operations.md",
+      "project": "Drift Meadow",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/ember-quay/decisions.md",
+      "project": "Ember Quay",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/ember-quay/specifications.md",
+      "project": "Ember Quay",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/ember-quay/operations.md",
+      "project": "Ember Quay",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/fable-grove/decisions.md",
+      "project": "Fable Grove",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/fable-grove/specifications.md",
+      "project": "Fable Grove",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/fable-grove/operations.md",
+      "project": "Fable Grove",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/garnet-hollow/decisions.md",
+      "project": "Garnet Hollow",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/garnet-hollow/specifications.md",
+      "project": "Garnet Hollow",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/garnet-hollow/operations.md",
+      "project": "Garnet Hollow",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/hazel-reach/decisions.md",
+      "project": "Hazel Reach",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/hazel-reach/specifications.md",
+      "project": "Hazel Reach",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/hazel-reach/operations.md",
+      "project": "Hazel Reach",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/indigo-marsh/decisions.md",
+      "project": "Indigo Marsh",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/indigo-marsh/specifications.md",
+      "project": "Indigo Marsh",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/indigo-marsh/operations.md",
+      "project": "Indigo Marsh",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/juniper-crest/decisions.md",
+      "project": "Juniper Crest",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/juniper-crest/specifications.md",
+      "project": "Juniper Crest",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/juniper-crest/operations.md",
+      "project": "Juniper Crest",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/kestrel-brook/decisions.md",
+      "project": "Kestrel Brook",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/kestrel-brook/specifications.md",
+      "project": "Kestrel Brook",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/kestrel-brook/operations.md",
+      "project": "Kestrel Brook",
+      "kind": "operations"
+    },
+    {
+      "path": "projects/lumen-field/decisions.md",
+      "project": "Lumen Field",
+      "kind": "decisions"
+    },
+    {
+      "path": "projects/lumen-field/specifications.md",
+      "project": "Lumen Field",
+      "kind": "specifications"
+    },
+    {
+      "path": "projects/lumen-field/operations.md",
+      "project": "Lumen Field",
+      "kind": "operations"
+    },
+    {
+      "path": "long/morrow-annex.md",
+      "project": "Morrow Annex",
+      "kind": "long_summary"
+    },
+    {
+      "path": "long/oriole-basin.md",
+      "project": "Oriole Basin",
+      "kind": "long_summary"
+    },
+    {
+      "path": "long/tamarisk-span.md",
+      "project": "Tamarisk Span",
+      "kind": "long_summary"
+    }
+  ],
+  "queries": [
+    {
+      "id": "Q001",
+      "project": "Aster Vale",
+      "kind": "lexical",
+      "query": "What approved storage profile does Aster Vale use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/decisions.md",
+          "aliases": [
+            "Juniper Vault mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q002",
+      "project": "Aster Vale",
+      "kind": "lexical",
+      "query": "What is the internal review date for Aster Vale?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/decisions.md",
+          "aliases": [
+            "4 February 2027",
+            "February 4, 2027",
+            "2027-02-04",
+            "4 Feb 2027",
+            "Feb 4, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q003",
+      "project": "Aster Vale",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Aster Vale?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/specifications.md",
+          "aliases": [
+            "Copper Heron pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q004",
+      "project": "Aster Vale",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Aster Vale, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/operations.md",
+          "aliases": [
+            "47 hours",
+            "47-hour",
+            "47 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q005",
+      "project": "Aster Vale",
+      "kind": "paraphrase",
+      "query": "For Aster Vale, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/specifications.md",
+          "aliases": [
+            "137 items per batch",
+            "137 items",
+            "137-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q006",
+      "project": "Aster Vale",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Aster Vale build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/operations.md",
+          "aliases": [
+            "Elin Rao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q007",
+      "project": "Aster Vale",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Aster Vale team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/operations.md",
+          "aliases": [
+            "31 minutes",
+            "31-minute",
+            "31 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q008",
+      "project": "Aster Vale",
+      "kind": "cross_document",
+      "query": "For Aster Vale, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/aster-vale/specifications.md",
+          "aliases": [
+            "Saffron Fern checklist"
+          ]
+        },
+        {
+          "document": "projects/aster-vale/decisions.md",
+          "aliases": [
+            "4 February 2027",
+            "February 4, 2027",
+            "2027-02-04",
+            "4 Feb 2027",
+            "Feb 4, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q009",
+      "project": "Birch Harbor",
+      "kind": "lexical",
+      "query": "What approved storage profile does Birch Harbor use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/decisions.md",
+          "aliases": [
+            "Larch Dossier mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q010",
+      "project": "Birch Harbor",
+      "kind": "lexical",
+      "query": "What is the internal review date for Birch Harbor?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/decisions.md",
+          "aliases": [
+            "15 February 2027",
+            "February 15, 2027",
+            "2027-02-15",
+            "15 Feb 2027",
+            "Feb 15, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q011",
+      "project": "Birch Harbor",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Birch Harbor?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/specifications.md",
+          "aliases": [
+            "Bronze Wren pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q012",
+      "project": "Birch Harbor",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Birch Harbor, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/operations.md",
+          "aliases": [
+            "54 hours",
+            "54-hour",
+            "54 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q013",
+      "project": "Birch Harbor",
+      "kind": "paraphrase",
+      "query": "For Birch Harbor, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/specifications.md",
+          "aliases": [
+            "156 items per batch",
+            "156 items",
+            "156-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q014",
+      "project": "Birch Harbor",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Birch Harbor build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/operations.md",
+          "aliases": [
+            "Isha Laurent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q015",
+      "project": "Birch Harbor",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Birch Harbor team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/operations.md",
+          "aliases": [
+            "35 minutes",
+            "35-minute",
+            "35 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q016",
+      "project": "Birch Harbor",
+      "kind": "cross_document",
+      "query": "For Birch Harbor, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/birch-harbor/specifications.md",
+          "aliases": [
+            "Magenta Elm checklist"
+          ]
+        },
+        {
+          "document": "projects/birch-harbor/decisions.md",
+          "aliases": [
+            "15 February 2027",
+            "February 15, 2027",
+            "2027-02-15",
+            "15 Feb 2027",
+            "Feb 15, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q017",
+      "project": "Cobalt Ridge",
+      "kind": "lexical",
+      "query": "What approved storage profile does Cobalt Ridge use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/decisions.md",
+          "aliases": [
+            "Ginkgo Record mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q018",
+      "project": "Cobalt Ridge",
+      "kind": "lexical",
+      "query": "What is the internal review date for Cobalt Ridge?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/decisions.md",
+          "aliases": [
+            "26 February 2027",
+            "February 26, 2027",
+            "2027-02-26",
+            "26 Feb 2027",
+            "Feb 26, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q019",
+      "project": "Cobalt Ridge",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Cobalt Ridge?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/specifications.md",
+          "aliases": [
+            "Coral Badger pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q020",
+      "project": "Cobalt Ridge",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Cobalt Ridge, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/operations.md",
+          "aliases": [
+            "61 hours",
+            "61-hour",
+            "61 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q021",
+      "project": "Cobalt Ridge",
+      "kind": "paraphrase",
+      "query": "For Cobalt Ridge, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/specifications.md",
+          "aliases": [
+            "175 items per batch",
+            "175 items",
+            "175-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q022",
+      "project": "Cobalt Ridge",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Cobalt Ridge build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/operations.md",
+          "aliases": [
+            "Noah Menon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q023",
+      "project": "Cobalt Ridge",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Cobalt Ridge team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/operations.md",
+          "aliases": [
+            "39 minutes",
+            "39-minute",
+            "39 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q024",
+      "project": "Cobalt Ridge",
+      "kind": "cross_document",
+      "query": "For Cobalt Ridge, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/cobalt-ridge/specifications.md",
+          "aliases": [
+            "Citrine Willow checklist"
+          ]
+        },
+        {
+          "document": "projects/cobalt-ridge/decisions.md",
+          "aliases": [
+            "26 February 2027",
+            "February 26, 2027",
+            "2027-02-26",
+            "26 Feb 2027",
+            "Feb 26, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q025",
+      "project": "Drift Meadow",
+      "kind": "lexical",
+      "query": "What approved storage profile does Drift Meadow use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/decisions.md",
+          "aliases": [
+            "Iris Journal mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q026",
+      "project": "Drift Meadow",
+      "kind": "lexical",
+      "query": "What is the internal review date for Drift Meadow?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/decisions.md",
+          "aliases": [
+            "9 March 2027",
+            "March 9, 2027",
+            "2027-03-09",
+            "9 Mar 2027",
+            "Mar 9, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q027",
+      "project": "Drift Meadow",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Drift Meadow?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/specifications.md",
+          "aliases": [
+            "Golden Moth pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q028",
+      "project": "Drift Meadow",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Drift Meadow, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/operations.md",
+          "aliases": [
+            "68 hours",
+            "68-hour",
+            "68 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q029",
+      "project": "Drift Meadow",
+      "kind": "paraphrase",
+      "query": "For Drift Meadow, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/specifications.md",
+          "aliases": [
+            "194 items per batch",
+            "194 items",
+            "194-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q030",
+      "project": "Drift Meadow",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Drift Meadow build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/operations.md",
+          "aliases": [
+            "Soren Malik"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q031",
+      "project": "Drift Meadow",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Drift Meadow team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/operations.md",
+          "aliases": [
+            "43 minutes",
+            "43-minute",
+            "43 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q032",
+      "project": "Drift Meadow",
+      "kind": "cross_document",
+      "query": "For Drift Meadow, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/drift-meadow/specifications.md",
+          "aliases": [
+            "Sepia Rowan checklist"
+          ]
+        },
+        {
+          "document": "projects/drift-meadow/decisions.md",
+          "aliases": [
+            "9 March 2027",
+            "March 9, 2027",
+            "2027-03-09",
+            "9 Mar 2027",
+            "Mar 9, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q033",
+      "project": "Ember Quay",
+      "kind": "lexical",
+      "query": "What approved storage profile does Ember Quay use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/decisions.md",
+          "aliases": [
+            "Fir Chronicle mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q034",
+      "project": "Ember Quay",
+      "kind": "lexical",
+      "query": "What is the internal review date for Ember Quay?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/decisions.md",
+          "aliases": [
+            "20 March 2027",
+            "March 20, 2027",
+            "2027-03-20",
+            "20 Mar 2027",
+            "Mar 20, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q035",
+      "project": "Ember Quay",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Ember Quay?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/specifications.md",
+          "aliases": [
+            "Pearl Lynx pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q036",
+      "project": "Ember Quay",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Ember Quay, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/operations.md",
+          "aliases": [
+            "75 hours",
+            "75-hour",
+            "75 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q037",
+      "project": "Ember Quay",
+      "kind": "paraphrase",
+      "query": "For Ember Quay, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/specifications.md",
+          "aliases": [
+            "213 items per batch",
+            "213 items",
+            "213-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q038",
+      "project": "Ember Quay",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Ember Quay build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/operations.md",
+          "aliases": [
+            "Nora Haddad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q039",
+      "project": "Ember Quay",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Ember Quay team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/operations.md",
+          "aliases": [
+            "47 minutes",
+            "47-minute",
+            "47 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q040",
+      "project": "Ember Quay",
+      "kind": "cross_document",
+      "query": "For Ember Quay, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/ember-quay/specifications.md",
+          "aliases": [
+            "Indigo Birch checklist"
+          ]
+        },
+        {
+          "document": "projects/ember-quay/decisions.md",
+          "aliases": [
+            "20 March 2027",
+            "March 20, 2027",
+            "2027-03-20",
+            "20 Mar 2027",
+            "Mar 20, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q041",
+      "project": "Fable Grove",
+      "kind": "lexical",
+      "query": "What approved storage profile does Fable Grove use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/decisions.md",
+          "aliases": [
+            "Maple Catalog mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q042",
+      "project": "Fable Grove",
+      "kind": "lexical",
+      "query": "What is the internal review date for Fable Grove?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/decisions.md",
+          "aliases": [
+            "31 March 2027",
+            "March 31, 2027",
+            "2027-03-31",
+            "31 Mar 2027",
+            "Mar 31, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q043",
+      "project": "Fable Grove",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Fable Grove?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/specifications.md",
+          "aliases": [
+            "Ivory Lark pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q044",
+      "project": "Fable Grove",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Fable Grove, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/operations.md",
+          "aliases": [
+            "82 hours",
+            "82-hour",
+            "82 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q045",
+      "project": "Fable Grove",
+      "kind": "paraphrase",
+      "query": "For Fable Grove, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/specifications.md",
+          "aliases": [
+            "232 items per batch",
+            "232 items",
+            "232-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q046",
+      "project": "Fable Grove",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Fable Grove build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/operations.md",
+          "aliases": [
+            "Marta Qureshi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q047",
+      "project": "Fable Grove",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Fable Grove team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/operations.md",
+          "aliases": [
+            "51 minutes",
+            "51-minute",
+            "51 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q048",
+      "project": "Fable Grove",
+      "kind": "cross_document",
+      "query": "For Fable Grove, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/fable-grove/specifications.md",
+          "aliases": [
+            "Viridian Ash checklist"
+          ]
+        },
+        {
+          "document": "projects/fable-grove/decisions.md",
+          "aliases": [
+            "31 March 2027",
+            "March 31, 2027",
+            "2027-03-31",
+            "31 Mar 2027",
+            "Mar 31, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q049",
+      "project": "Garnet Hollow",
+      "kind": "lexical",
+      "query": "What approved storage profile does Garnet Hollow use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/decisions.md",
+          "aliases": [
+            "Dogwood Index mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q050",
+      "project": "Garnet Hollow",
+      "kind": "lexical",
+      "query": "What is the internal review date for Garnet Hollow?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/decisions.md",
+          "aliases": [
+            "11 April 2027",
+            "April 11, 2027",
+            "2027-04-11",
+            "11 Apr 2027",
+            "Apr 11, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q051",
+      "project": "Garnet Hollow",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Garnet Hollow?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/specifications.md",
+          "aliases": [
+            "Violet Hare pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q052",
+      "project": "Garnet Hollow",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Garnet Hollow, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/operations.md",
+          "aliases": [
+            "89 hours",
+            "89-hour",
+            "89 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q053",
+      "project": "Garnet Hollow",
+      "kind": "paraphrase",
+      "query": "For Garnet Hollow, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/specifications.md",
+          "aliases": [
+            "251 items per batch",
+            "251 items",
+            "251-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q054",
+      "project": "Garnet Hollow",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Garnet Hollow build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/operations.md",
+          "aliases": [
+            "Devika Lin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q055",
+      "project": "Garnet Hollow",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Garnet Hollow team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/operations.md",
+          "aliases": [
+            "55 minutes",
+            "55-minute",
+            "55 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q056",
+      "project": "Garnet Hollow",
+      "kind": "cross_document",
+      "query": "For Garnet Hollow, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/garnet-hollow/specifications.md",
+          "aliases": [
+            "Velvet Pine checklist"
+          ]
+        },
+        {
+          "document": "projects/garnet-hollow/decisions.md",
+          "aliases": [
+            "11 April 2027",
+            "April 11, 2027",
+            "2027-04-11",
+            "11 Apr 2027",
+            "Apr 11, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q057",
+      "project": "Hazel Reach",
+      "kind": "lexical",
+      "query": "What approved storage profile does Hazel Reach use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/decisions.md",
+          "aliases": [
+            "Birch Archive mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q058",
+      "project": "Hazel Reach",
+      "kind": "lexical",
+      "query": "What is the internal review date for Hazel Reach?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/decisions.md",
+          "aliases": [
+            "22 April 2027",
+            "April 22, 2027",
+            "2027-04-22",
+            "22 Apr 2027",
+            "Apr 22, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q059",
+      "project": "Hazel Reach",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Hazel Reach?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/specifications.md",
+          "aliases": [
+            "Amber Otter pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q060",
+      "project": "Hazel Reach",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Hazel Reach, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/operations.md",
+          "aliases": [
+            "96 hours",
+            "96-hour",
+            "96 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q061",
+      "project": "Hazel Reach",
+      "kind": "paraphrase",
+      "query": "For Hazel Reach, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/specifications.md",
+          "aliases": [
+            "270 items per batch",
+            "270 items",
+            "270-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q062",
+      "project": "Hazel Reach",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Hazel Reach build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/operations.md",
+          "aliases": [
+            "Omar Voss"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q063",
+      "project": "Hazel Reach",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Hazel Reach team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/operations.md",
+          "aliases": [
+            "59 minutes",
+            "59-minute",
+            "59 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q064",
+      "project": "Hazel Reach",
+      "kind": "cross_document",
+      "query": "For Hazel Reach, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/hazel-reach/specifications.md",
+          "aliases": [
+            "Cerulean Moss checklist"
+          ]
+        },
+        {
+          "document": "projects/hazel-reach/decisions.md",
+          "aliases": [
+            "22 April 2027",
+            "April 22, 2027",
+            "2027-04-22",
+            "22 Apr 2027",
+            "Apr 22, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q065",
+      "project": "Indigo Marsh",
+      "kind": "lexical",
+      "query": "What approved storage profile does Indigo Marsh use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/decisions.md",
+          "aliases": [
+            "Cedar Shelf mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q066",
+      "project": "Indigo Marsh",
+      "kind": "lexical",
+      "query": "What is the internal review date for Indigo Marsh?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/decisions.md",
+          "aliases": [
+            "3 May 2027",
+            "May 3, 2027",
+            "2027-05-03",
+            "3 May 2027",
+            "May 3, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q067",
+      "project": "Indigo Marsh",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Indigo Marsh?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/specifications.md",
+          "aliases": [
+            "Teal Sparrow pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q068",
+      "project": "Indigo Marsh",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Indigo Marsh, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/operations.md",
+          "aliases": [
+            "103 hours",
+            "103-hour",
+            "103 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q069",
+      "project": "Indigo Marsh",
+      "kind": "paraphrase",
+      "query": "For Indigo Marsh, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/specifications.md",
+          "aliases": [
+            "289 items per batch",
+            "289 items",
+            "289-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q070",
+      "project": "Indigo Marsh",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Indigo Marsh build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/operations.md",
+          "aliases": [
+            "Mina Keller"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q071",
+      "project": "Indigo Marsh",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Indigo Marsh team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/operations.md",
+          "aliases": [
+            "63 minutes",
+            "63-minute",
+            "63 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q072",
+      "project": "Indigo Marsh",
+      "kind": "cross_document",
+      "query": "For Indigo Marsh, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/indigo-marsh/specifications.md",
+          "aliases": [
+            "Silver Finch checklist"
+          ]
+        },
+        {
+          "document": "projects/indigo-marsh/decisions.md",
+          "aliases": [
+            "3 May 2027",
+            "May 3, 2027",
+            "2027-05-03",
+            "3 May 2027",
+            "May 3, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q073",
+      "project": "Juniper Crest",
+      "kind": "lexical",
+      "query": "What approved storage profile does Juniper Crest use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/decisions.md",
+          "aliases": [
+            "Hemlock Register mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q074",
+      "project": "Juniper Crest",
+      "kind": "lexical",
+      "query": "What is the internal review date for Juniper Crest?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/decisions.md",
+          "aliases": [
+            "14 May 2027",
+            "May 14, 2027",
+            "2027-05-14",
+            "14 May 2027",
+            "May 14, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q075",
+      "project": "Juniper Crest",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Juniper Crest?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/specifications.md",
+          "aliases": [
+            "Jade Robin pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q076",
+      "project": "Juniper Crest",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Juniper Crest, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/operations.md",
+          "aliases": [
+            "110 hours",
+            "110-hour",
+            "110 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q077",
+      "project": "Juniper Crest",
+      "kind": "paraphrase",
+      "query": "For Juniper Crest, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/specifications.md",
+          "aliases": [
+            "308 items per batch",
+            "308 items",
+            "308-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q078",
+      "project": "Juniper Crest",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Juniper Crest build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/operations.md",
+          "aliases": [
+            "Lea Farouk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q079",
+      "project": "Juniper Crest",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Juniper Crest team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/operations.md",
+          "aliases": [
+            "67 minutes",
+            "67-minute",
+            "67 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q080",
+      "project": "Juniper Crest",
+      "kind": "cross_document",
+      "query": "For Juniper Crest, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/juniper-crest/specifications.md",
+          "aliases": [
+            "Crimson Reed checklist"
+          ]
+        },
+        {
+          "document": "projects/juniper-crest/decisions.md",
+          "aliases": [
+            "14 May 2027",
+            "May 14, 2027",
+            "2027-05-14",
+            "14 May 2027",
+            "May 14, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q081",
+      "project": "Kestrel Brook",
+      "kind": "lexical",
+      "query": "What approved storage profile does Kestrel Brook use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/decisions.md",
+          "aliases": [
+            "Alder Ledger mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q082",
+      "project": "Kestrel Brook",
+      "kind": "lexical",
+      "query": "What is the internal review date for Kestrel Brook?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/decisions.md",
+          "aliases": [
+            "25 May 2027",
+            "May 25, 2027",
+            "2027-05-25",
+            "25 May 2027",
+            "May 25, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q083",
+      "project": "Kestrel Brook",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Kestrel Brook?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/specifications.md",
+          "aliases": [
+            "Ochre Fox pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q084",
+      "project": "Kestrel Brook",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Kestrel Brook, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/operations.md",
+          "aliases": [
+            "117 hours",
+            "117-hour",
+            "117 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q085",
+      "project": "Kestrel Brook",
+      "kind": "paraphrase",
+      "query": "For Kestrel Brook, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/specifications.md",
+          "aliases": [
+            "327 items per batch",
+            "327 items",
+            "327-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q086",
+      "project": "Kestrel Brook",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Kestrel Brook build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/operations.md",
+          "aliases": [
+            "Ravi Solis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q087",
+      "project": "Kestrel Brook",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Kestrel Brook team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/operations.md",
+          "aliases": [
+            "71 minutes",
+            "71-minute",
+            "71 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q088",
+      "project": "Kestrel Brook",
+      "kind": "cross_document",
+      "query": "For Kestrel Brook, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/kestrel-brook/specifications.md",
+          "aliases": [
+            "Azure Clover checklist"
+          ]
+        },
+        {
+          "document": "projects/kestrel-brook/decisions.md",
+          "aliases": [
+            "25 May 2027",
+            "May 25, 2027",
+            "2027-05-25",
+            "25 May 2027",
+            "May 25, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q089",
+      "project": "Lumen Field",
+      "kind": "lexical",
+      "query": "What approved storage profile does Lumen Field use?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/decisions.md",
+          "aliases": [
+            "Elm Folio mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q090",
+      "project": "Lumen Field",
+      "kind": "lexical",
+      "query": "What is the internal review date for Lumen Field?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/decisions.md",
+          "aliases": [
+            "5 June 2027",
+            "June 5, 2027",
+            "2027-06-05",
+            "5 Jun 2027",
+            "Jun 5, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q091",
+      "project": "Lumen Field",
+      "kind": "lexical",
+      "query": "Which pilot rollout codename is approved for Lumen Field?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/specifications.md",
+          "aliases": [
+            "Lilac Crane pilot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q092",
+      "project": "Lumen Field",
+      "kind": "lexical",
+      "query": "What is the backup cadence for Lumen Field, in hours?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/operations.md",
+          "aliases": [
+            "124 hours",
+            "124-hour",
+            "124 h"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q093",
+      "project": "Lumen Field",
+      "kind": "paraphrase",
+      "query": "For Lumen Field, how many incoming items may a person submit together in one import?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/specifications.md",
+          "aliases": [
+            "346 items per batch",
+            "346 items",
+            "346-item batches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q094",
+      "project": "Lumen Field",
+      "kind": "paraphrase",
+      "query": "Who must give the go-ahead before a finished Lumen Field build can go live?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/operations.md",
+          "aliases": [
+            "Tariq Ames"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q095",
+      "project": "Lumen Field",
+      "kind": "paraphrase",
+      "query": "After a workstation interruption, how soon must the Lumen Field team be able to do useful work again?",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/operations.md",
+          "aliases": [
+            "75 minutes",
+            "75-minute",
+            "75 min"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q096",
+      "project": "Lumen Field",
+      "kind": "cross_document",
+      "query": "For Lumen Field, name the mandatory release guardrail and give the scheduled internal decision review date.",
+      "answerable": true,
+      "facts": [
+        {
+          "document": "projects/lumen-field/specifications.md",
+          "aliases": [
+            "Maroon Thistle checklist"
+          ]
+        },
+        {
+          "document": "projects/lumen-field/decisions.md",
+          "aliases": [
+            "5 June 2027",
+            "June 5, 2027",
+            "2027-06-05",
+            "5 Jun 2027",
+            "Jun 5, 2027"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U001",
+      "project": "Aster Vale",
+      "kind": "unanswerable",
+      "query": "What is the signed procurement reference number for Aster Vale?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U002",
+      "project": "Birch Harbor",
+      "kind": "unanswerable",
+      "query": "What exact per-user subscription fee was approved for Birch Harbor?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U003",
+      "project": "Cobalt Ridge",
+      "kind": "unanswerable",
+      "query": "On what calendar date will the external security audit of Cobalt Ridge take place?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U004",
+      "project": "Drift Meadow",
+      "kind": "unanswerable",
+      "query": "What is the production asset-registry identifier assigned to Drift Meadow?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U005",
+      "project": "Ember Quay",
+      "kind": "unanswerable",
+      "query": "Which minimum mobile operating-system version is required by Ember Quay?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U006",
+      "project": "Fable Grove",
+      "kind": "unanswerable",
+      "query": "What is the contractually mandated legal retention period for Fable Grove records?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U007",
+      "project": "Garnet Hollow",
+      "kind": "unanswerable",
+      "query": "What is the expiry date of the vendor support contract for Garnet Hollow?",
+      "answerable": false,
+      "facts": []
+    },
+    {
+      "id": "U008",
+      "project": "Hazel Reach",
+      "kind": "unanswerable",
+      "query": "Which government certification identifier has been issued to Hazel Reach?",
+      "answerable": false,
+      "facts": []
+    }
+  ],
+  "summaries": [
+    {
+      "id": "S001",
+      "document": "long/morrow-annex.md",
+      "request": "Summarize the full Morrow Annex dossier. Explicitly report all eight binding facts: the approved storage profile, internal review date, pilot rollout codename, import item limit, backup cadence in hours, sole release approver, maximum recovery time in minutes, and required release guardrail. Keep the relationships clear and cite this document. Do not omit facts from later sections.",
+      "facts": [
+        {
+          "aliases": [
+            "Saffron Orchard mode"
+          ]
+        },
+        {
+          "aliases": [
+            "13 September 2028",
+            "September 13, 2028",
+            "2028-09-13",
+            "13 Sep 2028",
+            "Sep 13, 2028"
+          ]
+        },
+        {
+          "aliases": [
+            "Violet Mantle pilot"
+          ]
+        },
+        {
+          "aliases": [
+            "877 items per batch",
+            "877 items",
+            "877-item batches"
+          ]
+        },
+        {
+          "aliases": [
+            "211 hours",
+            "211-hour",
+            "211 h"
+          ]
+        },
+        {
+          "aliases": [
+            "Nila Varma"
+          ]
+        },
+        {
+          "aliases": [
+            "93 minutes",
+            "93-minute",
+            "93 min"
+          ]
+        },
+        {
+          "aliases": [
+            "Crimson Pine checklist"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "document": "long/oriole-basin.md",
+      "request": "Summarize the full Oriole Basin dossier. Explicitly report all eight binding facts: the approved storage profile, internal review date, pilot rollout codename, import item limit, backup cadence in hours, sole release approver, maximum recovery time in minutes, and required release guardrail. Keep the relationships clear and cite this document. Do not omit facts from later sections.",
+      "facts": [
+        {
+          "aliases": [
+            "Cerulean Cove mode"
+          ]
+        },
+        {
+          "aliases": [
+            "20 October 2028",
+            "October 20, 2028",
+            "2028-10-20",
+            "20 Oct 2028",
+            "Oct 20, 2028"
+          ]
+        },
+        {
+          "aliases": [
+            "Scarlet Plover pilot"
+          ]
+        },
+        {
+          "aliases": [
+            "906 items per batch",
+            "906 items",
+            "906-item batches"
+          ]
+        },
+        {
+          "aliases": [
+            "222 hours",
+            "222-hour",
+            "222 h"
+          ]
+        },
+        {
+          "aliases": [
+            "Ravi Chen"
+          ]
+        },
+        {
+          "aliases": [
+            "106 minutes",
+            "106-minute",
+            "106 min"
+          ]
+        },
+        {
+          "aliases": [
+            "Alabaster Oak checklist"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "document": "long/tamarisk-span.md",
+      "request": "Summarize the full Tamarisk Span dossier. Explicitly report all eight binding facts: the approved storage profile, internal review date, pilot rollout codename, import item limit, backup cadence in hours, sole release approver, maximum recovery time in minutes, and required release guardrail. Keep the relationships clear and cite this document. Do not omit facts from later sections.",
+      "facts": [
+        {
+          "aliases": [
+            "Vermilion Summit mode"
+          ]
+        },
+        {
+          "aliases": [
+            "26 November 2028",
+            "November 26, 2028",
+            "2028-11-26",
+            "26 Nov 2028",
+            "Nov 26, 2028"
+          ]
+        },
+        {
+          "aliases": [
+            "Turquoise Newt pilot"
+          ]
+        },
+        {
+          "aliases": [
+            "935 items per batch",
+            "935 items",
+            "935-item batches"
+          ]
+        },
+        {
+          "aliases": [
+            "233 hours",
+            "233-hour",
+            "233 h"
+          ]
+        },
+        {
+          "aliases": [
+            "Tessa Noor"
+          ]
+        },
+        {
+          "aliases": [
+            "119 minutes",
+            "119-minute",
+            "119 min"
+          ]
+        },
+        {
+          "aliases": [
+            "Ultramarine Spruce checklist"
+          ]
+        }
+      ]
+    }
+  ]
+}

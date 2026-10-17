@@ -1,0 +1,84 @@
+{
+  "corpus_sha256": "12eb3a92e86f9d0af0e85b8071f91723a545194fd4482c08bf4dc38a32c4c55d",
+  "engine_sha256": "0eaf7350af76fef586ea7b9139733a829d493d07184a791704ffc4a42fc1ef6f",
+  "date_local": "2026-10-17",
+  "phase": "all",
+  "linux_commit": "ddbbbb7be35a83c6ebc32706bb0aaf41ff379ff8",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "settings": {
+    "chat_model": "qwen3:4b-instruct-2507-q4_K_M",
+    "embedding_model": "embeddinggemma",
+    "context_size": 8192,
+    "data_dir": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/research/index/2026-10-17-main-v1"
+  },
+  "ollama": {
+    "version": "0.35.0"
+  },
+  "models": {
+    "models": [
+      {
+        "name": "qwen3:4b-instruct-2507-q4_K_M",
+        "model": "qwen3:4b-instruct-2507-q4_K_M",
+        "modified_at": "2026-10-02T13:34:20.7866986+05:30",
+        "size": 2497293803,
+        "digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ]
+      },
+      {
+        "name": "embeddinggemma:latest",
+        "model": "embeddinggemma:latest",
+        "modified_at": "2026-10-02T13:12:24.7864747+05:30",
+        "size": 621875917,
+        "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "details": {
+          "parent_model": "embeddinggemma:300m-bf16",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "307.58M",
+          "quantization_level": "BF16",
+          "context_length": 2048,
+          "embedding_length": 768
+        },
+        "capabilities": [
+          "embedding"
+        ]
+      }
+    ]
+  },
+  "temperature": 0.25,
+  "seed": "not fixed (production default)",
+  "packages": {
+    "numpy": "2.5.3",
+    "mcp": "1.30.0",
+    "fastapi": "0.142.2",
+    "httpx": "0.28.1",
+    "pypdf": "6.19.0"
+  },
+  "definition": "Frozen synthetic templates; no prompt tuning, no output selection, no model training.",
+  "retrieval_candidates_per_list": 60,
+  "retrieval_saved_top_k": 10,
+  "resource_runtime_pid": 21656,
+  "rss_scope": "Benchmark plus specified runtime PID and their descendants; shared pages can be double-counted",
+  "qa_selection": "Two queries/project with rotating pairs (0,4), (4,7), (0,7), plus all 8 unanswerables.",
+  "qa_prompt_suffix": "Answer in at most two sentences, using local document evidence. If the answer is absent, say: Not in the documents."
+}

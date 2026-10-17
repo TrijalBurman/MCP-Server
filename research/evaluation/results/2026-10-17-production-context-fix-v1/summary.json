@@ -1,0 +1,126 @@
+{
+  "dataset": "LM-Synth v1",
+  "retrieval": {
+    "lexical": {
+      "n": 0,
+      "metrics": {},
+      "ranking_ms": {},
+      "by_kind": {}
+    },
+    "dense": {
+      "n": 0,
+      "metrics": {},
+      "ranking_ms": {},
+      "by_kind": {}
+    },
+    "hybrid": {
+      "n": 0,
+      "metrics": {},
+      "ranking_ms": {},
+      "by_kind": {}
+    }
+  },
+  "generation": {
+    "single_pass_rag": {
+      "answerable_n": 24,
+      "complete_correct": 7,
+      "complete_accuracy": 0.2916666666666667,
+      "complete_accuracy_wilson_ci95": [
+        0.14914648196961158,
+        0.4916769366449609
+      ],
+      "fact_recall": 0.375,
+      "negative_n": 8,
+      "explicit_abstention_n": 8,
+      "all_gold_documents_cited_n": 9,
+      "all_citation_indices_valid_n": 13,
+      "wall_seconds": {
+        "n": 32,
+        "mean": 0.7598876073125211,
+        "median": 0.6856025590000172,
+        "p95": 1.2553975062996867,
+        "min": 0.49732766000033735,
+        "max": 1.911905282000589
+      },
+      "model_calls": {
+        "n": 32,
+        "mean": 1,
+        "median": 1.0,
+        "p95": 1.0,
+        "min": 1,
+        "max": 1
+      },
+      "extra_tool_calls_n": 0,
+      "errors_n": 0,
+      "by_kind": {
+        "cross_document": {
+          "n": 8,
+          "complete_correct": 4
+        },
+        "lexical": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "paraphrase": {
+          "n": 8,
+          "complete_correct": 3
+        }
+      },
+      "complete_accuracy_cluster_bootstrap_ci95": [
+        0.125,
+        0.5
+      ]
+    },
+    "mcp_agent": {
+      "answerable_n": 24,
+      "complete_correct": 3,
+      "complete_accuracy": 0.125,
+      "complete_accuracy_wilson_ci95": [
+        0.043443340801235575,
+        0.31003881270499467
+      ],
+      "fact_recall": 0.2708333333333333,
+      "negative_n": 8,
+      "explicit_abstention_n": 7,
+      "all_gold_documents_cited_n": 4,
+      "all_citation_indices_valid_n": 10,
+      "wall_seconds": {
+        "n": 32,
+        "mean": 1.2507667042499406,
+        "median": 1.2368714599997475,
+        "p95": 1.847050312450028,
+        "min": 0.8497991049998745,
+        "max": 2.1968897719998495
+      },
+      "model_calls": {
+        "n": 32,
+        "mean": 1,
+        "median": 1.0,
+        "p95": 1.0,
+        "min": 1,
+        "max": 1
+      },
+      "extra_tool_calls_n": 0,
+      "errors_n": 0,
+      "by_kind": {
+        "cross_document": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "lexical": {
+          "n": 8,
+          "complete_correct": 0
+        },
+        "paraphrase": {
+          "n": 8,
+          "complete_correct": 3
+        }
+      },
+      "complete_accuracy_cluster_bootstrap_ci95": [
+        0.0,
+        0.25
+      ]
+    }
+  },
+  "summaries": []
+}

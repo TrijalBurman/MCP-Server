@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-17T06:30:49.819092+00:00",
+  "ollama_ps": {
+    "models": [
+      {
+        "name": "qwen3.5:9b-q4_K_M",
+        "model": "qwen3.5:9b-q4_K_M",
+        "size": 6544781472,
+        "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "9.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-17T12:09:05.931926992+05:30",
+        "size_vram": 5284812552,
+        "context_length": 12288
+      },
+      {
+        "name": "embeddinggemma:latest",
+        "model": "embeddinggemma:latest",
+        "size": 708816404,
+        "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "307.58M",
+          "quantization_level": "BF16"
+        },
+        "expires_at": "2026-10-17T12:08:56.859793031+05:30",
+        "size_vram": 63040389,
+        "context_length": 2048
+      }
+    ]
+  },
+  "gpu": {
+    "returncode": 0,
+    "output": "NVIDIA GeForce RTX 5050 Laptop GPU, 8151, 6973, 727",
+    "error": ""
+  }
+}

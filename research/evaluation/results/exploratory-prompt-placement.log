@@ -1,0 +1,11 @@
+late_system Not in the documents. {'prompt_eval_count': 195, 'eval_count': 6, 'total_duration': 240898764}
+early_system Not in the documents. {'prompt_eval_count': 195, 'eval_count': 6, 'total_duration': 76315714}
+Traceback (most recent call last):
+  File "/run/media/trijal/HDD/SpecialisationBySol/research/evaluation/prompt_diagnostic.py", line 46, in <module>
+    response = model.chat(messages)
+  File "/run/media/trijal/HDD/SpecialisationBySol/copilot/ollama.py", line 116, in chat
+    messages, tools = fit_context(messages, tools, self.settings.context_size)
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/trijal/HDD/SpecialisationBySol/copilot/ollama.py", line 38, in fit_context
+    raise ValueError("This request is too long for the selected local context. Shorten it or increase the context size in Settings.")
+ValueError: This request is too long for the selected local context. Shorten it or increase the context size in Settings.

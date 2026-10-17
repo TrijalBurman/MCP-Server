@@ -1,0 +1,22 @@
+{
+  "seconds": 1.4276267120003467,
+  "response": {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+      {
+        "id": "call_tu8zhhj3",
+        "function": {
+          "index": 0,
+          "name": "find_documents",
+          "arguments": {
+            "name": "citrine-decisions.md"
+          }
+        }
+      }
+    ]
+  },
+  "error": null,
+  "returned_expected_native_tool_call": true,
+  "note": "Tool selection smoke only; this direct call does not execute the selected tool."
+}

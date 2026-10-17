@@ -1,0 +1,8 @@
+{
+  "model": "qwen3:4b-instruct-2507-q4_K_M",
+  "target": "http://127.0.0.1:11437",
+  "recording_proxy": "http://127.0.0.1:36463",
+  "started_utc": "2026-10-17T06:02:25.967917+00:00",
+  "tmpdir": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/tmp",
+  "script_sha256": "e9572d0c56b1b920927f9af543e7e5c28420de37320771dfbab5c7b2cf9ad58e"
+}

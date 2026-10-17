@@ -5,12 +5,13 @@ from __future__ import annotations
 import heapq
 import json
 import math
+import os
 import re
 import sqlite3
 from contextlib import contextmanager
 from datetime import datetime, timezone
-from pathlib import Path
-from typing import Any, Iterable
+from pathlib import Path, PurePosixPath, PureWindowsPath
+from typing import Any, Callable, Iterable
 
 
 def _now() -> str:
@@ -19,6 +20,35 @@ def _now() -> str:
 
 def _bounded_limit(value: int, maximum: int = 100) -> int:
     return max(1, min(int(value), maximum))
+
+
+def _document_name_matcher(name: str, *, windows: bool) -> Callable[[str, str], int]:
+    """Compare indexed path strings only; never resolve or open a caller's path."""
+    name = str(name).strip()
+    if not name or len(name) > 2000 or "\x00" in name:
+        raise ValueError("Enter a filename or indexed path of at most 2,000 characters.")
+    path_type = PureWindowsPath if windows else PurePosixPath
+    requested = path_type(name)
+    if ".." in requested.parts or not requested.name or (requested.drive and not requested.is_absolute()):
+        raise ValueError("Use a filename, absolute indexed path, or path relative to an approved folder.")
+    comparison = requested.as_posix()
+    if windows:
+        comparison = comparison.casefold()
+
+    def matches(path: str, root: str) -> int:
+        candidate = path_type(path)
+        if requested.is_absolute():
+            actual = candidate.as_posix()
+        elif len(requested.parts) == 1:
+            actual = candidate.name
+        else:
+            try:
+                actual = candidate.relative_to(path_type(root)).as_posix()
+            except ValueError:
+                return 0
+        return int((actual.casefold() if windows else actual) == comparison)
+
+    return matches
 
 
 class Store:
@@ -124,26 +154,65 @@ class Store:
                   FROM documents d LEFT JOIN chunks c ON c.document_id=d.id"""
 
     @staticmethod
-    def _document_filter(query: str) -> tuple[str, list[str]]:
+    def _document_filter(query: str, root_id: int | None = None) -> tuple[str, list[Any]]:
+        clauses, params = [], []
         if query.strip():
             # Escape LIKE wildcards: entering '%' should search for a literal percent sign.
             term = query.strip()[:512].replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
-            return " WHERE d.title LIKE ? ESCAPE '\\' OR d.path LIKE ? ESCAPE '\\'", [f"%{term}%", f"%{term}%"]
-        return "", []
+            clauses.append("(d.title LIKE ? ESCAPE '\\' OR d.path LIKE ? ESCAPE '\\')")
+            params.extend([f"%{term}%", f"%{term}%"])
+        if root_id is not None:
+            clauses.append("d.root_id=?")
+            params.append(int(root_id))
+        return " WHERE " + " AND ".join(clauses) if clauses else "", params
 
-    def count_documents(self, query: str = "") -> int:
-        clause, params = self._document_filter(query)
+    def count_documents(self, query: str = "", root_id: int | None = None) -> int:
+        clause, params = self._document_filter(query, root_id)
         with self._connection() as db:
             return db.execute("SELECT count(*) FROM documents d" + clause, params).fetchone()[0]
 
-    def list_documents(self, query: str = "", limit: int = 100, offset: int = 0) -> list[dict]:
-        clause, filters = self._document_filter(query)
+    def list_documents(self, query: str = "", limit: int = 100, offset: int = 0,
+                       root_id: int | None = None) -> list[dict]:
+        clause, filters = self._document_filter(query, root_id)
         sql = self._document_select() + clause
         params: list[Any] = list(filters)
         sql += " GROUP BY d.id ORDER BY d.title COLLATE NOCASE,d.id LIMIT ? OFFSET ?"
         params.extend([_bounded_limit(limit, 500), max(0, int(offset))])
         with self._connection() as db:
             return [dict(row) for row in db.execute(sql, params)]
+
+    def _metadata_page(self, db, clause: str, params: list, limit: int, offset: int) -> dict:
+        """Count and page the same read snapshot, including empty/out-of-range pages."""
+        limit, offset = _bounded_limit(limit, 500), max(0, int(offset))
+        roots = " JOIN roots r ON r.id=d.root_id"
+        db.execute("BEGIN")
+        total = db.execute("SELECT count(*) FROM documents d" + roots + clause, params).fetchone()[0]
+        sql = (self._document_select() + roots + clause
+               + " GROUP BY d.id ORDER BY d.title COLLATE NOCASE,d.id LIMIT ? OFFSET ?")
+        documents = [dict(row) for row in db.execute(sql, [*params, limit, offset])]
+        end = offset + len(documents)
+        return {"documents": documents, "total": total, "offset": offset,
+                "next_offset": end if documents and end < total else None, "scope": "indexed"}
+
+    def page_documents(self, query: str = "", limit: int = 100, offset: int = 0,
+                       root_id: int | None = None) -> dict:
+        """List indexed metadata without reading source files or extracted content."""
+        clause, params = self._document_filter(query, root_id)
+        with self._connection() as db:
+            return self._metadata_page(db, clause, params, limit, offset)
+
+    def find_documents(self, name: str, limit: int = 100, offset: int = 0,
+                       root_id: int | None = None) -> dict:
+        """Exact native filename/path lookup, including all duplicate basenames."""
+        windows = os.name == "nt"
+        matcher = _document_name_matcher(name, windows=windows)
+        clause, params = self._document_filter("", root_id)
+        clause += " AND " if clause else " WHERE "
+        clause += "document_name_matches(d.path,r.path)=1"
+        with self._connection() as db:
+            db.create_function("document_name_matches", 2, matcher, deterministic=True)
+            result = self._metadata_page(db, clause, params, limit, offset)
+        return {**result, "case_sensitive": not windows}
 
     def get_document(self, document_id: int) -> dict | None:
         with self._connection() as db:

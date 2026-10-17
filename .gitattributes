@@ -1,0 +1,5 @@
+# Keep scientific records and their SHA-256 manifests byte-identical on checkout.
+research/** -text
+
+# This authored fixture intentionally retains its original trailing space.
+research/model-selection/synthetic-corpus-v1/citrine-decisions.md -whitespace

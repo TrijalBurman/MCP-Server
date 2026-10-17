@@ -1,0 +1,111 @@
+{
+  "case": {
+    "id": "P08",
+    "kind": "cross_document",
+    "question": "Give Citrine Leaf's rollout codename and internal review date.",
+    "expected": [
+      "Saffron Finch pilot",
+      "18 March 2028"
+    ]
+  },
+  "request": "Give Citrine Leaf's rollout codename and internal review date. Answer in at most two sentences, using document evidence. If the answer is absent, say exactly: Not in the documents.",
+  "seconds": 5.709323904000485,
+  "error": null,
+  "response": {
+    "content": "The rollout codename for Citrine Leaf is Saffron Finch pilot [1], and the internal review date is 18 March 2028 [2].",
+    "sources": [
+      {
+        "document_id": 4,
+        "chunk_id": 4,
+        "title": "citrine-release.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/citrine-release.md",
+        "text": "# Citrine Leaf controlled release\n\nThe approved rollout codename for Citrine Leaf is Saffron Finch pilot.\nThe pilot accepts 173 records per import batch. Larger batches must be split.\n",
+        "start": 0,
+        "end": 184,
+        "page": null,
+        "score": 0.032787,
+        "source_number": 1
+      },
+      {
+        "document_id": 2,
+        "chunk_id": 2,
+        "title": "citrine-decisions.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/citrine-decisions.md",
+        "text": "notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. Background discussion is not an adopted decision. Reviewers keep ordinary notes separate. \n\nApproved storage profile for Citrine Leaf: Quartz Harbor ledger. This is the adopted persistence configuration.\nThe internal review date for Citrine Leaf is 18 March 2028.\n",
+        "start": 556,
+        "end": 1556,
+        "page": null,
+        "score": 0.032258,
+        "source_number": 2
+      },
+      {
+        "document_id": 1,
+        "chunk_id": 1,
+        "title": "beryl-decisions.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/beryl-decisions.md",
+        "text": "# Beryl Meadow\n\nBeryl Meadow is a separate project. Its storage profile is Silver Fern store. Beryl Meadow backs up every 29 hours and has coordinator Arun Das. These choices do not apply to Citrine Leaf.\n",
+        "start": 0,
+        "end": 205,
+        "page": null,
+        "score": 0.031498,
+        "source_number": 3
+      },
+      {
+        "document_id": 3,
+        "chunk_id": 3,
+        "title": "citrine-operations.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/citrine-operations.md",
+        "text": "# Citrine Leaf operations\n\nCitrine Leaf backup cadence: every 53 hours. This is the approved interval for saved records.\nThe project coordinator for Citrine Leaf is Mira Sen.\nOperations notes do not specify a budget or an annual maintenance cost.\n",
+        "start": 0,
+        "end": 247,
+        "page": null,
+        "score": 0.031258,
+        "source_number": 4
+      },
+      {
+        "document_id": 5,
+        "chunk_id": 5,
+        "title": "kestrel-summary.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/kestrel-summary.md",
+        "text": "# Kestrel Grove project brief\n\nKestrel Grove is a fictional offline field-notes project.\nIts adopted storage profile is Cedar Box profile.\nIts backup interval is 61 hours.\nThe first review is scheduled for 11 May 2028.\nThe first release supports extracted text; scanned images require a future OCR extension.\n",
+        "start": 0,
+        "end": 309,
+        "page": null,
+        "score": 0.03101,
+        "source_number": 5
+      }
+    ],
+    "trace": [
+      {
+        "tool": "knowledge_search",
+        "detail": "Found 5 source passages via MCP"
+      },
+      {
+        "tool": "recall",
+        "detail": "Loaded saved local context via MCP"
+      },
+      {
+        "tool": "citation_retry",
+        "detail": "Regenerated an uncited answer once using numbered source excerpts"
+      }
+    ],
+    "mode": "agent"
+  },
+  "scores": {
+    "expected_literals_present": [
+      true,
+      true
+    ],
+    "all_expected_literals_present": true,
+    "exact_abstention": false,
+    "delivered_literal_check_pass": true,
+    "generated_literal_check_pass": true,
+    "numeric_citations": [
+      1,
+      2
+    ],
+    "citation_indices_valid": true,
+    "warning": "Literal overlap can count contradictory or unsupported wording; inspect raw responses."
+  },
+  "model_call_count": 2
+}

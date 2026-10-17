@@ -1,0 +1,298 @@
+{
+  "recorded_utc": "2026-10-17T06:37:47.857670+00:00",
+  "purpose": "Local model selection and application integration verification; not research-paper accuracy or held-out validation.",
+  "selected_model": {
+    "name": "qwen3.5:9b-q4_K_M",
+    "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+    "download_bytes": 6550825550,
+    "context_size": 12288,
+    "thinking": false,
+    "embedding_model": "embeddinggemma",
+    "fallback_model": "qwen3:4b-instruct-2507-q4_K_M",
+    "official_source": "https://ollama.com/library/qwen3.5:9b-q4_K_M"
+  },
+  "storage": {
+    "models": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/models",
+    "scratch": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/tmp",
+    "download_work": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade",
+    "mount": "/run/media/trijal/HDD",
+    "device": "/dev/sda1",
+    "cache_and_scratch_on_hdd": true,
+    "sha256_verification": {
+      "sha256": "02d45dc1cf451ba2475ac33b301c2dd8f985abe4c182ce04a1f2f5bf0260278d",
+      "bytes": 5629109120,
+      "matches_official_manifest": true,
+      "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/models/blobs/sha256-02d45dc1cf451ba2475ac33b301c2dd8f985abe4c182ce04a1f2f5bf0260278d",
+      "previously_completed_bytes_reused": 2856511489,
+      "seconds": 310.2019063940006
+    },
+    "official_pull_complete": {
+      "model": "qwen3.5:9b-q4_K_M",
+      "completed": true,
+      "cache": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/models",
+      "connection_seconds": 5.593962756999645
+    },
+    "runtime_evidence": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/active-processes-storage.json"
+  },
+  "changes": [
+    "Actual indexed-file metadata answers inventory and exact-filename queries without language-model inference.",
+    "Whole numbered source records are packed within the context budget; this installation uses 12288.",
+    "The prompt maps source_number to numeric citations. Missing citations trigger at most one tool-free regeneration from fresh evidence, followed by the unchanged citation guard.",
+    "Invalid explicit citations or an unsuccessful retry return the original exact source excerpts.",
+    "Normal and demo workspaces share one local model service and retain separate databases."
+  ],
+  "small_development_probe": {
+    "label": "Model selection development probe; not held-out validation or paper accuracy.",
+    "model": "qwen3.5:9b-q4_K_M",
+    "run_id": "candidate-qwen35-9b-12k-retry-v1",
+    "context_size": 12288,
+    "completed_utc": "2026-10-17T06:31:33.671716+00:00",
+    "questions": 10,
+    "answerable_generated_literal_checks": 8,
+    "answerable_count": 8,
+    "unknown_exact_abstentions": 2,
+    "unknown_count": 2,
+    "extractive_fallbacks": 0,
+    "question_errors": 0,
+    "median_question_seconds": 3.2681712295006946,
+    "short_summary_literal_check": false,
+    "short_summary_seconds": 4.3995736180004315,
+    "native_tool_smoke": true,
+    "native_tool_seconds": 1.4276267120003467,
+    "chat_model_calls": 15,
+    "embedding_model_calls": 15,
+    "warning": "Small development probe with literal scoring, unseeded generation and no semantic judge; not general accuracy."
+  },
+  "comparison": {
+    "old_4b_8192": {
+      "label": "Model selection development probe; not held-out validation or paper accuracy.",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "run_id": "baseline-old4b-v1",
+      "completed_utc": "2026-10-17T06:04:25.010332+00:00",
+      "questions": 10,
+      "answerable_generated_literal_checks": 7,
+      "answerable_count": 8,
+      "unknown_exact_abstentions": 2,
+      "unknown_count": 2,
+      "extractive_fallbacks": 0,
+      "question_errors": 0,
+      "median_question_seconds": 1.1135749219997706,
+      "short_summary_literal_check": false,
+      "short_summary_seconds": 1.3199889870002153,
+      "native_tool_smoke": true,
+      "native_tool_seconds": 0.42313463899972703,
+      "chat_model_calls": 12,
+      "embedding_model_calls": 15,
+      "warning": "Small development probe with literal scoring, unseeded generation and no semantic judge; not general accuracy."
+    },
+    "new_9b_8192_before_integration_adjustments": {
+      "label": "Model selection development probe; not held-out validation or paper accuracy.",
+      "model": "qwen3.5:9b-q4_K_M",
+      "run_id": "candidate-qwen35-9b-v1",
+      "completed_utc": "2026-10-17T06:23:59.809507+00:00",
+      "questions": 10,
+      "answerable_generated_literal_checks": 5,
+      "answerable_count": 8,
+      "unknown_exact_abstentions": 1,
+      "unknown_count": 2,
+      "extractive_fallbacks": 2,
+      "question_errors": 0,
+      "median_question_seconds": 2.176049210999736,
+      "short_summary_literal_check": false,
+      "short_summary_seconds": 4.824112591999437,
+      "native_tool_smoke": true,
+      "native_tool_seconds": 1.5535328070000105,
+      "chat_model_calls": 12,
+      "embedding_model_calls": 15,
+      "warning": "Small development probe with literal scoring, unseeded generation and no semantic judge; not general accuracy."
+    },
+    "new_9b_12288_without_retry": {
+      "label": "Model selection development probe; not held-out validation or paper accuracy.",
+      "model": "qwen3.5:9b-q4_K_M",
+      "run_id": "candidate-qwen35-9b-12k-mapping-v1",
+      "context_size": 12288,
+      "completed_utc": "2026-10-17T06:29:05.956562+00:00",
+      "questions": 10,
+      "answerable_generated_literal_checks": 4,
+      "answerable_count": 8,
+      "unknown_exact_abstentions": 1,
+      "unknown_count": 2,
+      "extractive_fallbacks": 4,
+      "question_errors": 0,
+      "median_question_seconds": 3.1242521514986947,
+      "short_summary_literal_check": false,
+      "short_summary_seconds": 4.9615491130007285,
+      "native_tool_smoke": true,
+      "native_tool_seconds": 1.686279318000743,
+      "chat_model_calls": 12,
+      "embedding_model_calls": 15,
+      "warning": "Small development probe with literal scoring, unseeded generation and no semantic judge; not general accuracy."
+    }
+  },
+  "manual_review": {
+    "final_eight_answerable_responses": "All requested facts were present and their numeric references pointed to supporting supplied excerpts; no contradictory project facts observed.",
+    "unknowns": "Both final synthetic unknown questions returned exactly Not in the documents.",
+    "summary": "Storage profile, 61-hour backup interval and 11 May 2028 review date were retained semantically. Literal scoring failed because name/date wording changed. The summary also included a generic data-integrity rationale not explicitly stated in the source.",
+    "limits": [
+      "The final configuration changed the model, context and integration logic; differences are not a model-only quality estimate.",
+      "Small unseeded development corpus with postselected diagnostics; no general accuracy percentage or universal best-model conclusion.",
+      "Citation checks verify format and reference bounds, not semantic entailment of every claim."
+    ]
+  },
+  "live_checks": {
+    "indexed_inventory_count": 7,
+    "api_md_exact_matches": 1,
+    "invented_filename_matches": 0,
+    "inventory_and_filename_mode": "catalog; no model inference",
+    "demo_checks": [
+      "SQLite storage and original files in existing folders, with source reference.",
+      "Scanned-PDF limitation and future OCR extension, with source reference.",
+      "Unspecified advertising budget acknowledged as unknown."
+    ],
+    "initial_active_demo_request_seconds": 56.16642619000049,
+    "data_counts_preserved": true,
+    "urls": [
+      "http://127.0.0.1:8765",
+      "http://127.0.0.1:8766"
+    ],
+    "selected_settings": {
+      "8765": {
+        "chat_model": "qwen3.5:9b-q4_K_M",
+        "embedding_model": "embeddinggemma",
+        "context_size": 12288,
+        "data_dir": "/run/media/trijal/HDD/SpecialisationBySol/.local-copilot"
+      },
+      "8766": {
+        "chat_model": "qwen3.5:9b-q4_K_M",
+        "embedding_model": "embeddinggemma",
+        "context_size": 12288,
+        "data_dir": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/presentation-demo/data"
+      }
+    },
+    "stats": {
+      "8765": {
+        "documents": 7,
+        "chunks": 31,
+        "memories": 0,
+        "projects": 0,
+        "roots": 1,
+        "sessions": 1
+      },
+      "8766": {
+        "documents": 2,
+        "chunks": 2,
+        "memories": 2,
+        "projects": 2,
+        "roots": 1,
+        "sessions": 5
+      }
+    }
+  },
+  "hardware": {
+    "resident_models": {
+      "models": [
+        {
+          "name": "qwen3.5:9b-q4_K_M",
+          "model": "qwen3.5:9b-q4_K_M",
+          "size": 6544781472,
+          "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "9.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-17T12:15:47.34384048+05:30",
+          "size_vram": 5284812552,
+          "context_length": 12288
+        },
+        {
+          "name": "embeddinggemma:latest",
+          "model": "embeddinggemma:latest",
+          "size": 708816404,
+          "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "gemma3",
+            "families": [
+              "gemma3"
+            ],
+            "parameter_size": "307.58M",
+            "quantization_level": "BF16"
+          },
+          "expires_at": "2026-10-17T12:15:43.230418347+05:30",
+          "size_vram": 63040389,
+          "context_length": 2048
+        }
+      ]
+    },
+    "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU, 8151, 6992, 708",
+    "initial_load_note": "Initial service load is slower from HDD. Recorded timings have uncontrolled filesystem cache; they are not a fair cold-disk comparison."
+  },
+  "source_sha256": {
+    "copilot/agent.py": "ab0c885bf1363ef0217127876ec38d0d190bd767bad1361d2ad442af8ae33330",
+    "copilot/grounding.py": "a0f259cc50bfe0a3903afaed897014ea898e057d72259c84b22ac303fc468cc1",
+    "copilot/ollama.py": "1db1e79b7eac3dba77b2afaa2e852db847b7ae2169d7f92327b750dbaa4cdc25",
+    "copilot/store.py": "ef5307e599d6bbc1cabfab5c77e13f959aece6c983c3c08a97895e9ba22df286",
+    "copilot/mcp_server.py": "25b7409ecf380f61a8b1ae8a9f681e7a860c355a284ae25043b5cf5d0d207a47"
+  },
+  "regression_tests": {
+    "recorded_at_utc": "2026-10-17T06:37:52.971Z",
+    "scope": "Citation retry regression verification after production implementation was frozen",
+    "edited_sources": [
+      "tests/test_answer_grounding.py",
+      ".runtime/windows/tests/test_answer_grounding.py"
+    ],
+    "production_source_changes": false,
+    "real_inference_calls": false,
+    "server_or_model_settings_changes": false,
+    "grounding_file_cases": 30,
+    "coverage": [
+      "Successful uncited-to-cited regeneration with a single tool-free retry",
+      "Still-uncited, invalid-reference, empty, tool-call, OllamaUnavailable and ValueError retry failures",
+      "No retry for valid references, invalid original numeric references, accepted unknown abstention, no evidence or genuine conversation recall",
+      "Full original source-pool repacking with larger retry excerpts under an 8192-context stress fixture",
+      "Successful answer cards match the actual fitted retry payload",
+      "Failed retry cards and quoted excerpts remain the original safe evidence",
+      "No draft, assistant envelope, tool-result envelope or tool schemas in the retry payload",
+      "Single retry maximum and both normal and forced-final synthesis paths"
+    ],
+    "linux": {
+      "passed": 135,
+      "skipped": 0,
+      "warnings": 1,
+      "seconds": 21.32,
+      "exit_code": 0,
+      "log": "citation-retry-linux-pytest.log"
+    },
+    "windows_copy_on_linux": {
+      "passed": 172,
+      "skipped": 6,
+      "warnings": 1,
+      "seconds": 21.06,
+      "exit_code": 0,
+      "log": "citation-retry-windows-on-linux-pytest.log",
+      "native_windows_validation": false
+    },
+    "checks": {
+      "linux_ruff": "passed",
+      "windows_ruff": "passed",
+      "linux_diff_whitespace": "passed",
+      "windows_diff_whitespace": "passed",
+      "guard_regressions": "passed as part of both full suites"
+    },
+    "warning": "Existing StarletteDeprecationWarning for using httpx with starlette.testclient; no failed tests.",
+    "sha256_identical_in_both_worktrees": {
+      "copilot/agent.py": "ab0c885bf1363ef0217127876ec38d0d190bd767bad1361d2ad442af8ae33330",
+      "copilot/grounding.py": "a0f259cc50bfe0a3903afaed897014ea898e057d72259c84b22ac303fc468cc1",
+      "tests/test_answer_grounding.py": "8091184073f4391ec54219c6147dbb547fdf222cc398e645c00b059f234314a4"
+    }
+  },
+  "completed_utc": "2026-10-17T06:38:58.339945+00:00",
+  "complete": true
+}

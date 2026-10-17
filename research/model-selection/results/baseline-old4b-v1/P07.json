@@ -1,0 +1,107 @@
+{
+  "case": {
+    "id": "P07",
+    "kind": "cross_document",
+    "question": "Give the adopted storage profile and backup interval for Citrine Leaf.",
+    "expected": [
+      "Quartz Harbor ledger",
+      "53 hours"
+    ]
+  },
+  "request": "Give the adopted storage profile and backup interval for Citrine Leaf. Answer in at most two sentences, using document evidence. If the answer is absent, say exactly: Not in the documents.",
+  "seconds": 1.0238997959995686,
+  "error": null,
+  "response": {
+    "content": "The adopted storage profile for Citrine Leaf is Quartz Harbor ledger [2]. The backup interval is every 53 hours [3].",
+    "sources": [
+      {
+        "document_id": 1,
+        "chunk_id": 1,
+        "title": "beryl-decisions.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/beryl-decisions.md",
+        "text": "# Beryl Meadow\n\nBeryl Meadow is a separate project. Its storage profile is Silver Fern store. Beryl Meadow backs up ever",
+        "start": 0,
+        "end": 120,
+        "page": null,
+        "score": 0.032266,
+        "source_number": 1
+      },
+      {
+        "document_id": 2,
+        "chunk_id": 2,
+        "title": "citrine-decisions.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/citrine-decisions.md",
+        "text": "eep ordinary notes separate. \n\nApproved storage profile for Citrine Leaf: Quartz Harbor ledger. This is the adopted pers",
+        "start": 1353,
+        "end": 1473,
+        "page": null,
+        "score": 0.032018,
+        "source_number": 2
+      },
+      {
+        "document_id": 3,
+        "chunk_id": 3,
+        "title": "citrine-operations.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/citrine-operations.md",
+        "text": "# Citrine Leaf operations\n\nCitrine Leaf backup cadence: every 53 hours. This is the approved interval for saved records.",
+        "start": 0,
+        "end": 120,
+        "page": null,
+        "score": 0.032002,
+        "source_number": 3
+      },
+      {
+        "document_id": 5,
+        "chunk_id": 5,
+        "title": "kestrel-summary.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/kestrel-summary.md",
+        "text": "tional offline field-notes project.\nIts adopted storage profile is Cedar Box profile.\nIts backup interval is 61 hours.\nT",
+        "start": 53,
+        "end": 173,
+        "page": null,
+        "score": 0.031514,
+        "source_number": 4
+      },
+      {
+        "document_id": 4,
+        "chunk_id": 4,
+        "title": "citrine-release.md",
+        "path": "/run/media/trijal/HDD/SpecialisationBySol/.runtime/model-upgrade/synthetic-corpus-v1/citrine-release.md",
+        "text": "# Citrine Leaf controlled release\n\nThe approved rollout codename for Citrine Leaf is Saffron Finch pilot.\nThe pilot acce",
+        "start": 0,
+        "end": 120,
+        "page": null,
+        "score": 0.03101,
+        "source_number": 5
+      }
+    ],
+    "trace": [
+      {
+        "tool": "knowledge_search",
+        "detail": "Found 5 source passages via MCP"
+      },
+      {
+        "tool": "recall",
+        "detail": "Loaded saved local context via MCP"
+      }
+    ],
+    "mode": "agent"
+  },
+  "scores": {
+    "expected_literals_present": [
+      true,
+      true
+    ],
+    "all_expected_literals_present": true,
+    "exact_abstention": false,
+    "delivered_literal_check_pass": true,
+    "generated_literal_check_pass": true,
+    "numeric_citations": [
+      2,
+      3
+    ],
+    "citation_indices_valid": true,
+    "warning": "Literal overlap can count contradictory or unsupported wording; inspect raw responses."
+  },
+  "model_call_count": 1
+}
