@@ -77,7 +77,9 @@ def document_records(payload):
     assert len(evidence) == 1, "Each round needs one complete, refreshed evidence block"
     records = json.loads(evidence[0][len(EVIDENCE_PREFIX):])
     assert isinstance(records, list) and records
-    assert all(set(record) == {"source_number", "title", "text"} for record in records)
+    core = {"source_number", "title", "text"}
+    allowed = core | {"document_id", "path"}
+    assert all(core <= set(record) <= allowed for record in records)
     assert [record["source_number"] for record in records] == list(range(1, len(records) + 1))
     fitted, schemas = fit_context(payload["messages"], payload.get("tools"), payload["options"]["num_ctx"])
     assert fitted == payload["messages"], "Packed evidence must survive the actual inference fitter intact"
@@ -91,6 +93,8 @@ def assert_sources_match_payload(knowledge, answer, payload):
     assert len(sources) == len(records)
     for source, record in zip(sources, records, strict=True):
         assert {key: source[key] for key in record} == record
+        assert record["document_id"] == source["document_id"]
+        assert record["path"] == source["path"]
         document = knowledge.store.get_document(source["document_id"])
         assert source["path"] == document["path"]
         assert document["text"][source["start"]:source["end"]] == source["text"]
@@ -377,6 +381,33 @@ async def test_citation_retry_after_tool_use_removes_all_tool_and_assistant_enve
     assert sum(step["tool"] == "search_conversations" for step in answer["trace"]) == tool_count
     assert sum(step["tool"] == "citation_retry" for step in answer["trace"]) == 1
     assert_sources_match_payload(knowledge, answer, model.sent[2])
+
+
+@pytest.mark.parametrize("question", [
+    "Explain the setup.", "Describe the architecture.", "Summarize this configuration.",
+])
+def test_substantive_imperative_with_sources_still_requires_citations(question):
+    source = {"document_id": 1, "title": "setup.md", "text": "The setup uses local Python and SQLite."}
+    answer = Agent(None, None, None, None).grounded_response(
+        "The setup uses ImaginaryCloud.", [source], [], question)
+    assert answer["mode"] == "extractive"
+    assert "ImaginaryCloud" not in answer["content"]
+    assert source["text"] in answer["content"]
+
+
+@pytest.mark.parametrize("retry_succeeds", [True, False])
+async def test_substantive_imperative_uses_the_same_single_citation_retry(knowledge, retry_succeeds):
+    add_document(knowledge, "setup.md", "The setup uses local Python and SQLite.")
+    retried = {"content": "The setup uses local Python and SQLite [1]."} if retry_succeeds else {
+        "content": "The setup still uses ImaginaryCloud without a reference."}
+    answer, model = await ask(knowledge, "Explain the setup.", [
+        {"content": "The setup uses ImaginaryCloud."}, retried,
+    ])
+    assert len(model.sent) == 2
+    assert sum(step["tool"] == "citation_retry" for step in answer["trace"]) == 1
+    assert answer["mode"] == ("agent" if retry_succeeds else "extractive")
+    assert "ImaginaryCloud" not in answer["content"]
+    assert_sources_match_payload(knowledge, answer, model.sent[1 if retry_succeeds else 0])
 
 
 @pytest.mark.parametrize("question", [

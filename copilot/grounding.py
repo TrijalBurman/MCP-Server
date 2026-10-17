@@ -68,16 +68,22 @@ def prepare_evidence(messages: list, sources: list, question: str,
 
     cache = {}
 
-    def trial(count, size):
+    def trial(indices, size):
         visible, records = [], []
-        for index, source in enumerate(candidates[:count]):
+        for number, index in enumerate(indices, start=1):
+            source = candidates[index]
             key = index, size
             if key not in cache:
                 cache[key] = _excerpt(source["text"], question, size)
             text, offset = cache[key]
-            number = index + 1
-            record = {"source_number": number, "title": str(source.get("title", "Document"))[:160],
+            record = {"source_number": number, "title": str(source.get("title", "Document")),
                       "text": text}
+            # A basename alone cannot distinguish files in different folders.
+            # Identity stays inside the same whole-record budget checks as text.
+            if source.get("document_id") is not None:
+                record["document_id"] = source["document_id"]
+            if isinstance(source.get("path"), str) and source["path"]:
+                record["path"] = source["path"]
             records.append(record)
             excerpt = {**source, "source_number": number, "text": text}
             if isinstance(source.get("start"), int):
@@ -95,22 +101,19 @@ def prepare_evidence(messages: list, sources: list, question: str,
 
     count = len(candidates)
     for size in _WINDOWS:
-        result = trial(count, size)
+        result = trial(range(count), size)
         if result is not None:
             return result
 
-    # Find the largest ranked prefix that fits the minimum fair allowance.
-    # Only reach this branch after every source together has been attempted.
-    low, high = 0, count - 1
-    while low < high:
-        middle = (low + high + 1) // 2
-        if trial(middle, _WINDOWS[-1]) is not None:
-            low = middle
-        else:
-            high = middle - 1
-    if low:
+    # Preserve ranking, but skip records whose exact identity cannot fit. An
+    # unusually long first path must not hide a later usable source entirely.
+    selected = []
+    for index in range(count):
+        if trial([*selected, index], _WINDOWS[-1]) is not None:
+            selected.append(index)
+    if selected:
         for size in _WINDOWS:
-            result = trial(low, size)
+            result = trial(selected, size)
             if result is not None:
                 return result
     fitted, fitted_schemas = fit_context(messages, schemas, context_size)

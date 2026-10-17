@@ -2,6 +2,26 @@
 
 The Windows edition targets native Windows 11 x64. Its validation is separate from the earlier Linux edition; a passing Linux test does not prove the Windows filesystem or launcher behavior.
 
+## Local routing and file references on 17 October 2026
+
+The latest Linux suite passed **163 tests**. The Windows copy executed on Linux
+passed **200 tests**, with **6 native Windows checks skipped**. These results
+cover the current greeting, exact-file identity, evidence packing, source-card
+and citation-guard changes; they do not measure semantic answer accuracy.
+
+A live `hello` request completed in **0.0931 s** without retrieval or inference.
+Exact metadata checks returned all 7 indexed files, 1 exact filename match and
+0 matches for an absent name. These were single local observations. New replies
+use grouped source cards and current checks; stored historical replies remain
+in conversation history. See the [full verification record](https://github.com/TrijalBurman/MCP-Server/blob/main/output/verification/local-routing-fix.md) for logs,
+source hashes, scope and limits. Native Windows 11 GPU inference remains untested.
+
+The previous published Windows commit `b377ac6` passed **178 tests per
+interpreter** on native Windows Server with Python 3.12 and 3.13 in
+[run 39015077319](https://github.com/TrijalBurman/MCP-Server/actions/runs/39015077319).
+That run predates the latest routing repair; it does not validate the new
+changes or Windows 11 GPU inference.
+
 ## Native Windows status
 
 On **6 October 2026**, [GitHub Actions run 37469076958](https://github.com/TrijalBurman/MCP-Server/actions/runs/37469076958) at commit `dcea282` passed on native **Windows Server** runners with **Python 3.12 and 3.13**. Each Python job passed **86 tests**, lint, packaging, and the launcher smoke checks.
