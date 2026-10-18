@@ -352,14 +352,47 @@ function renderChat() {
 
 function assistantHeading() { return el("div", { class: "assistant-top" }, el("span", { class: "assistant-avatar" }, icon("spark")), "LocalMind"); }
 
+function groupSources(sources) {
+  const groups = [], documents = new Map();
+  if (!Array.isArray(sources)) return groups;
+  sources.forEach((source, index) => {
+    const id = source?.document_id;
+    const hasId = (typeof id === "number" && Number.isSafeInteger(id) && id > 0) || (typeof id === "string" && id.trim() !== "");
+    const path = typeof source?.path === "string" && source.path.trim() ? source.path : null;
+    const key = hasId ? `id:${id}` : path ? `path:${path}` : null;
+    let group = key === null ? null : documents.get(key);
+    if (!group) {
+      group = { source, numbers: [], excerpts: [] };
+      groups.push(group);
+      if (key !== null) documents.set(key, group);
+    }
+    // Numbers always refer to the original evidence array, never the grouped cards.
+    group.numbers.push(index + 1);
+    group.excerpts.push(source);
+  });
+  return groups;
+}
+
 function messageNode(message) {
   if (message.role === "user") return el("div", { class: "message user" }, el("div", { class: "user-message", text: message.content }));
   const node = el("div", { class: "message assistant" }, assistantHeading(), markdown(message.content));
   if (message.warning) node.append(el("div", { class: "warning-note", text: message.warning }));
   if (message.sources?.length) {
-    node.append(el("div", { class: "sources-label", text: "From your library" }), el("div", { class: "sources" }, message.sources.slice(0, 12).map((source, index) => el("button", {
-      class: "source-card", title: source.path || source.title, onclick: () => source.document_id ? openDocument(source.document_id) : toast("This source does not include a document reference.", "error"),
-    }, el("span", { class: "source-number", text: index + 1 }), el("div", { class: "source-info" }, el("div", { class: "source-title", text: source.title || "Local document" }), el("div", { class: "source-path", text: `${source.path || ""}${source.page ? ` · page ${source.page}` : ""}` }))))));
+    const groups = groupSources(message.sources);
+    node.append(el("div", { class: "sources-label", text: `Library sources · ${groups.length} file${groups.length === 1 ? "" : "s"}` }), el("div", { class: "sources" }, groups.slice(0, 12).map(group => {
+      const source = group.source || {}, references = `[${group.numbers.join(", ")}]`;
+      const excerpts = group.excerpts.filter(item => typeof item?.text === "string" && item.text.trim());
+      const pages = [...new Set(excerpts.map(item => item.page).filter(Boolean))];
+      return el("button", {
+        type: "button", class: "source-card", title: `${references} ${source.title || "Local document"}\n${source.path || ""}`,
+        "aria-label": `Open source ${references}: ${source.title || source.path || "Local document"}`,
+        onclick: () => source.document_id ? openDocument(source.document_id) : toast("This source does not include a document reference.", "error"),
+      }, el("span", { class: "source-number", text: references }), el("div", { class: "source-info" },
+        el("div", { class: "source-title", text: source.title || "Local document" }),
+        el("div", { class: "source-path", text: source.path || "" }),
+        excerpts.length ? el("div", { class: "source-excerpt-count", text: `${excerpts.length} excerpt${excerpts.length === 1 ? "" : "s"}${pages.length ? ` · ${pages.length === 1 ? "page" : "pages"} ${pages.join(", ")}` : ""}` }) : null));
+    })));
+    if (groups.length > 12) node.append(el("p", { class: "sources-limit", text: `Showing 12 of ${groups.length} source cards. Open Library to browse indexed files.` }));
   }
   if (message.trace?.length) node.append(el("details", { class: "tool-trace" }, el("summary", { text: `${message.trace.length} local tool action${message.trace.length === 1 ? "" : "s"}` }),
     message.trace.slice(0, 30).map(item => el("div", { class: "trace-item" }, icon("terminal"), el("div", {}, el("strong", { text: item.tool || "Local tool" }), el("div", { class: "trace-detail", text: typeof item.detail === "string" ? item.detail : JSON.stringify(item.detail || "") }))))));

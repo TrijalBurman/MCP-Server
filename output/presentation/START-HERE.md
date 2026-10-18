@@ -1,98 +1,130 @@
 # LocalMind final presentation package
 
-Current repository setup notes, updated for the grounding repair and model upgrade
-on 17 October 2026. The exported PDF/Word guide is the earlier context-repair
-snapshot; the current [Markdown script](10-minute-group-script.md) includes the
-later application changes. See [the deliverables index](../README.md) for versions.
-Guide: Dr. Sonali Kothari. Department: Minors in AIML. Academic year: 23–27.
-Tiya Singh's corrected PRN is 23070123144; Trijal Burman's is 23070123145.
+Updated 17 October 2026 for the greeting, metadata, citation and source-card
+fixes. The Word guide, PDF guide and [speaking script](10-minute-group-script.md)
+now describe the same version. Historical research measurements are retained;
+see [the deliverables index](../README.md) for the report and paper.
 
-Read `localmind-demo-and-speaking-guide.pdf` first. It contains the project
-explanation, exact navigation, four speaking parts, recovery steps and 15 viva
-answers. The speech and demonstration together take ten minutes.
+Guide: Dr. Sonali Kothari. Institution: Symbiosis Institute of Technology.
+Department: Minors in AIML. Academic year: 23-27. Trijal Burman's PRN is
+23070123145; Tiya Singh's corrected PRN is 23070123144; Gayatri Rajesh
+Apotikar's is 23070123055; Nimita Jestin's is 23070122259.
+
+Use `localmind-demo-and-speaking-guide.pdf` for navigation, the four speaking
+parts, recovery steps and 15 viva answers. Read only the regular speech
+paragraphs aloud. Silent actions and viva answers are outside the timed script.
+The presentation, including the two-minute demonstration, totals ten minutes.
 
 ## Running order
 
 | Time | Speaker | Topic |
-|---|---|---|
-| 0:00–2:15 | Trijal Burman | Problem, purpose and scope |
-| 2:15–4:30 | Tiya Singh | Architecture, RAG, MCP and memory |
-| 4:30–6:30 | Gayatri Rajesh Apotikar | Source-linked answer and saved memory |
-| 6:30–10:00 | Nimita Jestin | Historical baseline, repaired replay, limits and next steps |
+| --- | --- | --- |
+| 0:00-2:15 | Trijal Burman | Problem, purpose and scope |
+| 2:15-4:30 | Tiya Singh | Architecture, RAG, MCP and memory |
+| 4:30-6:30 | Gayatri Rajesh Apotikar | Source-linked answer and saved memory |
+| 6:30-10:00 | Nimita Jestin | Historical results, repairs, limits and next steps |
 
-## Open the app
+## Start and prepare the demonstration
 
-- Normal application: http://127.0.0.1:8765
-- Prepared demonstration: http://127.0.0.1:8766
+The normal application was running on **http://127.0.0.1:8765** during the latest
+update. The separate demonstration address is **http://127.0.0.1:8766** when its
+launcher is running; its readiness has **not** been verified for this document
+update. Check the chosen workspace before presenting. A URL in this guide is
+not evidence that a service is currently running.
 
-Both applications were restarted with the repaired code and checked for model
-readiness. Their data directories are separate; normal project data was preserved.
-If the demo stops, run `bash output/presentation/start-presentation-demo.sh` from
-the project root. The launcher uses existing dependencies and cached models.
+After completing the root README's Linux setup, start the demo from the
+checkout root if needed:
 
-The Linux demo shares the model service on 11434 with the normal application.
-Its sample database remains separate on port 8766. On a fresh checkout, add
-`examples/knowledge` in Library, index it, and create **Lighthouse Presentation**
-in Projects before starting the timed presentation; prepared local databases are
-not published. Start the launcher after completing the root README setup.
+```bash
+bash output/presentation/start-presentation-demo.sh
+```
 
-Warm the selected model before the timer starts. Loading the 9B profile from
-the HDD took roughly a minute in the latest check; the ten-second demonstration
-cutoff assumes the model is already loaded. The installation default is still
-4B; the tested optional [9B profile](../../docs/model-profiles.md) is described
-separately. Windows users should follow the Windows branch's native launcher
-instructions; this demo shell script is for Linux.
+Leave that terminal open. The launcher uses existing dependencies and cached
+models, shares the loopback model service on 11434, and keeps sample data
+separate from the normal application. A fresh checkout has no prepared personal
+or demo database. Add `examples/knowledge` in **Library**, index the two supplied
+files, and create **Lighthouse Presentation** in **Projects** before the timer.
+The shell launcher is for Linux. Windows users should follow their branch's
+native launcher instructions and prepare the same sample workflow there.
 
-Use only `examples/knowledge`. In **Library**, open `lighthouse-project.md` and
-show **Storage decision**. In **Projects**, choose **Lighthouse Presentation** and
-**Open project chat**. Ask **What storage does the Lighthouse project use?**
-Open the source card and compare the answer with **SQLite** in the document.
-Then send `/remember Use only the supplied Lighthouse sample files in this presentation.`
-Open **Memory**, select **Lighthouse Presentation**, and reload to show the saved
-record. Use the source reader or manual memory form if inference takes over ten seconds.
+In **Settings**, verify the selected model and readiness. The source defaults
+remain **Qwen3 4B / 8192 context tokens**. The optional
+[Qwen3.5 9B / 12288 profile](../../docs/model-profiles.md) was checked on the
+Linux development laptop and selected in its saved settings. The paper's
+historical model results used 4B. This is not a universal best-model claim or
+native Windows GPU validation.
 
-The post-restart rehearsal returned SQLite with source [1], showed local search
-and recall in the trace, and confirmed existing project memory remained available.
-This is a single sample rehearsal, not an accuracy benchmark. The screenshots
-are labeled prepared rehearsal evidence; the JSON record distinguishes the new
-post-restart API check from the earlier browser reload check.
+Warm the selected model **before** starting the timer. Loading it from the HDD
+can take roughly a minute or longer; the demonstration's **ten-second wait
+limit assumes an already loaded model**. Initial downloads and loading are not
+part of the two-minute demo.
 
-## Explain the repair accurately
+## Follow the two-minute sequence
 
-The old fitter could discard an evidence block because JSON escaping made it
-larger than its raw-prefix estimate. The repaired fitter measures the actual
-serialized UTF-8 cost and retains a complete-character prefix that fits.
+1. In **Library**, open `lighthouse-project.md` and show **Storage decision**.
+2. In **Projects**, choose **Lighthouse Presentation** and **Open project chat**.
+   Ask **What storage does the Lighthouse project use?**
+3. Compare the answer's source with **SQLite** in the document. If it takes more
+   than ten seconds, is wrong, or abstains, show the source directly and move on.
+4. Send `/remember Use only the supplied Lighthouse sample files in this presentation.`
+   Open **Memory**, select **Lighthouse Presentation**, and show the saved note.
+5. Reload the Memory view once and hand over to Nimita. If chat remains busy,
+   use **Memory > Add memory** with the project scope instead.
+
+A reload demonstrates persistence through that reload. Separate storage tests
+cover application restart persistence. Keep downloads, scans, restarts, long
+summaries and plan generation outside the timed demo.
+
+The stored `rehearsal-record.json` and rehearsal screenshots remain **dated
+prepared evidence** from the earlier session. They were not repeated for this
+update and must not be described as a fresh audience demonstration.
+
+## Explain the latest changes accurately
+
+- Pure greetings, thanks and exact capability questions return a neutral local
+  response before model access, retrieval or old conversation context. They
+  produce no source cards or invented project assumptions.
+- File inventories and exact filename checks use paginated MCP index metadata.
+  Document evidence now carries exact filenames, paths and document identifiers;
+  one long path cannot block every later fitting record.
+- The interface groups excerpts from the same document while preserving their
+  original citation numbers. Equal basenames at different paths remain distinct.
+- Substantive document replies require citations, including imperative prompts
+  such as **Explain the setup**. A missing-citation answer can receive one
+  tool-free retry from freshly packed evidence. Invalid references fail directly;
+  unsuccessful retries keep the original safe excerpts and cards.
+
+These controls check evidence delivery and reference integrity. A valid citation
+can still fail to support a claim, so important answers need source inspection.
 
 | Measurement | Result and scope |
-|---|---|
-| Repaired evidence delivery | 64/64 replay requests retained initial references and stayed within budget |
-| Repaired complete fact-value matching | RAG 7/24; MCP 3/24, on reused synthetic questions |
-| Context-repair snapshot functional checks | Linux 62 passed; Windows copy on Linux 99 passed, 6 native checks skipped |
-| Historical retrieval | Lexical and hybrid coverage 96/96 at five; not answer accuracy |
-| Historical generation | 0/24 per method before repair |
-| Historical summaries | 10/24 requested values; not rerun after repair |
+| --- | --- |
+| Latest regression suites | 163 Linux tests; 200 Windows-copy tests on Linux, 6 native checks skipped |
+| Greeting route smoke check | One `hello` request took 0.0931 seconds; no model or retrieval call |
+| Metadata smoke checks | 7 indexed files; 1 exact api.md match; 0 matches for an absent test filename |
+| Small 9B development probe | 8/8 known-fact literal checks and 2/2 unknown abstentions; post-selected, not general accuracy |
+| Historical context repair replay | 64/64 requests retained evidence within budget; RAG 7/24 and agent 3/24 complete fact-value matches on reused questions |
+| Historical retrieval | Lexical and hybrid evidence coverage 96/96 at five; not answer accuracy |
+| Historical generation baseline | 0/24 per method before the context repair |
+| Historical long summaries | 10/24 requested values across three final summaries; not rerun |
 
-These rows are frozen observations from the context-repair step, before the
-later grounding changes and repository publication. Current file listings use
-index metadata, and document evidence uses complete query-centered records
-instead of fixed prefixes. An uncited document answer receives one bounded
-tool-free retry, followed by the same reference guard and source-excerpt fallback.
-The current local suites passed 135 Linux tests and 172 tests for the Windows
-copy on Linux, with six native checks skipped. The later 9B development probe
-answered eight known-fact questions and abstained on two unknowns; it is not a
-rerun of the paper benchmark. See [the latest verification](../verification/model-upgrade.md).
-There is no claim of perfect accuracy or native Windows GPU validation.
+The 0.0931-second greeting result is **not model-question latency**. The small
+9B check is separate from the historical research benchmark. An additional
+short-summary literal check in that development run did not pass. The earlier
+native Windows CI result of 178 tests on each interpreter checked a previous
+commit; it does not verify this latest change. Native Windows GPU inference
+remains unmeasured.
 
-## Submission files
+## Submission and remaining limits
 
-The blackbook PDF has **60 total pages**, follows `report format.docx`, and uses
-the template's APA references. The separate **11-page IEEE-format manuscript**
-acknowledges Dr. Sonali Kothari and includes the new production repair evidence.
-The speaking guide has **12 pages**. Editable DOCX/LaTeX sources are included;
-later edits may change pagination.
+The blackbook follows the supplied report format and keeps its historical
+measurements distinct from software updates. The separate IEEE-format paper has 12 pages, and this practical guide has 12 pages.
+They serve different purposes. Editable source files are
+included through the deliverables index.
 
-The research archive contains frozen original results, the historical diagnostic,
-new production replay, exact repaired-source snapshots and checksums. It excludes
-personal databases, model weights and credentials. Required institutional AIC,
-similarity and AI-plagiarism reports, signatures and submission date remain to be
-obtained through the institution; no scores or approvals have been invented.
+Source access covers approved supported local folders, not every binary file
+on a drive. Image-only PDFs require external OCR, and the SQLite database is not
+encrypted. Future work includes stronger long-document coverage, held-out
+factuality evaluation and native Windows GPU checks. Required institutional
+AIC, similarity and AI-plagiarism reports, signatures and submission date must
+be obtained through the institution; no scores or approvals have been invented.

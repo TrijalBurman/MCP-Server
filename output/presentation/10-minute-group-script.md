@@ -1,8 +1,8 @@
 # LocalMind 10-minute group speaking script
 
-Current Markdown script, updated for the grounding repair and model upgrade,
-17 October 2026. The exported PDF/Word guide remains the earlier context-repair
-snapshot; see [the deliverables index](../README.md).
+Updated 17 October 2026 for the greeting, metadata, citation and source-card fixes.
+This script matches the updated Word and PDF guide. Historical experiments remain
+separate from current software checks; see [the deliverables index](../README.md).
 
 Guide: Dr. Sonali Kothari · Symbiosis Institute of Technology · Minors in AIML · Academic year 23–27.
 
@@ -38,7 +38,7 @@ The workflow starts with an approved folder. Supported text is extracted and div
 
 **Action:** Point to the retrieval-to-model connection.
 
-RAG means retrieval-augmented generation. We retrieve evidence and provide selected passages with the question to a language model. Qwen runs locally through Ollama; this laptop now uses the optional Qwen3.5 nine-billion-parameter profile. The paper measured the earlier four-billion-parameter model. Numbered references let us inspect the evidence, but retrieval does not guarantee a correct answer.
+RAG means retrieval-augmented generation. We retrieve evidence and provide selected passages with the question to a language model. Qwen runs locally through Ollama. This laptop uses the optional Qwen3.5 nine-billion-parameter profile with twelve thousand two hundred eighty-eight context tokens. Source defaults remain four billion parameters and eight thousand one hundred ninety-two tokens. The paper measured the earlier model. References help us inspect evidence; they do not guarantee a correct answer.
 
 **Action:** Point to the MCP server block; no extra terminal is needed.
 
@@ -50,7 +50,7 @@ An explicit memory persists in SQLite and can be retrieved in a later conversati
 
 **Action:** Return to Library and hand keyboard control to Gayatri.
 
-Gayatri will demonstrate the prepared Lighthouse samples. We will check the actual source and save a memory, rather than treating a confident-looking response as proof of correctness.
+Document evidence now includes actual filenames, paths and document identifiers. The display groups excerpts from the same file while preserving their original citation numbers. Gayatri will demonstrate the prepared Lighthouse samples. We will compare the response with its source and save an explicit memory.
 
 ## Gayatri Rajesh Apotikar — 04:30–06:30
 
@@ -78,23 +78,23 @@ Our evaluation used authored fictional documents, not a representative personal 
 
 **Action:** Point to the historical baseline and earlier diagnostic rows.
 
-Historically, both generation conditions matched all requested values on zero of twenty-four answerable questions. The context fitter could discard retrieved evidence after serialization. An earlier evaluation-only diagnostic produced seven and three complete matches. These are historical measurements. The published Linux and Windows versions now contain the context repair and later grounding fixes.
+Historically, both generation conditions matched all requested values on zero of twenty-four answerable questions. The context fitter could discard retrieved evidence after serialization. These are historical measurements. The context repair and later safeguards are implemented in the Linux and Windows versions; the old results remain visible for comparison.
 
 **Action:** Point to the repaired production replay and evidence-retention rows.
 
-The production repair fits a complete-character prefix using its actual serialized UTF-eight size. All sixty-four replay requests retained initial reference evidence, stayed within budget, and completed without request errors. Single-pass RAG matched all requested values on seven of twenty-four answerable questions; the agent did so on three. Average fact-value matching was thirty-seven point five and twenty-seven point zero eight percent. These are reused questions, not a held-out test or general accuracy. No extra model-selected tool calls occurred.
+The production repair uses the actual serialized UTF-eight size to fit evidence. All sixty-four replay requests retained initial references, stayed within budget and completed without errors. Single-pass RAG matched every requested value on seven of twenty-four answerable questions; the agent did so on three. These were reused questions, not a held-out test or general accuracy. No extra model-selected tool calls occurred.
 
 **Action:** Point to the historical long-summary row, not a new summary result.
 
-The earlier long-document experiment retained ten of twenty-four requested values across three final summaries. It was not rerun. The current app uses query-centered excerpts instead of fixed prefixes, while bounded context can still omit facts. A later small nine-billion-parameter development check answered eight known-fact questions with supporting references and declined two unknowns. That is separate from the paper benchmark, not a general accuracy result.
+The earlier long-document experiment retained ten of twenty-four requested values across three final summaries. It was not rerun. Current question answering uses query-centered excerpts, but bounded context can still omit facts. A later small, post-selected nine-billion-parameter development probe passed eight known-fact checks and declined two unknowns. This is separate from the paper benchmark and does not establish general accuracy.
 
 **Action:** Show the remaining limits; leave settings unchanged.
 
-Current file lists and exact filename checks use the actual index. Uncited document answers get one retry; failed citation checks show exact excerpts. Valid references still do not prove every claim. Other limits include no OCR, readable database storage and access restricted to approved supported files. The latest local suites passed one hundred thirty-five Linux tests and one hundred seventy-two Windows-copy tests on Linux. Native Windows GPU inference remains untested.
+Current file lists and exact filename checks use index metadata. Greetings now bypass retrieval, avoiding invented project context. Uncited substantive document replies get one retry, including requests such as explain the setup. Failed reference checks show exact excerpts. The local suites passed one hundred sixty-three Linux tests and two hundred Windows-copy tests on Linux, with six native checks skipped. Valid citations still do not prove every claim. Scanned PDFs need external OCR, and the database is not encrypted.
 
 **Action:** Show next steps, then return to the title or app overview.
 
-Next steps are stronger long-document coverage, broader held-out evaluation and native Windows GPU testing. Local OCR is another possible extension. The implemented repairs and their regression tests are published; these other improvements remain proposed. LocalMind combines a working local workflow with measurements of its remaining limits. Thank you to Dr. Sonali Kothari and the panel. We welcome your questions.
+Next steps are stronger long-document coverage, broader held-out evaluation and native Windows GPU testing, which remains unmeasured. Local OCR is another possible extension. These improvements remain proposed. LocalMind combines a working local workflow with measurements of its remaining limits. Thank you to Dr. Sonali Kothari and the panel. We welcome your questions.
 
 ## Exact demo inputs
 
@@ -106,6 +106,23 @@ Demo address: http://127.0.0.1:8766. Project: Lighthouse Presentation. Allow at 
 
 **Before the timer:** Prepare the two supplied files and project on a fresh
 checkout, and warm the selected model. An initial HDD load can take about a
-minute; do not spend the timed demonstration waiting for model initialization.
+minute or longer; do not spend the timed demonstration waiting for model initialization.
 
 The repaired replay retained evidence in 64/64 requests. Complete fact-value matches were 7/24 for RAG and 3/24 for MCP on reused synthetic questions. The historical 0/24 baseline and 10/24 summary-value result remain separately labeled; summaries were not rerun.
+
+## Preparation and measurement notes
+
+Start the Linux demo, if needed, with `bash output/presentation/start-presentation-demo.sh`
+from the checkout root. The main app is on port 8765; the separate demo is on 8766
+when its launcher is running. Port 8766 has not been verified for this latest
+document update. Prepare the sample library and project before starting the timer.
+
+A single live `hello` check took **0.0931 seconds** and bypassed both the model
+and retrieval. This is greeting-route latency, not model-answer speed. Separate
+metadata smoke checks returned **7 indexed files**, **1 exact api.md match**, and
+**0 matches for an absent test filename**. These checks do not measure answer accuracy.
+
+The earlier 178-test-per-interpreter native Windows CI run checked a previous
+commit. The latest Windows copy was tested on Linux with six native checks
+skipped; native Windows GPU inference remains unmeasured. Historical rehearsal
+records and screenshots are dated prepared evidence, not a newly repeated live demo.

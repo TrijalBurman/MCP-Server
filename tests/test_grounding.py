@@ -4,6 +4,7 @@ import json
 
 import pytest
 
+from copilot.agent import SYSTEM
 from copilot.grounding import EVIDENCE_PREFIX, citation_numbers, prepare_evidence, valid_citations
 from copilot.ollama import fit_context
 
@@ -103,6 +104,56 @@ def test_empty_sources_do_not_invent_references():
     messages = base_messages("Help me plan a small project.")
     fitted, schemas, visible = prepare_evidence(messages, [], messages[-1]["content"], None, 4096)
     assert fitted == messages and schemas is None and visible == []
+
+
+def test_same_basename_records_keep_exact_long_title_and_distinct_metadata_identity():
+    title = "specification-" + "long-project-detail-" * 9 + "api.md"
+    assert len(title) > 160
+    sources = [
+        {"document_id": 11, "title": title, "path": "/knowledge/alpha/" + title,
+         "text": "Alpha's approved database is SQLite."},
+        {"document_id": 22, "title": title, "path": "/knowledge/beta/" + title,
+         "text": "Beta's approved database is DuckDB."},
+    ]
+    original = copy.deepcopy(sources)
+    messages = base_messages("Which database belongs to Alpha and Beta?")
+
+    fitted, schemas, visible = prepare_evidence(messages, sources, messages[-1]["content"], None, 4096)
+
+    packed = records(fitted)
+    assert len(packed) == len(visible) == 2
+    for record, source in zip(packed, sources, strict=True):
+        assert record["title"] == title
+        assert record["document_id"] == source["document_id"]
+        assert record["path"] == source["path"]
+        assert record["text"] == source["text"]
+    assert packed[0]["path"] != packed[1]["path"]
+    assert sources == original
+    assert serialized_cost(fitted, schemas) <= 4096 - 4096 // 3 - 256
+    assert fit_context(fitted, schemas, 4096) == (fitted, schemas)
+
+
+def test_unfittable_first_path_does_not_starve_a_later_short_metadata_record():
+    sources = [
+        {"document_id": 11, "title": "api.md", "path": "/knowledge/" + "nested/" * 400 + "api.md",
+         "text": "The deeply nested document uses SQLite."},
+        {"document_id": 22, "title": "api.md", "path": "/knowledge/api.md",
+         "text": "The accessible document uses SQLite."},
+    ]
+    original = copy.deepcopy(sources)
+    messages = [{"role": "system", "content": SYSTEM},
+                {"role": "user", "content": "Which document uses SQLite?"}]
+
+    fitted, schemas, visible = prepare_evidence(messages, sources, messages[-1]["content"], None, 4096)
+
+    packed = records(fitted)
+    assert len(packed) == len(visible) == 1
+    assert packed[0] == {"source_number": 1, "document_id": 22, "title": "api.md",
+                         "path": sources[1]["path"], "text": sources[1]["text"]}
+    assert visible[0]["document_id"] == 22 and visible[0]["source_number"] == 1
+    assert sources == original
+    assert serialized_cost(fitted, schemas) <= 4096 - 4096 // 3 - 256
+    assert fit_context(fitted, schemas, 4096) == (fitted, schemas)
 
 
 @pytest.mark.parametrize("text,numbers", [

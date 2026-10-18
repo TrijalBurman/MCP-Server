@@ -59,6 +59,32 @@ The context window is bounded for the laptop. Relevant recent messages, saved pr
 
 If the chat model is not ready, chat returns a labeled extractive response with local excerpts. This provides a useful retrieval workflow without presenting source snippets as an AI-generated summary.
 
+## Local routing and file identity
+
+Complete greetings, thanks and capability questions are handled locally before
+history, MCP or model access. Full-string matching preserves real requests that
+begin with a greeting. Index inventory and exact filename lookup render paged
+MCP metadata directly rather than inferring disk contents from retrieved passages.
+These results describe the index; explicit rescanning refreshes changed folders.
+
+Document evidence consists of whole numbered JSON records containing exact title,
+document ID and path when available, plus an exact query-centered excerpt. Records
+are fitted against actual serialized cost. An individually unfit identity can be
+skipped so a later record survives; selected records are numbered consistently.
+Forced final synthesis repacks the original evidence pool without tool schemas.
+
+Source cards group passages by document identity, with exact-path fallback. They
+retain original citation positions, excerpt counts and page information. Files
+with equal basenames remain separate when their identities differ. A card opens
+the original document; a repeated passage is not counted as a new file.
+
+A document-derived answer without a citation receives at most one tool-free
+regeneration from freshly packed evidence. Failed checks return labeled exact
+excerpts; invalid explicit reference numbers fail immediately. The check also
+covers imperative requests, not only questions with interrogative words. It
+checks reference format and identity, not semantic entailment. Conversation
+recall with actual supplied conversation evidence remains a separate path.
+
 ## Project creation
 
 A project stores a name, description, and linked explicit memories. Its conversation sessions retain project context. A user-triggered plan opens an actual MCP stdio session and searches indexed knowledge using the project name, description, and request. The local model receives bounded source passages plus project and global memories to draft goals, milestones, architecture, tasks, and acceptance criteria. When sources are found, the saved plan appends a numbered local-reference list with document titles and paths. Assumptions and proposed dates are requested explicitly rather than presented as established source facts.

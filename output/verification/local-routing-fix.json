@@ -1,0 +1,163 @@
+{
+  "verification_date": "2026-10-17",
+  "record_created_utc": "2026-10-17T18:04:36.928228+00:00",
+  "scope": "Local routing, exact file identity, grouped source cards and reference integrity; not a new semantic-accuracy benchmark.",
+  "linux": {
+    "passed": 163,
+    "skipped": 0,
+    "warnings": 1,
+    "seconds": 27.65,
+    "log": "regressions/local-routing-linux-pytest.log"
+  },
+  "windows_copy_on_linux": {
+    "passed": 200,
+    "skipped": 6,
+    "warnings": 1,
+    "seconds": 27.48,
+    "log": "regressions/local-routing-windows-on-linux-pytest.log",
+    "native_execution": false
+  },
+  "new_cases": 28,
+  "checks": [
+    "Both application editions pass lint and whitespace checks.",
+    "Both browser scripts pass JavaScript syntax checks.",
+    "Frontend grouping preserves evidence objects and original citation positions.",
+    "A grouped [1, 4, 5] card opened the document matching its metadata in browser verification."
+  ],
+  "coverage": [
+    "Complete greeting/help/thanks routes precede history, model readiness and MCP access.",
+    "Greetings followed by substantive document or inventory requests retain their normal route.",
+    "Uncited answers to document-based imperatives use the bounded retry and excerpt fallback.",
+    "Exact long titles, document IDs and paths distinguish files with equal basenames.",
+    "An individually unfit long path does not suppress later usable evidence.",
+    "Forced final synthesis repacks evidence without tool schemas before inference."
+  ],
+  "live_http_checks": {
+    "checks": [
+      {
+        "request": "hello",
+        "elapsed_seconds": 0.0931,
+        "mode": "local",
+        "source_count": 0,
+        "tool_actions": 0
+      },
+      {
+        "request": "HI THERE!!",
+        "elapsed_seconds": 0.0305,
+        "mode": "local",
+        "source_count": 0,
+        "tool_actions": 0
+      },
+      {
+        "request": "what can you do?",
+        "elapsed_seconds": 0.0314,
+        "mode": "local",
+        "source_count": 0,
+        "tool_actions": 0
+      },
+      {
+        "request": "Thanks!",
+        "elapsed_seconds": 0.0672,
+        "mode": "local",
+        "source_count": 0,
+        "tool_actions": 0
+      },
+      {
+        "request": "hello, what files are indexed?",
+        "elapsed_seconds": 1.0497,
+        "mode": "catalog",
+        "source_count": 7,
+        "exact_metadata_match": true
+      },
+      {
+        "request": "is there a file named api.md?",
+        "elapsed_seconds": 1.4243,
+        "mode": "catalog",
+        "source_count": 1,
+        "exact_metadata_match": true
+      },
+      {
+        "request": "is there a file named localmind-check-definitely-missing-9fdb.md?",
+        "elapsed_seconds": 1.3488,
+        "mode": "catalog",
+        "source_count": 0,
+        "exact_metadata_match": true
+      }
+    ],
+    "original_conversations_preserved": true,
+    "temporary_session_deleted": true,
+    "indexed_files": 7
+  },
+  "live_measurement_limits": [
+    "Each listed HTTP input was measured once on the Linux development laptop.",
+    "Greeting timings include local HTTP and message persistence but no model inference or retrieval.",
+    "Catalog timings include MCP metadata access, not language-model generation.",
+    "No private source text, private conversations or database is included in this record."
+  ],
+  "linux_source_sha256": {
+    "copilot/agent.py": "34af9b220c37e3fb0a5061ccd23408cc9cf55f7c9020f0c20e24251e4613b2f0",
+    "copilot/grounding.py": "e63f47e628fd90530a1a4c974ebc14c4d6d285e386af5707f28b461aeaba16dd",
+    "copilot/ollama.py": "1db1e79b7eac3dba77b2afaa2e852db847b7ae2169d7f92327b750dbaa4cdc25",
+    "copilot/static/app.js": "5d4f61ad52dc9124ed2ef9bcb92737db524ccb613a5654c12c96bb82cfbe96d2",
+    "copilot/static/styles.css": "8a9fc2d4bba4ab7ea5c002616477f57df272e3fe2d63960461850cafa019e896",
+    "tests/test_local_chat.py": "e56b40c4723186931aa6ae158be7ff24dcc14d30a5d309dc6285fcb779224c09",
+    "tests/test_answer_grounding.py": "43d0144617754b7b5da7a4661823dc68c9db0c314a1d858cf0560dd8356716d2",
+    "tests/test_grounding.py": "c18240c9b0b004a743443fac5a62e218889a1c8f39caf610cfddaea9617d0218"
+  },
+  "windows_source_sha256": {
+    "copilot/agent.py": "34af9b220c37e3fb0a5061ccd23408cc9cf55f7c9020f0c20e24251e4613b2f0",
+    "copilot/grounding.py": "e63f47e628fd90530a1a4c974ebc14c4d6d285e386af5707f28b461aeaba16dd",
+    "copilot/ollama.py": "1db1e79b7eac3dba77b2afaa2e852db847b7ae2169d7f92327b750dbaa4cdc25",
+    "copilot/static/app.js": "fc626033c5d75c063fb5ee2877a1e4bbc896f74fa56be947cee9c53d6aad71a5",
+    "copilot/static/styles.css": "8a9fc2d4bba4ab7ea5c002616477f57df272e3fe2d63960461850cafa019e896",
+    "tests/test_local_chat.py": "e56b40c4723186931aa6ae158be7ff24dcc14d30a5d309dc6285fcb779224c09",
+    "tests/test_answer_grounding.py": "43d0144617754b7b5da7a4661823dc68c9db0c314a1d858cf0560dd8356716d2",
+    "tests/test_grounding.py": "c18240c9b0b004a743443fac5a62e218889a1c8f39caf610cfddaea9617d0218"
+  },
+  "historical_results_unchanged": {
+    "retrieval_CES_at_5": "96/96 lexical and hybrid",
+    "baseline_AFVM": "0/24 per generation method",
+    "production_context_replay": "64/64 initial evidence delivery; RAG AFVM 7/24, agent AFVM 3/24",
+    "historical_summary_values": "10/24; not rerun",
+    "later_9b_probe": "8/8 known checks, 2/2 unknown abstentions; small postselected development probe"
+  },
+  "limitations": [
+    "Citation checks establish format, numbering and delivered-evidence identity, not claim entailment.",
+    "The source-driven citation policy can also retry an uncited proposal in Chat if retrieval supplies documents.",
+    "Whole-document summaries and Projects planning have separate flows and are not newly evaluated here.",
+    "Native Windows 11 GPU inference remains unmeasured."
+  ],
+  "test_fixture_note": "The two-source refresh test uses 12288 context tokens to reserve space for complete records and tool schemas across native Windows temporary-path lengths; all two-record and payload/card assertions remain intact. Other 4096/8192 stress fixtures and production defaults are unchanged.",
+  "native_windows_ci": {
+    "run_id": 39056375542,
+    "head_sha": "da05653c2698965a1bd53e8d6f7c100324a74243",
+    "branch": "windows",
+    "url": "https://github.com/TrijalBurman/MCP-Server/actions/runs/39056375542",
+    "conclusion": "success",
+    "confirmed_utc": "2026-10-18T06:37:26.858671+00:00",
+    "platform": "Native Windows Server GitHub Actions runners",
+    "jobs": [
+      {
+        "python": "3.12",
+        "passed": 206,
+        "skipped": 0,
+        "warnings": 1,
+        "suite_seconds": 156.16,
+        "conclusion": "success",
+        "job_log_sha256": "3f8684ef309c1d69477d07aeaac4ae5d688a7e98878f7e89332c784a103b291f"
+      },
+      {
+        "python": "3.13",
+        "passed": 206,
+        "skipped": 0,
+        "warnings": 1,
+        "suite_seconds": 350.46,
+        "conclusion": "success",
+        "job_log_sha256": "52c20163a4284433a559b0b412f657ecc5e2d27b6460f6fb10a3e05e900b8808"
+      }
+    ],
+    "real_model_inference": false,
+    "windows_11_laptop_gpu_tested": false,
+    "scope": "Native filesystem, API, actual MCP, persistence, packaging, PowerShell syntax and CMD launcher lifecycle with synthetic data and a fake local model service."
+  }
+}

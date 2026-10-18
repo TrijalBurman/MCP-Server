@@ -54,6 +54,11 @@ Folder indexing, full extracted document reading, lexical search, saved memory, 
 
 ## Grounded file answers
 
+Complete greetings, thanks, and capability questions receive a neutral local response
+without retrieving files or loading the chat model. Mixed requests such as
+“Hi, summarize api.md” still use the document workflow. Retrieved project names
+do not establish which project you are working on.
+
 Questions such as “List all indexed files” and “Is there a file named api.md?”
 use paginated index metadata directly through MCP. They do not ask the language
 model to infer file existence from search passages. Duplicate filenames retain
@@ -62,7 +67,12 @@ The result describes the index; rescan folders after changing files on disk.
 
 Document questions receive exact query-centered excerpts packed as complete
 numbered records within the model budget, including after document tool calls.
+Records retain exact filenames, document IDs, and paths when available. Source
+cards group passages from the same file while preserving every original citation
+number; files with the same basename in different folders remain distinct.
 Earlier assistant claims are omitted when current document evidence is present.
+The reference check also applies to document-based imperatives such as “Explain
+the setup,” rather than depending on question words.
 Invalid explicit reference numbers trigger a labeled source-excerpt fallback.
 If a document-grounded answer has no citations and usable excerpts exist, the
 app regenerates it **once**, using freshly packed evidence and no tools or copy
@@ -73,6 +83,11 @@ trigger that retry; answers without document evidence cannot use it. Code indexe
 inside Markdown code are not mistaken for citations. These checks do not prove semantic correctness;
 verify important claims in the source reader. Existing conversations retain their
 historical messages; ask again or start a new conversation to see repaired behavior.
+
+The [latest verification](output/verification/local-routing-fix.md) records 163
+Linux tests passed and 200 Windows-copy tests passed on Linux, with six native
+checks skipped. A single model-free greeting took 0.0931 s; this does not measure
+language-model inference speed or general answer accuracy.
 
 ## Persistent data and privacy
 

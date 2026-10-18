@@ -1,0 +1,170 @@
+{
+  "refreshed_utc": "2026-10-17T18:04:36.930582+00:00",
+  "document_revision_date": "2026-10-17",
+  "status": "passed",
+  "pages": {
+    "output/blackbook/localmind-blackbook-60-pages.pdf": 60,
+    "output/pdf/localmind-ieee-research-paper.pdf": 12,
+    "output/presentation/localmind-demo-and-speaking-guide.pdf": 12
+  },
+  "visual_review": {
+    "paper": {
+      "all_pages_reviewed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "clipping_or_overlap": false,
+      "format": "IEEEtran conference, two columns, letter paper",
+      "last_page": "References continue in a partial final page; all 26 entries are readable."
+    },
+    "blackbook": {
+      "total_pages": 60,
+      "changed_pages_reviewed": [
+        5,
+        11,
+        12,
+        13,
+        14,
+        15,
+        18,
+        22,
+        24,
+        27,
+        28,
+        31,
+        39,
+        40,
+        42,
+        43,
+        45,
+        46,
+        47,
+        49,
+        50,
+        51,
+        52,
+        57,
+        58,
+        60
+      ],
+      "remaining_pages": "34 pages byte-identical to the previously reviewed render",
+      "final_adjustments": "Pages 40 and 52 re-rendered and reviewed after the final edits",
+      "institutional_parts_preserved": 34
+    },
+    "presentation": {
+      "all_pages_reviewed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "source_page_geometry_and_footers_preserved": true,
+      "package_parts_preserved": 18
+    }
+  },
+  "paper_compilation": {
+    "successful": true,
+    "compiler": "Codex bundled Tectonic CLI, only cached resources, untrusted input mode",
+    "new_downloads": false,
+    "editor_compiler_check": "Attempted twice; editor could not fetch its uncached remote bundle. Cached CLI compilation succeeded without source errors.",
+    "editor_source": "Existing output/pdf/localmind-ieee-research-paper.tex edited in place; no replacement source or editor tab."
+  },
+  "preserved_research": {
+    "frozen_scientific_table_data_byte_identical": [
+      "tab:retrieval",
+      "tab:context",
+      "tab:generation",
+      "tab:summaries"
+    ],
+    "all_26_bibliography_entries_unchanged": true,
+    "all_research_files_unchanged": true,
+    "historical_research_archive_and_checksum_unchanged": true,
+    "blackbook_names_prns_guide_department_preserved": true
+  },
+  "presentation_timing": {
+    "total_minutes": 10,
+    "demo_minutes_included": 2,
+    "spoken_words": 1010,
+    "speaker_words": {
+      "Trijal Burman": 236,
+      "Tiya Singh": 277,
+      "Gayatri Rajesh Apotikar": 146,
+      "Nimita Jestin": 351
+    },
+    "scope": "Timing allocation and word count; not a new timed group rehearsal."
+  },
+  "verification": {
+    "linux_passed": 163,
+    "windows_copy_on_linux_passed": 200,
+    "native_skipped": 6,
+    "current_record": "local-routing-fix.json",
+    "new_model_accuracy_benchmark": false,
+    "new_demo_rehearsal": false
+  },
+  "privacy": {
+    "private_documents_or_conversations_included": false,
+    "model_weights_or_database_included": false,
+    "student_details": "User-supplied institutional authors, PRNs and guide retained."
+  },
+  "deliverable_sha256": {
+    "output/blackbook/localmind-blackbook-60-pages.pdf": "ddbabc901d6c9c65a39fa5b3c821f07444301aad9d75248f9b5ff17d64607d84",
+    "output/blackbook/localmind-blackbook-60-pages.docx": "ef13fe718c9100ec75ba7c2c2fb4f844f5bdabc5ee39f905d314a82bef9e1b98",
+    "output/pdf/localmind-ieee-research-paper.pdf": "29aeb088587463831eed2da9b171048818e7a39b1ed05bc94db4f98737cd6e07",
+    "output/pdf/localmind-ieee-research-paper.tex": "0640800f857caa6a35e82c2dbc45818f288b2f67ae6438be3f56c1dab1cecbb4",
+    "output/presentation/localmind-demo-and-speaking-guide.pdf": "45f6527564c95fb1fcb723fd37376c117ded0dd59de5d9c9bb1da6479ad4ed7c",
+    "output/presentation/localmind-demo-and-speaking-guide.docx": "88e56065fcef709a972ae0b37e5e2bb3f0de69f8f0f38e2ec14e5253f5900382",
+    "output/presentation/10-minute-group-script.md": "8e4cb181d294c36a0896fc45a394f1de8fab98f219530b6931ea7f9259985e7e",
+    "output/presentation/START-HERE.md": "3b566f1cf8fe598a3836762165b09749668a1d52e4ce11dc70aa2d6706a14ff6",
+    "output/pdf/research-artifact-readme.md": "3fb293803876e88a319fd81eb848ba8af78830ff81afa7b62277e7794a0c3423"
+  },
+  "native_windows_ci": {
+    "run_id": 39056375542,
+    "head_sha": "da05653c2698965a1bd53e8d6f7c100324a74243",
+    "branch": "windows",
+    "url": "https://github.com/TrijalBurman/MCP-Server/actions/runs/39056375542",
+    "conclusion": "success",
+    "confirmed_utc": "2026-10-18T06:37:26.858671+00:00",
+    "platform": "Native Windows Server GitHub Actions runners",
+    "jobs": [
+      {
+        "python": "3.12",
+        "passed": 206,
+        "skipped": 0,
+        "warnings": 1,
+        "suite_seconds": 156.16,
+        "conclusion": "success",
+        "job_log_sha256": "3f8684ef309c1d69477d07aeaac4ae5d688a7e98878f7e89332c784a103b291f"
+      },
+      {
+        "python": "3.13",
+        "passed": 206,
+        "skipped": 0,
+        "warnings": 1,
+        "suite_seconds": 350.46,
+        "conclusion": "success",
+        "job_log_sha256": "52c20163a4284433a559b0b412f657ecc5e2d27b6460f6fb10a3e05e900b8808"
+      }
+    ],
+    "real_model_inference": false,
+    "windows_11_laptop_gpu_tested": false,
+    "scope": "Native filesystem, API, actual MCP, persistence, packaging, PowerShell syntax and CMD launcher lifecycle with synthetic data and a fake local model service."
+  }
+}
