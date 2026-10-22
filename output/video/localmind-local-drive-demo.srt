@@ -1,0 +1,214 @@
+1
+00:00:00,000 --> 00:00:06,000
+Connect the local folder
+Connect the documentation folder on the HDD. Enter its full local path, then choose Connect & index.
+
+2
+00:00:06,000 --> 00:00:10,000
+Index the documentation
+LocalMind processes the selected folder on this laptop. The loading interval is shortened in this walkthrough.
+
+3
+00:00:10,000 --> 00:00:17,000
+Seven documents indexed
+The completed indexing result shows 7 updated documents and 2 skipped image files. The original files remain in their folder.
+
+4
+00:00:17,000 --> 00:00:21,000
+Start with a greeting
+Open Copilot and send a simple Hello!
+
+5
+00:00:21,000 --> 00:00:26,000
+A local conversation
+LocalMind offers to find indexed files, summarize documents and help plan a project.
+
+6
+00:00:26,000 --> 00:00:30,000
+Ask how it can help
+The next question asks LocalMind to explain its available actions.
+
+7
+00:00:30,000 --> 00:00:36,000
+Understand the available actions
+The response describes file search, document summaries, memory and project plans, and explains the limits of its current tools.
+
+8
+00:00:36,000 --> 00:00:40,000
+Ask for every indexed filename
+Question: “What files are indexed? List every filename.”
+
+9
+00:00:40,000 --> 00:00:48,000
+The complete filename inventory
+All seven exact filenames appear together, with document citations. The source cards below link to the same indexed documents.
+
+10
+00:00:48,000 --> 00:00:54,000
+Seven linked document sources
+The answer includes seven distinct library source cards. Each points to its indexed local document.
+
+11
+00:00:54,000 --> 00:00:58,000
+api.md
+Read the complete API document and choose Summarize in chat.
+
+12
+00:00:58,000 --> 00:01:00,000
+api.md
+Warm-model retry after an initial cold-load timeout. Loading waits are shortened; repeated prompts remain visible.
+
+13
+00:01:00,000 --> 00:01:12,000
+api.md
+The saved summary describes telemetry validation, simulator actions and MQTT integration.
+
+14
+00:01:12,000 --> 00:01:24,000
+api.md
+Continue through the generated MQTT topic and error-response details.
+
+15
+00:01:24,000 --> 00:01:29,000
+api.md
+The reply provides a local source link. Generated statements still require checking against the document.
+
+16
+00:01:29,000 --> 00:01:34,000
+api.md
+Open the original API document to check payloads, field names and examples.
+
+17
+00:01:34,000 --> 00:01:38,000
+architecture.md
+Open the full architecture and operating-assumptions document.
+
+18
+00:01:38,000 --> 00:01:40,000
+architecture.md
+Request a source-grounded summary. The waiting interval is shortened.
+
+19
+00:01:40,000 --> 00:01:52,000
+architecture.md
+The generated summary describes sensors, MQTT, the API controller and local storage.
+
+20
+00:01:52,000 --> 00:02:02,000
+architecture.md
+The answer stops at an incomplete “State” section. Open the source to review the remaining details.
+
+21
+00:02:02,000 --> 00:02:06,000
+deployment.md
+Read the complete deployment document before asking for its summary.
+
+22
+00:02:06,000 --> 00:02:08,000
+deployment.md
+Request a summary of this attached document. The processing wait is shortened.
+
+23
+00:02:08,000 --> 00:02:20,000
+deployment.md
+Review the generated stack requirements and bootstrap instructions.
+
+24
+00:02:20,000 --> 00:02:30,000
+deployment.md
+This generated answer contains an incorrect port and an incomplete ending. Check the original source.
+
+25
+00:02:30,000 --> 00:02:38,000
+deployment.md
+Source check: InfluxDB uses port 8086. The generated summary incorrectly says 2086.
+
+26
+00:02:38,000 --> 00:02:42,000
+drive-path-repair.md
+Open the original drive-path repair note.
+
+27
+00:02:42,000 --> 00:02:44,000
+drive-path-repair.md
+Ask for the note’s main points, key details and useful next steps.
+
+28
+00:02:44,000 --> 00:02:56,000
+drive-path-repair.md
+The summary explains the mount-path conflict, restored HDD path and automount configuration.
+
+29
+00:02:56,000 --> 00:03:06,000
+drive-path-repair.md
+The answer preserves the documented limitation: reboot verification was not performed.
+
+30
+00:03:06,000 --> 00:03:10,000
+getting-started.md
+Open the local quick-start guide.
+
+31
+00:03:10,000 --> 00:03:12,000
+getting-started.md
+Ask for a summary of the attached guide.
+
+32
+00:03:12,000 --> 00:03:24,000
+getting-started.md
+Review the demo setup and startup instructions, including the documented local port 8010.
+
+33
+00:03:24,000 --> 00:03:34,000
+getting-started.md
+The response distinguishes the simulated demo from physical sensors and live valve control.
+
+34
+00:03:34,000 --> 00:03:38,000
+hardware.md
+Read the hardware assembly and commissioning document.
+
+35
+00:03:38,000 --> 00:03:40,000
+hardware.md
+Request the hardware guide’s main points and key details. Longer processing waits are shortened.
+
+36
+00:03:40,000 --> 00:03:52,000
+hardware.md
+Review the generated hardware guide summary alongside its original document.
+
+37
+00:03:52,000 --> 00:04:02,000
+hardware.md
+The answer stops mid-sentence at “Relay Interface: The rel”. Check the complete wiring and commissioning instructions in the source.
+
+38
+00:04:02,000 --> 00:04:06,000
+verification.md
+Open the verification record for the indexed WaterWise project.
+
+39
+00:04:06,000 --> 00:04:08,000
+verification.md
+Ask for the verification document’s main points and limits.
+
+40
+00:04:08,000 --> 00:04:20,000
+verification.md
+Review the recorded checks. Any test counts here belong to WaterWise, not LocalMind.
+
+41
+00:04:20,000 --> 00:04:30,000
+verification.md
+The generated answer stops mid-sentence at “Test Run: Used Pyth”. Check the original verification record for the remaining details.
+
+42
+00:04:30,000 --> 00:04:38,000
+verification.md
+Source check: Docker was not launched, firmware was not uploaded, and physical commissioning remained untested.
+
+43
+00:04:38,000 --> 00:04:42,000
+The local walkthrough is complete
+Folder indexing, greetings, the complete inventory and summaries for all seven documents are recorded. Check generated details against their linked sources.

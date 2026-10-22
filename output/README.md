@@ -1,24 +1,39 @@
 # LocalMind project deliverables
 
-Updated on 17 October 2026 for the current local-routing and file-reference
-repair. The Linux application is on
+Submission files updated on 22 October 2026. The 38-page blackbook follows
+the supplied sample, uses Bachelor of Computer Science Engineering, and includes
+34 numbered references with linked in-text citations.
+The application and research updates below retain their recorded scope. The Linux application is on
 [`main`](https://github.com/TrijalBurman/MCP-Server/tree/main); the native Windows
 edition is on [`windows`](https://github.com/TrijalBurman/MCP-Server/tree/windows).
 
 | Deliverable | Files |
 |---|---|
 | Updated IEEE-format research manuscript, 12 pages | [PDF](pdf/localmind-ieee-research-paper.pdf), [editable LaTeX](pdf/localmind-ieee-research-paper.tex) |
-| Updated blackbook following the institutional format, 60 pages | [PDF](blackbook/localmind-blackbook-60-pages.pdf), [Word](blackbook/localmind-blackbook-60-pages.docx) |
+| Blackbook following the new sample layout, 38 pages; 34 references | [PDF](blackbook/localmind-blackbook.pdf), [Word](blackbook/localmind-blackbook.docx) |
+| Final project PowerPoint and timed slide notes | [PPTX](presentation/localmind-final-project-presentation.pptx), [PDF](presentation/localmind-final-project-presentation.pdf), [speaking notes](presentation/final-presentation-speaking-notes.md) |
 | Updated presentation guide and project explanation, 12 pages | [PDF](presentation/localmind-demo-and-speaking-guide.pdf), [Word](presentation/localmind-demo-and-speaking-guide.docx) |
 | Ten-minute group script and demonstration setup | [Speaking script](presentation/10-minute-group-script.md), [start here](presentation/START-HERE.md) |
+| University submission requirements and outstanding steps | [Submission checklist](submission/SUBMISSION-CHECKLIST.md), [document verification](verification/submission-refresh-2026-10-22.json) |
+| Recorded local-drive demonstration | [Video](video/localmind-local-drive-demo.mp4), [chapters and limitations](video/localmind-local-drive-demo.README.md) |
 | Latest routing and file-reference verification | [Report](verification/local-routing-fix.md), [machine-readable record](verification/local-routing-fix.json) |
 | Earlier model-selection development probe | [Report](verification/model-upgrade.md), [protocol and raw responses](../research/model-selection/README.md) |
 | Frozen research evaluation and readings | [Evaluation](../research/evaluation/README.md), [literature readings](../research/literature-reading-list.md), [historical research archive](pdf/localmind-research-artifacts.zip) |
-| Current document export verification | [Page counts and checksums](verification/document-refresh-2026-10-17.json) |
+| Current blackbook format and reference verification | [Layout, page count and checksums](verification/blackbook-format-refresh.json) |
+| Earlier document export verification | [Dated page counts and checksums](verification/document-refresh-2026-10-17.json) |
 | Complete current source and deliverable package | [ZIP](localmind-final-presentation-package.zip), [SHA-256](localmind-final-presentation-package.sha256) |
 
 Authors: Trijal Burman, Tiya Singh, Gayatri Rajesh Apotikar and Nimita Jestin.
 Institution: Symbiosis Institute of Technology. Guide: Dr. Sonali Kothari.
+Programme: Bachelor of Computer Science Engineering. Academic year: 23-27.
+
+The supplied course notices require the final book, a research draft or other
+qualifying research document, an official plagiarism report with overall
+similarity strictly below 10%, and the final PPT. The group confirmed that the
+institutional similarity check is still pending. Guide review and approval must
+be obtained before submission. No similarity score, approval or portal submission
+is claimed here. The shown deadline is 23 October 2026 at 12:00 AM, the start of
+23 October; see the checklist for the exact files and remaining actions.
 
 ## Current implementation and verification
 
@@ -80,4 +95,5 @@ application. Its nested frozen research ZIP retains the historical boundary abov
 Rebuild the outer ZIP after staging intended publication files with
 `python scripts/package-deliverables.py`. It includes a SHA256SUMS manifest and
 has a separate outer checksum. Unstaged new files and the archive itself are
-excluded from its inputs.
+excluded from its inputs, except for the explicitly included current submission
+exports, speaking notes, checklist and verification records.

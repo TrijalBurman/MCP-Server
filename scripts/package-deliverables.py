@@ -1,7 +1,8 @@
 """Package the publishable checkout, excluding local runtime and personal data.
 
-Run after staging the intended source/document files. Frozen research archives are copied
-unchanged. SHA256SUMS inside the ZIP covers every other archive member.
+Run after staging the intended source files. Current submission deliverables are explicitly
+included. Frozen research archives are copied unchanged. SHA256SUMS inside the ZIP covers
+every other archive member.
 """
 from __future__ import annotations
 
@@ -16,6 +17,16 @@ CHECKSUM = ARCHIVE.with_suffix(".sha256")
 EXCLUDED_PARTS = {".git", ".venv", ".runtime", ".local-copilot", "__pycache__",
                   ".pytest_cache", ".ruff_cache"}
 EXCLUDED_SUFFIXES = {".pyc", ".sqlite", ".sqlite3", ".db", ".gguf", ".safetensors"}
+CURRENT_SUBMISSION_ARTIFACTS = {
+    "output/blackbook/localmind-blackbook.docx",
+    "output/blackbook/localmind-blackbook.pdf",
+    "output/verification/blackbook-format-refresh.json",
+    "output/verification/submission-refresh-2026-10-22.json",
+    "output/presentation/localmind-final-project-presentation.pptx",
+    "output/presentation/localmind-final-project-presentation.pdf",
+    "output/presentation/final-presentation-speaking-notes.md",
+    "output/submission/SUBMISSION-CHECKLIST.md",
+}
 
 
 def sha256(data: bytes) -> str:
@@ -28,7 +39,8 @@ def project_files() -> list[Path]:
         cwd=ROOT, check=True, capture_output=True,
     )
     files = []
-    for name in sorted(set(result.stdout.decode().split("\0")) - {""}):
+    names = (set(result.stdout.decode().split("\0")) - {""}) | CURRENT_SUBMISSION_ARTIFACTS
+    for name in sorted(names):
         path = ROOT / name
         if path in {ARCHIVE, CHECKSUM, ARCHIVE.with_suffix(".zip.tmp")} \
                 or EXCLUDED_PARTS.intersection(Path(name).parts):
@@ -54,7 +66,7 @@ def main():
     files = project_files()
     required = {"README.md", "copilot/agent.py", "output/README.md",
                 "output/pdf/localmind-ieee-research-paper.pdf",
-                "output/blackbook/localmind-blackbook-60-pages.pdf",
+                *CURRENT_SUBMISSION_ARTIFACTS,
                 "research/model-selection/README.md"}
     names = {path.relative_to(ROOT).as_posix() for path in files}
     if not required.issubset(names):

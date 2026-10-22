@@ -6,7 +6,7 @@ now describe the same version. Historical research measurements are retained;
 see [the deliverables index](../README.md) for the report and paper.
 
 Guide: Dr. Sonali Kothari. Institution: Symbiosis Institute of Technology.
-Department: Minors in AIML. Academic year: 23-27. Trijal Burman's PRN is
+Programme: Bachelor of Computer Science Engineering. Academic year: 23-27. Trijal Burman's PRN is
 23070123145; Tiya Singh's corrected PRN is 23070123144; Gayatri Rajesh
 Apotikar's is 23070123055; Nimita Jestin's is 23070122259.
 
@@ -14,6 +14,20 @@ Use `localmind-demo-and-speaking-guide.pdf` for navigation, the four speaking
 parts, recovery steps and 15 viva answers. Read only the regular speech
 paragraphs aloud. Silent actions and viva answers are outside the timed script.
 The presentation, including the two-minute demonstration, totals ten minutes.
+
+## Final submission slides
+
+The [final PowerPoint](localmind-final-project-presentation.pptx) and
+[slide-by-slide speaking notes](final-presentation-speaking-notes.md) cover the
+course's required title, objectives, problem, literature, methodology,
+implementation, results, discussion, conclusion and future scope. Use those notes
+for the final deck's ten-minute sequence. The guide and older speaking script
+below remain a supporting navigation, viva and rehearsal reference.
+
+The [submission checklist](../submission/SUBMISSION-CHECKLIST.md) maps all four
+portal requirements. The institutional similarity report is still pending and
+must show overall similarity below 10%. Obtain the guide's review and approval
+before submitting the book, draft paper and presentation.
 
 ## Running order
 

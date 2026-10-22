@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-22",
+  "completed_utc": "2026-10-22T13:16:55.040268+00:00",
+  "request": "Match the supplied blackbook sample including Bachelor of Computer Science Engineering degree wording; retain expanded references and natural pagination.",
+  "sample": {
+    "name": "Blackbook Sample.pdf",
+    "sha256": "89e5adb3763ef464fd622bccbb484e71476a0f64915dc472da719a1ade8f4e1b",
+    "pages": 47
+  },
+  "new_page_count": 38,
+  "chapters": 9,
+  "figures": 4,
+  "numbered_tables": 14,
+  "format": {
+    "page": "A4 portrait",
+    "margins_inches": 1,
+    "word_body_font": "Times New Roman 11pt",
+    "line_spacing": 1.25,
+    "captions": "Sequential global numbers; italic captions below figures and tables",
+    "visible_headers_footers": false,
+    "index_page_numbers": "Physical PDF pages"
+  },
+  "files": {
+    "output/blackbook/localmind-blackbook.docx": {
+      "bytes": 5590315,
+      "sha256": "3426a5f267c579477edc2cb011d319d8f58c2fe6fdf264191094e27f35930755"
+    },
+    "output/blackbook/localmind-blackbook.pdf": {
+      "bytes": 1252991,
+      "sha256": "8e38c210ea777a8ca752905a03e9dc1f857d3d0650ec108fbe5ae4871a560414"
+    }
+  },
+  "verification": {
+    "all38pages_visually_reviewed": true,
+    "visual_review_method": "Individual original-resolution review of affected pages; byte-identical previously reviewed pages reused by SHA-256 comparison.",
+    "final_reference35_url_wrap_rechecked": true,
+    "pages_unchanged_after_last_layout_adjustment": 34,
+    "resolved_navigation_and_caption_records": 83,
+    "displayed_index_rows_verified": 81,
+    "all_index_pages_match_final_pdf": true,
+    "characters_geometry_checked": 80206,
+    "out_of_margin_characters": 0,
+    "blank_pages": 0,
+    "replacement_glyphs": 0,
+    "empirical_results_and_conclusion_preserved_except_citations": true,
+    "unchanged_nonindex_tables": 16,
+    "technical_and_abbreviation_tables_preserved": 15,
+    "all5_used_images_byte_identical": true,
+    "original26_reference_metadata_entries_exact": true,
+    "all34_reference_entries_match_source_metadata": true,
+    "all42_internal_citation_links_resolve": true,
+    "changed_pages_rechecked_after_degree_update": [
+      1,
+      2,
+      3,
+      38
+    ],
+    "degree_change_limited_to_six_paragraphs": true
+  },
+  "scope": "Sample formatting, degree wording, navigation and bibliography/citation updates. No new accuracy experiments or application changes. Existing empirical results and their limitations are retained.",
+  "references": {
+    "retained_original_bibliography_entries": 26,
+    "new_verified_official_technical_sources": 8,
+    "total_bibliography_entries": 34,
+    "linked_in_text_citation_mentions": 42,
+    "numbering": "Order of first in-text appearance",
+    "references_pages": [
+      33,
+      34,
+      35
+    ],
+    "all_bibliography_entries_cited": true,
+    "reference_metadata_preserved": true,
+    "external_urls_clickable": true
+  },
+  "format_reference_update_date": "2026-10-18",
+  "degree": "Bachelor of Computer Science Engineering",
+  "department": "Computer Science Engineering"
+}

@@ -4,7 +4,7 @@ Updated 17 October 2026 for the greeting, metadata, citation and source-card fix
 This script matches the updated Word and PDF guide. Historical experiments remain
 separate from current software checks; see [the deliverables index](../README.md).
 
-Guide: Dr. Sonali Kothari · Symbiosis Institute of Technology · Minors in AIML · Academic year 23–27.
+Guide: Dr. Sonali Kothari · Symbiosis Institute of Technology · Bachelor of Computer Science Engineering · Academic year 23–27.
 
 Read the speech paragraphs aloud. Action cues are silent. The two-minute demonstration is included in the total. Speaking roles are presentation assignments.
 

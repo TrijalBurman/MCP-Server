@@ -48,6 +48,7 @@ def main() -> None:
     assert 1000 <= sum(word_counts.values()) <= 1100, word_counts
 
     replacements.update({
+        4: "SIT  |  Bachelor of Computer Science Engineering\nAcademic year 23-27  |  Guide  Dr. Sonali Kothari",
         1: "A ten minute presentation updated 17 October 2026",
         2: "Use this guide to explain LocalMind, run a prepared two minute demonstration and answer viva questions. The speaking pages match the current Markdown script. Read only speech paragraphs aloud; operation cues, preparation and optional answers are outside the ten minute timing.",
         18: "The diagram shows the document workflow. The app handles greetings without a model or retrieval. File inventories use MCP index metadata. Document questions use the local API, SQLite evidence, the MCP stdio server and Ollama inference; the browser displays the result for review.",
@@ -85,10 +86,16 @@ def main() -> None:
     def set_text(element, text):
         nodes = element.xpath(".//w:t", namespaces=NS)
         assert nodes, "Expected an existing plain text slot"
-        nodes[0].text = clean(text)
-        nodes[0].set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
-        for node in nodes[1:]:
-            node.text = ""
+        lines = clean(text).split("\n")
+        if len(lines) > 1 and len(lines) == len(nodes):
+            for node, line in zip(nodes, lines, strict=True):
+                node.text = line
+                node.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+        else:
+            nodes[0].text = clean(text)
+            nodes[0].set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+            for node in nodes[1:]:
+                node.text = ""
 
     for index, text in replacements.items():
         assert body[index].tag == "{" + NS["w"] + "}p", index

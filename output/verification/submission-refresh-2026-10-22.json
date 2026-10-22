@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-22",
+  "degree": "Bachelor of Computer Science Engineering",
+  "blackbook_changed_paragraphs": [
+    4,
+    18,
+    20,
+    22,
+    28,
+    291
+  ],
+  "blackbook_reference_entries": 34,
+  "linked_in_text_citations": 42,
+  "all_blackbook_tables_and_reference_metadata_preserved": true,
+  "all_technical_images_preserved": true,
+  "pdf_checks": {
+    "blackbook": {
+      "pages": 38,
+      "changed_pages_visually_reviewed": [
+        1,
+        2,
+        3,
+        38
+      ],
+      "remaining_pages_byte_identical_to_previously_reviewed_export": 34,
+      "glyphs_checked": 80295,
+      "layout_issues": 0
+    },
+    "presentation_guide": {
+      "pages": 12,
+      "changed_pages_visually_reviewed": [
+        1
+      ],
+      "remaining_pages_byte_identical_to_previously_reviewed_export": 11,
+      "glyphs_checked": 25186,
+      "layout_issues": 0
+    }
+  },
+  "institutional_similarity_report": "Pending; user confirmed no report yet. Required overall similarity strictly below 10%.",
+  "guide_approval": "Must be obtained by the group; no approval or signatures claimed.",
+  "research_paper": "Existing 12-page unpublished IEEE-format draft retained; accepted document category under supplied notice.",
+  "portal_submission": "No portal or similarity-service upload performed.",
+  "source_scope": "Document and submission preparation only; no new application or model performance claims.",
+  "files": {
+    "output/blackbook/localmind-blackbook.docx": {
+      "bytes": 5590315,
+      "sha256": "3426a5f267c579477edc2cb011d319d8f58c2fe6fdf264191094e27f35930755"
+    },
+    "output/blackbook/localmind-blackbook.pdf": {
+      "bytes": 1252991,
+      "sha256": "8e38c210ea777a8ca752905a03e9dc1f857d3d0650ec108fbe5ae4871a560414"
+    },
+    "output/presentation/localmind-demo-and-speaking-guide.docx": {
+      "bytes": 98088,
+      "sha256": "9be694c30da30b5f8ec92aa92477624d1ac68f5d6b6bb5100c11279c8c502897"
+    },
+    "output/presentation/localmind-demo-and-speaking-guide.pdf": {
+      "bytes": 282217,
+      "sha256": "013b5d90b58668eb941cd0232fcd42d6269e4755b26bd43cd46de79dfe875575"
+    },
+    "output/pdf/localmind-ieee-research-paper.pdf": {
+      "bytes": 125283,
+      "sha256": "29aeb088587463831eed2da9b171048818e7a39b1ed05bc94db4f98737cd6e07"
+    },
+    "output/presentation/localmind-final-project-presentation.pptx": {
+      "bytes": 773480,
+      "sha256": "cb8d9df467dafcb2ceb34bc36c224aa76e1ce53beb054ce995798879b1a98d8e"
+    },
+    "output/presentation/localmind-final-project-presentation.pdf": {
+      "bytes": 526113,
+      "sha256": "998046245f7f28466bc5ee007549c9fc8886cdc46a63e77f53b583a1dc9583f8"
+    },
+    "output/presentation/final-presentation-speaking-notes.md": {
+      "bytes": 17171,
+      "sha256": "0d6ff68370d92fff91942f2d5c56c61e4bd0ab3c2b3a21b3494a989ca86c14cd"
+    },
+    "output/submission/SUBMISSION-CHECKLIST.md": {
+      "bytes": 3387,
+      "sha256": "841afc23ad962f4d806707e59f8351cce53d91cc3072cb34ebe0ecf797e2da01"
+    }
+  },
+  "final_presentation": {
+    "slides": 13,
+    "timed_main_slides": 12,
+    "backup_reference_slides": 1,
+    "allocated_seconds_including_demo": 600,
+    "demo_seconds": 120,
+    "timing_status": "Allocated rehearsal schedule, not a measured performance.",
+    "native_editable_chart_with_embedded_data": true,
+    "native_editable_results_table": true,
+    "all13_session_slides_visually_reviewed": true,
+    "all13_final_pdf_pages_visually_reviewed": true,
+    "required_subject_coverage": "Title, objectives, problem, literature, methodology, implementation, results/discussion, conclusion and future scope.",
+    "independent_factual_audit": "Counts, denominators and caveats match recorded research and later development verification; no new model experiment.",
+    "speaker_notes_interval_wording_and_pacing_corrected": true,
+    "pptx_opened_in_native_powerpoint": false,
+    "pdf_export": "Bundled LibreOffice export of finalized PowerPoint; session PDF exporter failed, and the local PDF was rendered and reviewed."
+  },
+  "completed_utc": "2026-10-22T13:25:05.886770+00:00"
+}

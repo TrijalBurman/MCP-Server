@@ -6,3 +6,6 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 .env
+
+# Local reference sample retained for formatting only.
+/Blackbook Sample.pdf

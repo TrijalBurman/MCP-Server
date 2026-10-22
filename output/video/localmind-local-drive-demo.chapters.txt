@@ -1,0 +1,43 @@
+00:00:00.000  Connect the local folder
+00:00:06.000  Index the documentation
+00:00:10.000  Seven documents indexed
+00:00:17.000  Start with a greeting
+00:00:21.000  A local conversation
+00:00:26.000  Ask how it can help
+00:00:30.000  Understand the available actions
+00:00:36.000  Ask for every indexed filename
+00:00:40.000  The complete filename inventory
+00:00:48.000  Seven linked document sources
+00:00:54.000  api.md
+00:00:58.000  api.md
+00:01:00.000  api.md
+00:01:12.000  api.md
+00:01:24.000  api.md
+00:01:29.000  api.md
+00:01:34.000  architecture.md
+00:01:38.000  architecture.md
+00:01:40.000  architecture.md
+00:01:52.000  architecture.md
+00:02:02.000  deployment.md
+00:02:06.000  deployment.md
+00:02:08.000  deployment.md
+00:02:20.000  deployment.md
+00:02:30.000  deployment.md
+00:02:38.000  drive-path-repair.md
+00:02:42.000  drive-path-repair.md
+00:02:44.000  drive-path-repair.md
+00:02:56.000  drive-path-repair.md
+00:03:06.000  getting-started.md
+00:03:10.000  getting-started.md
+00:03:12.000  getting-started.md
+00:03:24.000  getting-started.md
+00:03:34.000  hardware.md
+00:03:38.000  hardware.md
+00:03:40.000  hardware.md
+00:03:52.000  hardware.md
+00:04:02.000  verification.md
+00:04:06.000  verification.md
+00:04:08.000  verification.md
+00:04:20.000  verification.md
+00:04:30.000  verification.md
+00:04:38.000  The local walkthrough is complete
